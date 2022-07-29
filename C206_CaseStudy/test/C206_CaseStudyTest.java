@@ -52,43 +52,43 @@ public class C206_CaseStudyTest {
 	public void testRetrieveMenuBanksItems() {
 		
 	}
-	@test
+	@Test
 	public void testDeleteMenuBanks(){
 		
 	}
-	@test
+	@Test
 	public void testCreateMenu() {
 		
 	}
-	@test
+	@Test
 	public void testViewMenu() {
 		
 	}
-	@test 
+	@Test 
 	public void testDeleteMenu() {
 		
 	}
-	@test
+	@Test
 	public void testAddLunchBoxOrder(){
 		
 	}
-	@test
+	@Test
 	public void testViewLunchBoxOrder() {
 		
 	}
-	@test
+	@Test
 	public void testDeleteLunchBoxOrder() {
 		
 	}
-	@test
+	@Test
 	public void testAddOrderBill() {
 		
 	}
-	@test
+	@Test
 	public void testViewOrderBill() {
 		
 	}
-	@test
+	@Test
 	public void testDeleteOrderBill() {
 		
 	}
