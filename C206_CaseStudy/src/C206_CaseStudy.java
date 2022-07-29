@@ -9,7 +9,8 @@ public class C206_CaseStudy{// student 1 - bala
 		int option = 0;
 
 		while (option != 16) {
-
+			
+			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
 				
