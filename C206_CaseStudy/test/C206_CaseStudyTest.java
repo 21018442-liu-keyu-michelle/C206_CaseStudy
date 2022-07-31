@@ -76,16 +76,41 @@ public class C206_CaseStudyTest {
 	@Test
 	public void testAddMenuBanks() {
 		assertNotNull("Test if there is an existing Menu arrayList to add to", menuBank);
+		C206_CaseStudy.addMenuItem(menuBank, menu1);
+		assertEquals("Test if that Menu arraylist size is 1?", 1, menuBank.size());
+		assertSame("Test that Menu is added same as 1st item of the list?", menu1, menuBank.get(0));
+		C206_CaseStudy.addMenuItem(menuBank, menu2);
+		C206_CaseStudy.addMenuItem(menuBank, menu3);
+		assertEquals("Test that Menu arraylist size is 3?", 3, menuBank.size());
+		assertSame("Test that Menu is added same as 3rd item of the list?", menu1, menuBank.get(2));
 		
-		//Given an empty list, after adding 1 item, the size of the list is 1
 	}
 	@Test
 	public void testRetrieveMenuBanksItems() {
+		assertNotNull("Test if there is valid Menu arraylist to add to", menuBank);
+		String allMenuItems= C206_CaseStudy.retrieveAllMenuItems(menuBank);
+		String testOutput = "";
+		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
+		C206_CaseStudy.addMenuItem(menuBank, menu1);
+		C206_CaseStudy.addMenuItem(menuBank, menu2);
+		C206_CaseStudy.addMenuItem(menuBank, menu3);
+		assertEquals("Test if that Camcorder arraylist size is 3?", 3, menuBank.size());
+		allMenuItems= C206_CaseStudy.retrieveAllMenuItems(menuBank);
+		testOutput = String.format();
+		testOutput += String.format();
+		testOutput += String.format();
+		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
 		
 	}
 	@Test
 	public void testDeleteMenuBanks(){
-		
+		assertNotNull("Test if there is an existing Menu arrayList to delete ", menuBank);
+		C206_CaseStudy.deleteMenuItem(menuBank, menu1);
+		assertEquals("Test if that Menu arraylist size is 2?", 2, menuBank.size());
+		C206_CaseStudy.deleteMenuItem(menuBank, menu2);
+		assertEquals("Test that Menu arraylist size is 1?", 1, menuBank.size());
+		C206_CaseStudy.deleteMenuItem(menuBank, menu3);
+		assertEquals("Test that Menu arraylist size is 0?", 0, menuBank.size());
 	}
 	@Test
 	public void testCreateMenu() {
