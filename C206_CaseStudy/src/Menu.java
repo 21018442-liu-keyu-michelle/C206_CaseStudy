@@ -1,12 +1,19 @@
 
-public class Menu {
+public class Menu{
 	private String foodName;
 	private double price;
-	
+	private String drinkAndFruits;
+
 	public Menu(String foodName, double price) {
 		this.foodName = foodName;
 		this.price = price;
 	}
+
+	public Menu(double price, String drinkAndFruits) {
+		this.price = price;
+		this.drinkAndFruits = drinkAndFruits;
+	}
+
 
 	public String getFoodName() {
 		return foodName;
@@ -23,5 +30,12 @@ public class Menu {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
+
+	public String getDrinkAndFruits() {
+		return drinkAndFruits;
+	}
+
+	public void setDrink(String drinkAndFruits) {
+		this.drinkAndFruits = drinkAndFruits;
+	}
 }
