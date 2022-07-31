@@ -7,7 +7,18 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class C206_CaseStudyTest {
-
+	private Parent parent;
+	private Student student;
+	private Order order1;
+	private Order order2;
+	private Order order3;
+	private Bills bills1;
+	private Bills bills2;
+	private Bills bills3;
+	private Menu menu1;
+	private Menu menu2;
+	private Menu menu3;
+	
 	//private ArrayList<Account> accountList = new ArrayList<Account>();
 	private ArrayList<Parent> parentList = new ArrayList<Parent>();
 	private ArrayList<Student> studentList = new ArrayList<Student>();
@@ -18,17 +29,17 @@ public class C206_CaseStudyTest {
 	@Before
 	public void setUp() throws Exception {
 		// prepare test data
-		Parent parent = new Parent(1234, 7890, "Jeanlim12", 91459270);
-		Student student = new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg");
-		Order order1 = new Order("Western food", "Apple and Juice", 4.50);
-		Order order2 = new Order("Asian food", "Grapes and Green Tea", 4.00);
-		Order order3 = new Order("Vegeterian food", "Orange and Soy Milk", 3.50);
-		Bills bills1 = new Bills("Western food", "Apple and Juice", 4.50,(4.50*20));
-		Bills bills2 = new Bills("Asian food", "Grapes and Green Tea", 4.00, (4*20));
-		Bills bills3 = new Bills("Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20));
-		Menu menu1 = new Menu("Chicken Chop", 3.50);
-		Menu menu2 = new Menu("Japanese Bento", 3.00);
-		Menu menu3 = new Menu("Vegan meat with vegetables", 2.50);
+		parent = new Parent(1234, 7890, "Jeanlim12", 91459270);
+		student = new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg");
+		order1 = new Order("Western food", "Apple and Juice", 4.50);
+		order2 = new Order("Asian food", "Grapes and Green Tea", 4.00);
+		order3 = new Order("Vegeterian food", "Orange and Soy Milk", 3.50);
+		bills1 = new Bills("Western food", "Apple and Juice", 4.50,(4.50*20));
+		bills2 = new Bills("Asian food", "Grapes and Green Tea", 4.00, (4*20));
+		bills3 = new Bills("Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20));
+		menu1 = new Menu("Chicken Chop", 3.50);
+		menu2 = new Menu("Japanese Bento", 3.00);
+		menu3 = new Menu("Vegan meat with vegetables", 2.50);
 	}
 
 	
@@ -64,7 +75,9 @@ public class C206_CaseStudyTest {
 	
 	@Test
 	public void testAddMenuBanks() {
+		assertNotNull("Test if there is an existing Menu arrayList to add to", menuBank);
 		
+		//Given an empty list, after adding 1 item, the size of the list is 1
 	}
 	@Test
 	public void testRetrieveMenuBanksItems() {
