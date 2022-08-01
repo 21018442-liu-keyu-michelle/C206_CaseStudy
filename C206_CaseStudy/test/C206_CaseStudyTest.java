@@ -26,6 +26,10 @@ public class C206_CaseStudyTest {
 	private ArrayList<Bills> billList = new ArrayList<Bills>();
 	private ArrayList<Menu> menuBank = new ArrayList<Menu>();
 	
+	public C206_CaseStudyTest() {
+		super();
+	}
+	
 	@Before
 	public void setUp() throws Exception {
 		// prepare test data
@@ -40,6 +44,12 @@ public class C206_CaseStudyTest {
 		menu1 = new Menu("Chicken Chop", 3.50);
 		menu2 = new Menu("Japanese Bento", 3.00);
 		menu3 = new Menu("Vegan meat with vegetables", 2.50);
+		
+		ArrayList<Parent> parentList = new ArrayList<Parent>();
+		ArrayList<Student> studentList = new ArrayList<Student>();
+		ArrayList<Order> orderList = new ArrayList<Order>();
+		ArrayList<Bills> billList = new ArrayList<Bills>();
+		ArrayList<Menu> menuBank = new ArrayList<Menu>();
 	}
 
 	
@@ -126,14 +136,47 @@ public class C206_CaseStudyTest {
 	}
 	@Test
 	public void testAddLunchBoxOrder(){
+		assertNotNull("Test if there is an existing Menu arrayList to add to", orderList);
+		C206_CaseStudy.addLunchBox(orderList, order1);
+		assertEquals("Test if that orderList arraylist size is 1?", 1, orderList.size());
+		assertSame("Test that Order is added same as 1st item of the list?", order1, orderList.get(0));
+		C206_CaseStudy.addLunchBox(orderList, order2);
+		C206_CaseStudy.addLunchBox(orderList, order3);
+		assertEquals("Test that orderList arraylist size is 3?", 3, orderList.size());
+		assertSame("Test that orderList is added same as 3rd item of the list?", order3, orderList.get(2));
 		
 	}
 	@Test
 	public void testViewLunchBoxOrder() {
+		assertNotNull("Test if there is valid orderList arraylist to add to", orderList);
+		String allLunchBoxOrder= C206_CaseStudy.retreiveAllLunchBoxOrder(orderList);
+		String testOutput = "";
+		assertEquals("Check that ViewLunchBoxOrder", testOutput, allLunchBoxOrder);
+		C206_CaseStudy.addLunchBox(orderList, order1);
+		C206_CaseStudy.addLunchBox(orderList, order2);
+		C206_CaseStudy.addLunchBox(orderList, order3);
+		assertEquals("Test if that orderList arraylist size is 3?", 3, orderList.size());
+		allLunchBoxOrder= C206_CaseStudy.retreiveAllLunchBoxOrder(orderList);
+		testOutput = String.format("%-10s %-30s %-10f\n","Western food", "Apple and Juice", 4.50 );
+		testOutput += String.format("%-10s %-30s %-10f\n","Asian food", "Grapes and Green Tea", 4.00);
+		testOutput += String.format("%-10s %-30s %-10f\n","Vegeterian food", "Orange and Soy Milk", 3.50);
+		assertEquals("Check that ViewAllMenuBank", testOutput, allLunchBoxOrder);
 		
 	}
 	@Test
 	public void testDeleteLunchBoxOrder() {
+		C206_CaseStudy.addLunchBox(orderList, order1);
+		C206_CaseStudy.addLunchBox(orderList, order2);
+		C206_CaseStudy.addLunchBox(orderList, order3);
+		
+		assertNotNull("Test if there is an existing orderList arrayList to delete ", orderList);
+		C206_CaseStudy.deleteLunchBoxOrder(orderList, order1);
+		assertEquals("Test if that orderList arraylist size is 2?", 2, orderList.size());
+		C206_CaseStudy.deleteLunchBoxOrder(orderList, order2);
+		assertEquals("Test that orderList arraylist size is 1?", 1, orderList.size());
+		C206_CaseStudy.deleteLunchBoxOrder(orderList, order3);
+		assertEquals("Test that orderList arraylist size is 0?", 0, orderList.size());
+		
 		
 	}
 	@Test

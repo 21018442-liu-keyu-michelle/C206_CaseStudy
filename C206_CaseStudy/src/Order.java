@@ -34,5 +34,14 @@ public class Order {
 		this.price = price;
 	}
 	
+	public String toString() {
+		// Write your codes here
+		String orderInfo= "";
+		orderInfo += String.format("%-10s %-30s %-10f\n", mealSet, drinkFruitsSet,price);
+		
+		return orderInfo;
+	}
+
+	
 	
 }
