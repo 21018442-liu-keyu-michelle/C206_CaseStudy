@@ -15,5 +15,13 @@ public class Bills extends Order{
 	public void setTotalAmount(double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
+	public String toString() {
+		// Write your codes here
+		String billinfo = super.toString();
+		
+		billinfo += String.format("%-15f\n", totalAmount);
+		
+		return billinfo;
+	}
 	
 }

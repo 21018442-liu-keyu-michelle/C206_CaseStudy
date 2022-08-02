@@ -113,10 +113,52 @@ public class C206_CaseStudy{// student 1 - bala
 	}
 	public static void deleteLunchBoxOrder(ArrayList<Order> orderList, Order o) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < orderList.size();i++) {
-			orderList.remove((i));
-		}
+		orderList.remove(o);
 		
 	}
+	
+	//================================= OrderBills Method (Done by: Fikri) =================================
+	public static String retreiveAllOrderBills(ArrayList<Bills> billList) {
+		// TODO Auto-generated method stub
+		String output = "";
+		
+		for (Bills b: billList) {
+			output += b.toString();
+		
+		}
+		return output;
+	}
+	
+	public static void ViewAllOrderBills(ArrayList<Bills> billList) {
+		
+		C206_CaseStudy.setHeader("ORDER BILLS LIST");
+		String output = String.format("%-15s %-30s %-10s %-10s\n", "MEAL SET", "DRINK FRUITS SET",
+				 "PRICE", "TOTAL AMOUNT");
+		 output += retreiveAllOrderBills(billList);
+		System.out.println(output);
+	}
+	
+	public static Order inputOrderBill() {
+		String mealSet = Helper.readString("Enter meal set > ");
+		String drinkFruitsSet = Helper.readString("Enter drink & fruits set > ");
+		double price = Helper.readDouble("Enter meal price > ");
+		double totalAmount = Helper.readDouble("Enter total amount > ");
+		
+		Bills b= new Bills(mealSet, drinkFruitsSet, price, totalAmount);
+		return b;
+		
+	}
+	
+	public static void addOrderBill(ArrayList<Bills> billList, Bills b ) {
+		// TODO Auto-generated method stub
+		billList.add(b);
+		
+	}
+	public static void deleteOrderBills(ArrayList<Bills> billList, Bills b) {
+		// TODO Auto-generated method stub
+		billList.remove(b);
+		
+	}
+
 }
 

@@ -37,10 +37,11 @@ public class Order {
 	public String toString() {
 		// Write your codes here
 		String orderInfo= "";
-		orderInfo += String.format("%-10s %-30s %-10f\n", mealSet, drinkFruitsSet,price);
+		orderInfo = String.format("%-15s %-30s %-10f", mealSet, drinkFruitsSet,price);
 		
 		return orderInfo;
 	}
+	
 
 	
 	

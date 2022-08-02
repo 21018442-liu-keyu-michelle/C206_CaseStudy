@@ -136,7 +136,7 @@ public class C206_CaseStudyTest {
 	}
 	@Test
 	public void testAddLunchBoxOrder(){
-		assertNotNull("Test if there is an existing Menu arrayList to add to", orderList);
+		assertNotNull("Test if there is an existing orderList arrayList to add to", orderList);
 		C206_CaseStudy.addLunchBox(orderList, order1);
 		assertEquals("Test if that orderList arraylist size is 1?", 1, orderList.size());
 		assertSame("Test that Order is added same as 1st item of the list?", order1, orderList.get(0));
@@ -157,10 +157,10 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addLunchBox(orderList, order3);
 		assertEquals("Test if that orderList arraylist size is 3?", 3, orderList.size());
 		allLunchBoxOrder= C206_CaseStudy.retreiveAllLunchBoxOrder(orderList);
-		testOutput = String.format("%-10s %-30s %-10f\n","Western food", "Apple and Juice", 4.50 );
-		testOutput += String.format("%-10s %-30s %-10f\n","Asian food", "Grapes and Green Tea", 4.00);
-		testOutput += String.format("%-10s %-30s %-10f\n","Vegeterian food", "Orange and Soy Milk", 3.50);
-		assertEquals("Check that ViewAllMenuBank", testOutput, allLunchBoxOrder);
+		testOutput = String.format("%-15s %-30s %-10f","Western food", "Apple and Juice", 4.50 );
+		testOutput += String.format("%-15s %-30s %-10f","Asian food", "Grapes and Green Tea", 4.00);
+		testOutput += String.format("%-15s %-30s %-10f","Vegeterian food", "Orange and Soy Milk", 3.50);
+		assertEquals("Check that viewAllLunchBoxOrder", testOutput, allLunchBoxOrder);
 		
 	}
 	@Test
@@ -181,14 +181,47 @@ public class C206_CaseStudyTest {
 	}
 	@Test
 	public void testAddOrderBill() {
+		assertNotNull("Test if there is an existing billList arrayList to add to", billList);
+		C206_CaseStudy.addOrderBill(billList, bills1);
+		assertEquals("Test if that billList arraylist size is 1?", 1, billList.size());
+		assertSame("Test that Bill is added same as 1st item of the list?", bills1, billList.get(0));
+		C206_CaseStudy.addOrderBill(billList, bills2);
+		C206_CaseStudy.addOrderBill(billList, bills3);
+		assertEquals("Test that billList arraylist size is 3?", 3, billList.size());
+		assertSame("Test that orderList is added same as 3rd item of the list?", bills3, billList.get(2));
 		
 	}
 	@Test
 	public void testViewOrderBill() {
+		assertNotNull("Test if there is valid orderList arraylist to add to", billList);
+		String allOrderBill= C206_CaseStudy.retreiveAllOrderBills(billList);
+		String testOutput = "";
+		assertEquals("Check that ViewOrderBills", testOutput, allOrderBill);
+		C206_CaseStudy.addOrderBill(billList, bills1);
+		C206_CaseStudy.addOrderBill(billList, bills2);
+		C206_CaseStudy.addOrderBill(billList, bills3);
+		assertEquals("Test if that billList arraylist size is 3?", 3, billList.size());
+		allOrderBill= C206_CaseStudy.retreiveAllOrderBills(billList);
+		testOutput = String.format("%-15s %-30s %-10f%-15f\n","Western food", "Apple and Juice", 4.50,(4.50*20));
+		testOutput += String.format("%-15s %-30s %-10f%-15f\n","Asian food", "Grapes and Green Tea", 4.00, (4.00*20));
+		testOutput += String.format("%-15s %-30s %-10f%-15f\n","Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20));
+		assertEquals("Check that ViewAllOrderBills", testOutput, allOrderBill);
+		
 		
 	}
 	@Test
 	public void testDeleteOrderBill() {
+		C206_CaseStudy.addOrderBill(billList, bills1);
+		C206_CaseStudy.addOrderBill(billList, bills2);
+		C206_CaseStudy.addOrderBill(billList, bills3);
+		
+		assertNotNull("Test if there is an existing billList arrayList to delete ", billList);
+		C206_CaseStudy.deleteOrderBills(billList, bills1);
+		assertEquals("Test if that billList arraylist size is 2?", 2, billList.size());
+		C206_CaseStudy.deleteOrderBills(billList, bills2);
+		assertEquals("Test that billList arraylist size is 1?", 1, billList.size());
+		C206_CaseStudy.deleteOrderBills(billList, bills3);
+		assertEquals("Test that billList arraylist size is 0?", 0, billList.size());
 		
 	}
 	
