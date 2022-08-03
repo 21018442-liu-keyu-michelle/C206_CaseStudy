@@ -1,11 +1,11 @@
-public class Menu extends Item{
+public class Menu{
+
 	private String menuID;
-	private String date;
+	private String Date;
 	
-	public Menu(String itemID, String category, String foodName, double price, String menuID, String date) {
-		super(itemID, foodName, category, price);
-		this.menuID = menuID;
-		this.date = date;
+	public Menu(String ID, String date, String Western, String Asian, String Veggie,
+			String drink1, String drink2, String fruit1, String fruit2) {
+	
 	}
 
 	public String getMenuID() {
@@ -13,7 +13,7 @@ public class Menu extends Item{
 	}
 
 	public String getDate() {
-		return date;
+		return Date;
 	}
 	
 }
