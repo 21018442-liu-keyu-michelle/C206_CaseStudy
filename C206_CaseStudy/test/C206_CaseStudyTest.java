@@ -41,20 +41,18 @@ public class C206_CaseStudyTest {
 		parent = new Parent(1234, 7890, "Jeanlim12", 91459270);
 		student = new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg");
 
-		//day1order
 		order1 = new Order("W101","Western food", "Apple and Juice", 4.50);
 		order2 = new Order("A101","Asian food", "Grapes and Green Tea", 4.00);
 		order3 = new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50);
-		//day1bill
+		
 		bills1 = new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20));
 		bills2 = new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20));
 		bills3 = new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20));
-		//day1item
-		item1 = new Item("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50);
-		item2 = new Item("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50);
-		item3 = new Item("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00);
+
+		item1 = new Item("127", "Western food", "Chicken Chop", 4.50);
+		item2 = new Item("125", "Drink", "Apple Juice" , 1.50);
+		item3 = new Item("126", "Fruit", "Banana" , 1.00);
 		
-		//day1menu
 		menu1 = new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022");
 		menu2 = new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022");
 		menu3 = new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022");
@@ -115,9 +113,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addMenuItem(itemList, item3);
 		assertEquals("Test if that Camcorder arraylist size is 3?", 3, itemList.size());
 		allMenuItems= C206_CaseStudy.retrieveAllMenuItems(itemList);
-		testOutput += String.format("%-10s %-10s %-15s %-30s %-10s %-10f", "127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50);
-		testOutput += String.format("%-10s %-10s %-15s %-30s %-10s %-10f", "128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50);
-		testOutput += String.format("%-10s %-10s %-15s %-30s %-10s %-10f","129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10f", "127", "Western food", "Chicken Chop" , 4.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10f", "125", "Drink", "Apple Juice" , 1.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10f","126", "Fruit", "Banana" , 1.00);
 		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
 		
 	}

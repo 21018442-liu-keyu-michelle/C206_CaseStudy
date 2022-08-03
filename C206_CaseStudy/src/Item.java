@@ -1,18 +1,14 @@
 
 public class Item {
-	private String itemID;
-	private String foodType;
-	private String foodName ;
-	private String drinks;
-	private String fruits;
-	private double price;
+	 private String itemID;
+	 private String foodName ;
+	 private String category;
+	 private double price; 
 	
-	public Item(String itemID, String foodType, String foodName, String drinks, String fruits, double price) {
+	public Item(String itemID, String category,String foodName, double price) {
 		this.itemID = itemID;
-		this.foodType = foodType;
 		this.foodName = foodName;
-		this.drinks = drinks;
-		this.fruits = fruits;
+		this.category = category;
 		this.price = price;
 	}
 
@@ -20,20 +16,13 @@ public class Item {
 		return itemID;
 	}
 
-	public String getFoodType() {
-		return foodType;
-	}
 
 	public String getFoodName() {
 		return foodName;
 	}
 
-	public String getDrinks() {
-		return drinks;
-	}
-
-	public String getFruits() {
-		return fruits;
+	public String getCategory() {
+		return category;
 	}
 
 	public double getPrice() {
@@ -43,7 +32,7 @@ public class Item {
 	public String toString() {
 		// Write your codes here
 		String itemInfo= "";
-		itemInfo = String.format("%-10s %-10s %-15s %-30s %-10s %-10f", itemID, foodType, foodName, drinks, fruits, price);
+		itemInfo = String.format("%-10s %-15s %-30s %-10f", itemID, category, foodName, price);
 		
 		return itemInfo;
 	}

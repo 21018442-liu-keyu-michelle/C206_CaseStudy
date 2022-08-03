@@ -1,21 +1,19 @@
 public class Menu extends Item{
-
 	private String menuID;
-	private String weeklyDate;
+	private String date;
 	
-	public Menu(String itemID, String foodType, String foodName, String drinks, String fruits,
-			double price, String menuID, String weeklyDate) {
-		super(itemID, foodType, foodName, drinks, fruits, price);
+	public Menu(String itemID, String category, String foodName, double price, String menuID, String date) {
+		super(itemID, foodName, category, price);
 		this.menuID = menuID;
-		this.weeklyDate = weeklyDate;
+		this.date = date;
 	}
 
 	public String getMenuID() {
 		return menuID;
 	}
 
-	public String getWeeklyDate() {
-		return weeklyDate;
+	public String getDate() {
+		return date;
 	}
 	
 }
