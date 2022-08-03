@@ -6,7 +6,7 @@ public class Menu{
 	private String id;
 	private String weeklyDate;
 	private String dailyDate;
-
+//test push
 	public Menu(String id, String weeklyDate, String foodName, String drinkAndFruits, double price) {
 		this.id = id;
 		this.foodName = foodName;
