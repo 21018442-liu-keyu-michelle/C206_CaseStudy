@@ -108,11 +108,13 @@ public class C206_CaseStudy{// student 1 - bala
 	
 	public static void addLunchBox(ArrayList<Order> orderList, Order o ) {
 		// TODO Auto-generated method stub
+		inputLunchBoxOrder();
 		orderList.add(o);
 		
 	}
 	public static void deleteLunchBoxOrder(ArrayList<Order> orderList, Order o) {
 		// TODO Auto-generated method stub
+		inputLunchBoxOrder();
 		orderList.remove(o);
 		
 	}
@@ -151,11 +153,13 @@ public class C206_CaseStudy{// student 1 - bala
 	
 	public static void addOrderBill(ArrayList<Bills> billList, Bills b ) {
 		// TODO Auto-generated method stub
+		inputOrderBill();
 		billList.add(b);
 		
 	}
 	public static void deleteOrderBills(ArrayList<Bills> billList, Bills b) {
 		// TODO Auto-generated method stub
+		inputOrderBill();
 		billList.remove(b);
 		
 	}

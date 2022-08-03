@@ -44,12 +44,7 @@ public class C206_CaseStudyTest {
 		menu1 = new Menu("Chicken Chop", 3.50);
 		menu2 = new Menu("Japanese Bento", 3.00);
 		menu3 = new Menu("Vegan meat with vegetables", 2.50);
-		
-		ArrayList<Parent> parentList = new ArrayList<Parent>();
-		ArrayList<Student> studentList = new ArrayList<Student>();
-		ArrayList<Order> orderList = new ArrayList<Order>();
-		ArrayList<Bills> billList = new ArrayList<Bills>();
-		ArrayList<Menu> menuBank = new ArrayList<Menu>();
+	
 	}
 
 	
