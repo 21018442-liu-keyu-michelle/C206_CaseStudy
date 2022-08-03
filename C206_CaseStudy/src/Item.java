@@ -40,6 +40,13 @@ public class Item {
 		return price;
 	}
 	
+	public String toString() {
+		// Write your codes here
+		String itemInfo= "";
+		itemInfo = String.format("%-10s %-10s %-15s %-30s %-10s %-10f", itemID, foodType, foodName, drinks, fruits, price);
+		
+		return itemInfo;
+	}
 	
 	
 	

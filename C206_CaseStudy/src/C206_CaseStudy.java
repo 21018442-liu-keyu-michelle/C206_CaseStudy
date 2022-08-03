@@ -9,7 +9,8 @@ public class C206_CaseStudy{
 		ArrayList<Student> studentList = new ArrayList<Student>();
 		ArrayList<Order> orderList = new ArrayList<Order>();
 		ArrayList<Bills> billList = new ArrayList<Bills>();
-		ArrayList<Menu> menuBank = new ArrayList<Menu>();
+		ArrayList<Menu> menuList = new ArrayList<Menu>();
+		ArrayList<Item> itemList = new ArrayList<Item>();
 		
 		parentList.add(new Parent(1234, 7890, "Jeanlim12", 91459270));
 		studentList.add(new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg"));
@@ -19,9 +20,12 @@ public class C206_CaseStudy{
 		billList.add(new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20)));
 		billList.add(new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20)));
 		billList.add(new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20)));
-		menuBank.add(new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022"));
-		menuBank.add(new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022"));
-		menuBank.add(new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022"));
+		itemList.add(new Item("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50));
+		itemList.add(new Item("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50));
+		itemList.add(new Item("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00));
+		menuList.add(new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022"));
+		menuList.add(new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022"));
+		menuList.add(new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022"));
 		
 		int option = 0;
 
@@ -143,14 +147,12 @@ public class C206_CaseStudy{
 	}
 	
 	public static void addMenuItem(ArrayList<Item> itemList, Item i) {
-		//inputMenuBank();
 		itemList.add(i);
 		
 	}
 	
 	public static void deleteMenuItem(ArrayList<Item> itemList, Item i) {
 		// TODO Auto-generated method stub
-		//inputOrderBill();
 		itemList.remove(i);
 		
 	}
