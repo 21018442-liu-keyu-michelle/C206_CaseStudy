@@ -18,13 +18,18 @@ public class C206_CaseStudyTest {
 	private Menu menu1;
 	private Menu menu2;
 	private Menu menu3;
+	private Item item1;
+	private Item item2;
+	private Item item3;
+	
 	
 	//private ArrayList<Account> accountList = new ArrayList<Account>();
 	private ArrayList<Parent> parentList = new ArrayList<Parent>();
 	private ArrayList<Student> studentList = new ArrayList<Student>();
 	private ArrayList<Order> orderList = new ArrayList<Order>();
 	private ArrayList<Bills> billList = new ArrayList<Bills>();
-	private ArrayList<Menu> menuBank = new ArrayList<Menu>();
+	private ArrayList<Menu> menuList = new ArrayList<Menu>();
+	private ArrayList<Item> itemList = new ArrayList<Item>();
 	
 	public C206_CaseStudyTest() {
 		super();
@@ -44,9 +49,12 @@ public class C206_CaseStudyTest {
 		bills1 = new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20));
 		bills2 = new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20));
 		bills3 = new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20));
-		//day1menu
+		//day1item
+		item1 = new Item("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50);
+		item2 = new Item("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50);
+		item3 = new Item("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00);
 		
-		//Menu(String itemID, String foodType, String foodName, String drinks, String fruits, double price, String menuID, String weeklyDate) 
+		//day1menu
 		menu1 = new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022");
 		menu2 = new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022");
 		menu3 = new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022");

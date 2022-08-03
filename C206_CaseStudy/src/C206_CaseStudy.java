@@ -34,7 +34,7 @@ public class C206_CaseStudy{
 				//subMenuUserAccount();
 
 			} else if (option == 2) {
-				subMenuBank();
+				subMenuItem();
 				
 			} else if (option == 3) {
 				subMenu();
@@ -78,7 +78,7 @@ public class C206_CaseStudy{
 		Helper.line(80, "-");
 		
 	}
-	public static void subMenuBank() {
+	public static void subMenuItem() {
 		C206_CaseStudy.setHeader("MANAGE MENUBANK");
 		System.out.println("1. Add menu item");
 		System.out.println("2. View menu items");
@@ -117,7 +117,7 @@ public class C206_CaseStudy{
 		Helper.line(80, "-");
 	}
 	
-	//================================= MenuBank Method (Done by: Michelle) =================================
+	//================================= MenuItem Method (Done by: Michelle) =================================
 	public static String retrieveAllMenuItems(ArrayList<Menu> menuBank) {
 		String output = "";
 		
@@ -128,19 +128,20 @@ public class C206_CaseStudy{
 		return output;
 	}
 
-	public static Menu inputMenuBank() {
-		String id = Helper.readString("Enter order ID > ");
-		String weekDate = Helper.readString("Enter date > ");
+	public static Item inputMenuItem() {
+		String itemID = Helper.readString("Enter item ID > ");
+		String foodType = Helper.readString("Enter food type > ");
 		String foodName = Helper.readString("Enter food name > ");
-		String drinkFruitsSet = Helper.readString("Enter drink & fruits set > ");
+		String drinks = Helper.readString("Enter drink > ");
+		String fruits = Helper.readString("Enter drink > ");
 		double price = Helper.readDouble("Enter meal price > ");
 		
-		Menu m = new Menu(id, weekDate, foodName, drinkFruitsSet, price);
-		return m;
+		Item i = new Item(itemID, foodType, foodName, drinks, fruits, price);
+		return i;
 		
 	}
 	
-	public static void addMenuItem(ArrayList<Menu> menuBank, Menu m) {
+	public static void addMenuItem(ArrayList<Item> menuBank, Menu m) {
 		//inputMenuBank();
 		menuBank.add(m);
 		

@@ -2,7 +2,7 @@
 public class Item {
 	private String itemID;
 	private String foodType;
-	private String foodName;
+	private String foodName ;
 	private String drinks;
 	private String fruits;
 	private double price;
