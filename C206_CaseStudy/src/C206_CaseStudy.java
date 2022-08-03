@@ -118,11 +118,11 @@ public class C206_CaseStudy{
 	}
 	
 	//================================= MenuItem Method (Done by: Michelle) =================================
-	public static String retrieveAllMenuItems(ArrayList<Menu> menuBank) {
+	public static String retrieveAllMenuItems(ArrayList<Item> itemList) {
 		String output = "";
 		
-		for (Menu m : menuBank) {
-			output += m.toString();
+		for (Item i : itemList) {
+			output += i.toString();
 		}
 		
 		return output;
@@ -141,9 +141,16 @@ public class C206_CaseStudy{
 		
 	}
 	
-	public static void addMenuItem(ArrayList<Item> menuBank, Menu m) {
+	public static void addMenuItem(ArrayList<Item> itemList, Item i) {
 		//inputMenuBank();
-		menuBank.add(m);
+		itemList.add(i);
+		
+	}
+	
+	public static void deleteMenuItem(ArrayList<Item> itemList, Item i) {
+		// TODO Auto-generated method stub
+		//inputOrderBill();
+		itemList.remove(i);
 		
 	}
 	

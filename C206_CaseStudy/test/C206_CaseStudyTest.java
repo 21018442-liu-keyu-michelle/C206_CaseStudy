@@ -93,43 +93,43 @@ public class C206_CaseStudyTest {
 	}
 	
 	@Test
-	public void testAddMenuBanks() {
-		assertNotNull("Test if there is an existing Menu arrayList to add to", menuBank);
-		C206_CaseStudy.addMenuItem(menuBank, menu1);
-		assertEquals("Test if that Menu arraylist size is 1?", 1, menuBank.size());
-		assertSame("Test that Menu is added same as 1st item of the list?", menu1, menuBank.get(0));
-		C206_CaseStudy.addMenuItem(menuBank, menu2);
-		C206_CaseStudy.addMenuItem(menuBank, menu3);
-		assertEquals("Test that Menu arraylist size is 3?", 3, menuBank.size());
-		assertSame("Test that Menu is added same as 3rd item of the list?", menu3, menuBank.get(2));
+	public void testAddMenuItems() {
+		assertNotNull("Test if there is an existing Item arrayList to add to", itemList);
+		C206_CaseStudy.addMenuItem(itemList, item1);
+		assertEquals("Test if that Item arraylist size is 1?", 1, itemList.size());
+		assertSame("Test that Item is added same as 1st item of the list?", item1, itemList.get(0));
+		C206_CaseStudy.addMenuItem(itemList, item1);
+		C206_CaseStudy.addMenuItem(itemList, item1);
+		assertEquals("Test that Item arraylist size is 3?", 3, itemList.size());
+		assertSame("Test that Item is added same as 3rd item of the list?", item1, itemList.get(2));
 		
 	}
 	@Test
 	public void testViewMenuBanksItems() {
-		assertNotNull("Test if there is valid Menu arraylist to add to", menuBank);
-		String allMenuItems= C206_CaseStudy.retrieveAllMenuItems(menuBank);
+		assertNotNull("Test if there is valid Item arraylist to add to", itemList);
+		String allMenuItems= C206_CaseStudy.retrieveAllMenuItems(itemList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
-		C206_CaseStudy.addMenuItem(menuBank, menu1);
-		C206_CaseStudy.addMenuItem(menuBank, menu2);
-		C206_CaseStudy.addMenuItem(menuBank, menu3);
-		assertEquals("Test if that Camcorder arraylist size is 3?", 3, menuBank.size());
-		allMenuItems= C206_CaseStudy.retrieveAllMenuItems(menuBank);
-		testOutput = String.format("%-10s %-10s %-15s %-30s %-10f", "W101","01-08-2022","Chicken Chop", "Apple and Juice", 3.50);
-		testOutput += String.format("%-10s %-10s %-15s %-30s %-10f", "A101","01-08-2022","Japanese Bento", "Grapes and Green Tea", 3.00);
-		testOutput += String.format("%-10s %-10s %-15s %-30s %-10f","V101","01-08-2022","Vegan meat with vegetables", "Orange and Soy Milk", 2.50);
+		C206_CaseStudy.addMenuItem(itemList, item1);
+		C206_CaseStudy.addMenuItem(itemList, item2);
+		C206_CaseStudy.addMenuItem(itemList, item3);
+		assertEquals("Test if that Camcorder arraylist size is 3?", 3, itemList.size());
+		allMenuItems= C206_CaseStudy.retrieveAllMenuItems(itemList);
+		testOutput = String.format("%-10s %-10s %-15s %-30s %-10s %-10f", "127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50);
+		testOutput += String.format("%-10s %-10s %-15s %-30s %-10s %-10f", "128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50);
+		testOutput += String.format("%-10s %-10s %-15s %-30s %-10s %-10f","129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00);
 		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
 		
 	}
 	@Test
 	public void testDeleteMenuBanks(){
-		assertNotNull("Test if there is an existing Menu arrayList to delete ", menuBank);
-		C206_CaseStudy.deleteMenuItem(menuBank, menu1);
-		assertEquals("Test if that Menu arraylist size is 2?", 2, menuBank.size());
-		C206_CaseStudy.deleteMenuItem(menuBank, menu2);
-		assertEquals("Test that Menu arraylist size is 1?", 1, menuBank.size());
-		C206_CaseStudy.deleteMenuItem(menuBank, menu3);
-		assertEquals("Test that Menu arraylist size is 0?", 0, menuBank.size());
+		assertNotNull("Test if there is an existing Item arrayList to delete ", itemList);
+		C206_CaseStudy.deleteMenuItem(itemList, menu1);
+		assertEquals("Test if that Item arraylist size is 2?", 2, itemList.size());
+		C206_CaseStudy.deleteMenuItem(itemList, menu2);
+		assertEquals("Test that Item arraylist size is 1?", 1, itemList.size());
+		C206_CaseStudy.deleteMenuItem(itemList, menu3);
+		assertEquals("Test that Item arraylist size is 0?", 0, itemList.size());
 	}
 	@Test
 	public void testCreateMenu() {
