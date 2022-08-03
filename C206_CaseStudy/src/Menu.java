@@ -1,32 +1,20 @@
-
 public class Menu{
 	private String foodName;
-	private double price;
+	private double foodPrice;
 	private String drinkAndFruits;
-	private String id;
-	private String weeklyDate;
-	private String dailyDate;
-//test push
-	public Menu(String id, String weeklyDate, String foodName, String drinkAndFruits, double price) {
-		this.id = id;
+	private double drinkPrice;
+
+	public Menu(String foodName, double foodprice) {
 		this.foodName = foodName;
-		this.price = price;
+		this.foodPrice = foodprice;
+	}
+
+	public Menu(double drinkPrice, String drinkAndFruits) {
+		this.drinkPrice = drinkPrice;
 		this.drinkAndFruits = drinkAndFruits;
-		this.weeklyDate = weeklyDate;
 	}
 
-	public String getId() {
-		return id;
-	}
 
-	public String getWeeklyDate() {
-		return weeklyDate;
-	}
-
-	public String getDailyDate() {
-		return dailyDate;
-	}
-	
 	public String getFoodName() {
 		return foodName;
 	}
@@ -36,11 +24,11 @@ public class Menu{
 	}
 
 	public double getPrice() {
-		return price;
+		return foodPrice;
 	}
 
 	public void setPrice(double price) {
-		this.price = price;
+		this.foodPrice = price;
 	}
 
 	public String getDrinkAndFruits() {
@@ -50,4 +38,15 @@ public class Menu{
 	public void setDrink(String drinkAndFruits) {
 		this.drinkAndFruits = drinkAndFruits;
 	}
+	public String toString() {
+		// Write your codes here
+		String menuInfo= "";
+		menuInfo += String.format("%-10s %-30s\n", foodName,foodPrice);
+		menuInfo += String.format("%-10f %-20f\n",drinkAndFruits,drinkPrice);
+		return menuInfo;
+	}
+
+
+		
 }
+
