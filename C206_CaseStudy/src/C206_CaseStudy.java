@@ -155,8 +155,51 @@ public class C206_CaseStudy{
 		itemList.remove(i);
 		
 	}
+	//================================= Menu Method (Done by: Jocelyn) =================================
+	public static Menu createMenu() {
+		String itemID = Helper.readString("Enter item ID > ");
+		String foodType = Helper.readString("Enter food type > ");
+		String foodName = Helper.readString("Enter food name > ");
+		String drinks = Helper.readString("Enter drinks > ");
+		String fruits = Helper.readString("Enter fruits > ");	
+		double price = Helper.readDouble("Enter price > ");
+		String menuID = Helper.readString("Enter menu ID > ");
+		String weeklyDate = Helper.readString("Enter weekly date > ");
+		
+		Menu menu = new Menu(itemID,  foodType,  foodName,  drinks,  fruits,
+				 price,  menuID, weeklyDate);
+		return menu;
+
+	}
+
+
+	public static String retrieveAllMenu(ArrayList<Menu> menuList) {
+		// TODO Auto-generated method stub
+		String output = "";
+
+		for (Menu i : menuList) {
+			output += i.toString();
+
+		}
+	return output;
+
+	}
+public static void ViewAllMenu(ArrayList<Menu> menuList) {
+		
+		C206_CaseStudy.setHeader("MENU LIST");
+		String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35.2f %-40s %-45s\n","ITEM ID","FOOD TYPE", "FOOD NAME", "DRINKS", "FRUITS",
+				"PRICE", "MENU ID","WEEKLY DATE");
+		 output += retrieveAllMenu(menuList);
+		System.out.println(output);
+	}
 	
-	
+
+	public static void deleteMenu(ArrayList<Menu> menuList, Menu menu) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < menuList.size(); i++) {
+			menuList.remove((i));
+		}
+	}
 	
 	//================================= LunchBox Method (Done by: Fikri) =================================
 	public static String retreiveAllLunchBoxOrder(ArrayList<Order> orderList) {
