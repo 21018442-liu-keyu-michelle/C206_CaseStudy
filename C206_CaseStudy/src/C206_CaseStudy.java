@@ -28,10 +28,22 @@ public class C206_CaseStudy{
 		itemList.add(new Item("125", "Drink", "Apple Juice" , 1.50));
 		itemList.add(new Item("126", "Fruit", "Banana" , 1.00));
 		
-		menuList.add(new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022"));
-		menuList.add(new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022"));
-		menuList.add(new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022"));
-		
+		menuList.add(new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
+				"Orange Juice", "Watermelon Slice", "Apple Slice"));
+		menuList.add(new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
+				"Orange Juice", "Apple Juice", "Watermelon", "Honey Dew"));
+		menuList.add(new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
+				"Blueberry Juice", "Coke", "Pear", "Papaya"));
+		menuList.add(new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
+				"Sugar Cane Juice", "Mango", "Blueberry"));
+		menuList.add(new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
+				"Orange Juice", "Watermelon Slice", "Apple Slice"));
+		menuList.add(new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
+				"7 Up", "Strawberries", "Avocado"));
+		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
+				"Blackberry", "Raspberry"));
+	}
+	{
 		int option = 0;
 
 		while (option != 6) {
@@ -39,7 +51,7 @@ public class C206_CaseStudy{
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-				retreiveAllLunchBoxOrder(orderList);
+				retreiveAllLunchBoxOrder(null);
 				//subMenuUserAccount();
 
 			} else if (option == 2) {
@@ -160,19 +172,18 @@ public class C206_CaseStudy{
 	}
 	//================================= Menu Method (Done by: Jocelyn) =================================
 	public static Menu createMenu() {
-		String itemID = Helper.readString("Enter item ID > ");
-		String foodType = Helper.readString("Enter food type > ");
-		String foodName = Helper.readString("Enter food name > ");
-		String drinks = Helper.readString("Enter drinks > ");
-		String fruits = Helper.readString("Enter fruits > ");	
-		double price = Helper.readDouble("Enter price > ");
-		String menuID = Helper.readString("Enter menu ID > ");
-		String weeklyDate = Helper.readString("Enter weekly date > ");
-		
-		Menu menu = new Menu(itemID,  foodType,  foodName,  drinks,  fruits,
-				 price,  menuID, weeklyDate);
-		return menu;
+		String ID = Helper.readString("Enter item ID > ");
+		String date = Helper.readString("Enter  date > ");
+		String Western = Helper.readString("Enter Western food > ");
+		String Asian = Helper.readString("Enter Asian food > ");
+		String Veggie = Helper.readString("Enter vegetarian food > ");
+		String drink1 = Helper.readString("Enter drink 1 > ");
+		String drink2 = Helper.readString("Enter drink 2 > ");
+		String fruit1 = Helper.readString("Enter fruit 1 > ");
+		String fruit2 = Helper.readString("Enter fruit 2 > ");
 
+		Menu menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, fruit1, fruit2);
+		return menu;
 	}
 
 
@@ -184,18 +195,17 @@ public class C206_CaseStudy{
 			output += i.toString();
 
 		}
-	return output;
+		return output;
 
 	}
 public static void ViewAllMenu(ArrayList<Menu> menuList) {
 		
-		C206_CaseStudy.setHeader("MENU LIST");
-		String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35.2f %-40s %-45s\n","ITEM ID","FOOD TYPE", "FOOD NAME", "DRINKS", "FRUITS",
-				"PRICE", "MENU ID","WEEKLY DATE");
-		 output += retrieveAllMenu(menuList);
-		System.out.println(output);
-	}
-	
+	C206_CaseStudy.setHeader("MENU LIST");
+	String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","ID", "date", "Western", "Asian", "Veggie", "drink1", "drink2", "fruit1", "fruit2");
+	output += retrieveAllMenu(menuList);
+	System.out.println(output);
+}
+
 
 	public static void deleteMenu(ArrayList<Menu> menuList, Menu menu) {
 		// TODO Auto-generated method stub
