@@ -13,6 +13,7 @@ public class C206_CaseStudy{// student 1 - bala
 		
 		parentList.add(new Parent(1234, 7890, "Jeanlim12", 91459270));
 		studentList.add(new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg"));
+
 		orderList.add(new Order("W101","Western food", "Apple and Juice", 4.50));
 		orderList.add(new Order("A101","Asian food", "Grapes and Green Tea", 4.00));
 		orderList.add(new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50));
@@ -115,7 +116,38 @@ public class C206_CaseStudy{// student 1 - bala
 		System.out.println(header);
 		Helper.line(80, "-");
 	}
+	
+	//================================= MenuBank Method (Done by: Michelle) =================================
+	public static String retreiveAllMenuBankItems(ArrayList<Menu> menuBank) {
+		String output = "";
+		
+		for (Menu m : menuBank) {
+			output += m.toString();
+		}
+		
+		return output;
+	}
 
+	public static Menu inputMenuBank() {
+		String id = Helper.readString("Enter order ID > ");
+		String weekDate = Helper.readString("Enter date > ");
+		String foodName = Helper.readString("Enter food name > ");
+		String drinkFruitsSet = Helper.readString("Enter drink & fruits set > ");
+		double price = Helper.readDouble("Enter meal price > ");
+		
+		Menu m = new Menu(id, weekDate, foodName, drinkFruitsSet, price);
+		return m;
+		
+	}
+	
+	public static void addMenuItem(ArrayList<Menu> menuBank, Menu m) {
+		//inputMenuBank();
+		menuBank.add(m);
+		
+	}
+	
+	
+	
 	//================================= LunchBox Method (Done by: Fikri) =================================
 	public static String retreiveAllLunchBoxOrder(ArrayList<Order> orderList) {
 		// TODO Auto-generated method stub
