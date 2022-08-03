@@ -127,7 +127,7 @@ public class C206_CaseStudy{// student 1 - bala
 	}
 	
 	//================================= MenuBank Method (Done by: Michelle) =================================
-	public static String retreiveAllMenuBankItems(ArrayList<Menu> menuBank) {
+	public static String retrieveAllMenuItems(ArrayList<Menu> menuBank) {
 		String output = "";
 		
 		for (Menu m : menuBank) {

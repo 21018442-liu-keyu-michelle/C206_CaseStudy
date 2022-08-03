@@ -101,9 +101,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addMenuItem(menuBank, menu3);
 		assertEquals("Test if that Camcorder arraylist size is 3?", 3, menuBank.size());
 		allMenuItems= C206_CaseStudy.retrieveAllMenuItems(menuBank);
-		testOutput = String.format();
-		testOutput += String.format();
-		testOutput += String.format();
+		testOutput = String.format("%-15s %-30s %-10f",);
+		testOutput += String.format("%-15s %-30s %-10f",);
+		testOutput += String.format("%-15s %-30s %-10f",);
 		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
 		
 	}
