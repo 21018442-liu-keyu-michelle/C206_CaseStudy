@@ -3,14 +3,30 @@ public class Menu{
 	private String foodName;
 	private double price;
 	private String drinkAndFruits;
+	private String id;
+	private String weeklyDate;
+	private String dailyDate;
 
-	public Menu(String foodName, String drinkAndFruits, double price) {
+	public Menu(String id, String weeklyDate, String foodName, String drinkAndFruits, double price) {
+		this.id = id;
 		this.foodName = foodName;
 		this.price = price;
 		this.drinkAndFruits = drinkAndFruits;
+		this.weeklyDate = weeklyDate;
 	}
 
+	public String getId() {
+		return id;
+	}
 
+	public String getWeeklyDate() {
+		return weeklyDate;
+	}
+
+	public String getDailyDate() {
+		return dailyDate;
+	}
+	
 	public String getFoodName() {
 		return foodName;
 	}

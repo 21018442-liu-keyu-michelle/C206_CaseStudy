@@ -13,15 +13,16 @@ public class C206_CaseStudy{// student 1 - bala
 		
 		parentList.add(new Parent(1234, 7890, "Jeanlim12", 91459270));
 		studentList.add(new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg"));
-		orderList.add(new Order("Western food", "Apple and Juice", 4.50));
-		orderList.add(new Order("Asian food", "Grapes and Green Tea", 4.00));
-		orderList.add(new Order("Vegeterian food", "Orange and Soy Milk", 3.50));
-		billList.add(new Bills("Western food", "Apple and Juice", 4.50,(4.50*20)));
-		billList.add(new Bills("Asian food", "Grapes and Green Tea", 4.00, (4*20)));
-		billList.add(new Bills("Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20)));
-		menuBank.add(new Menu("Chicken Chop", "Apple and Juice", 3.50));
-		menuBank.add(new Menu("Japanese Bento","Grapes and Green Tea", 3.00));
-		menuBank.add(new Menu("Vegan meat with vegetables","Orange and Soy Milk", 2.50));
+
+		orderList.add(new Order("W101","Western food", "Apple and Juice", 4.50));
+		orderList.add(new Order("A101","Asian food", "Grapes and Green Tea", 4.00));
+		orderList.add(new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50));
+		billList.add(new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20)));
+		billList.add(new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20)));
+		billList.add(new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20)));
+		menuBank.add(new Menu("W101","01-08-2022","Chicken Chop", "Apple and Juice", 3.50));
+		menuBank.add(new Menu("A101","01-08-2022","Japanese Bento", "Grapes and Green Tea", 3.00));
+		menuBank.add(new Menu("V101","01-08-2022","Vegan meat with vegetables", "Orange and Soy Milk", 2.50));
 		
 		int option = 0;
 
@@ -70,52 +71,42 @@ public class C206_CaseStudy{// student 1 - bala
 	}
 	//================================= Sub-Menu Method (Done by: Fikri) =================================
 	public static void subMenuUserAccount() {
-		C206_CaseStudy.setHeader("LUNCHBOXORDER APP");
-		System.out.println("1. Display Inventory");
-		System.out.println("2. Add item");
-		System.out.println("3. Loan item");
-		System.out.println("4. Return item");
-		System.out.println("5. Quit");
+		C206_CaseStudy.setHeader("MANAGE USER ACCOUNT");
+		System.out.println("1. Add user account");
+		System.out.println("2. View user account");
+		System.out.println("3. Delete user account");
 		Helper.line(80, "-");
 		
 	}
 	public static void subMenuBank() {
-		C206_CaseStudy.setHeader("LUNCHBOXORDER APP");
-		System.out.println("1. Display Inventory");
-		System.out.println("2. Add item");
+		C206_CaseStudy.setHeader("MANAGE MENUBANK");
+		System.out.println("1. Add menu item");
+		System.out.println("2. View menu items");
 		System.out.println("3. Loan item");
-		System.out.println("4. Return item");
-		System.out.println("5. Quit");
 		Helper.line(80, "-");
 		
 	}
 	public static void subMenu() {
-		C206_CaseStudy.setHeader("LUNCHBOXORDER APP");
+		C206_CaseStudy.setHeader("MANAGE MONTHLY MENU");
 		System.out.println("1. Display Inventory");
 		System.out.println("2. Add item");
 		System.out.println("3. Loan item");
-		System.out.println("4. Return item");
-		System.out.println("5. Quit");
 		Helper.line(80, "-");
 		
 	}
 	public static void subMenuLunchBoxOrders() {
-		C206_CaseStudy.setHeader("LUNCHBOXORDER APP");
+		C206_CaseStudy.setHeader("MANAGE LUNCHBOXORDER");
 		System.out.println("1. Display Inventory");
 		System.out.println("2. Add item");
 		System.out.println("3. Loan item");
-		System.out.println("4. Return item");
-		System.out.println("5. Quit");
 		Helper.line(80, "-");
 		
 	}
 	public static void subMenuOrderBills() {
-		C206_CaseStudy.setHeader("LUNCHBOXORDER APP");
+		C206_CaseStudy.setHeader("MANAGE ORDERBILLS");
 		System.out.println("1. Display Inventory");
 		System.out.println("2. Add item");
 		System.out.println("3. Loan item");
-		System.out.println("4. Return item");
-		System.out.println("5. Quit");
 		Helper.line(80, "-");
 		
 	}
@@ -138,11 +129,13 @@ public class C206_CaseStudy{// student 1 - bala
 	}
 
 	public static Menu inputMenuBank() {
+		String id = Helper.readString("Enter order ID > ");
+		String weekDate = Helper.readString("Enter date > ");
 		String foodName = Helper.readString("Enter food name > ");
 		String drinkFruitsSet = Helper.readString("Enter drink & fruits set > ");
 		double price = Helper.readDouble("Enter meal price > ");
 		
-		Menu m = new Menu(foodName, drinkFruitsSet, price);
+		Menu m = new Menu(id, weekDate, foodName, drinkFruitsSet, price);
 		return m;
 		
 	}
@@ -177,24 +170,25 @@ public class C206_CaseStudy{// student 1 - bala
 	}
 	
 	public static Order inputLunchBoxOrder() {
+		String orderID = Helper.readString("Enter orderID > ");
 		String mealSet = Helper.readString("Enter meal set > ");
 		String drinkFruitsSet = Helper.readString("Enter drink & fruits set > ");
 		double price = Helper.readDouble("Enter meal price > ");
 		
-		Order o= new Order(mealSet, drinkFruitsSet, price);
+		Order o= new Order(orderID, mealSet, drinkFruitsSet, price);
 		return o;
 		
 	}
 	
 	public static void addLunchBox(ArrayList<Order> orderList, Order o ) {
 		// TODO Auto-generated method stub
-		inputLunchBoxOrder();
+		//inputLunchBoxOrder();
 		orderList.add(o);
 		
 	}
 	public static void deleteLunchBoxOrder(ArrayList<Order> orderList, Order o) {
 		// TODO Auto-generated method stub
-		inputLunchBoxOrder();
+		//inputLunchBoxOrder();
 		orderList.remove(o);
 		
 	}
@@ -221,25 +215,26 @@ public class C206_CaseStudy{// student 1 - bala
 	}
 	
 	public static Order inputOrderBill() {
+		String orderID = Helper.readString("Enter order ID > ");
 		String mealSet = Helper.readString("Enter meal set > ");
 		String drinkFruitsSet = Helper.readString("Enter drink & fruits set > ");
 		double price = Helper.readDouble("Enter meal price > ");
 		double totalAmount = Helper.readDouble("Enter total amount > ");
 		
-		Bills b= new Bills(mealSet, drinkFruitsSet, price, totalAmount);
+		Bills b= new Bills(orderID, mealSet, drinkFruitsSet, price, totalAmount);
 		return b;
 		
 	}
 	
 	public static void addOrderBill(ArrayList<Bills> billList, Bills b ) {
 		// TODO Auto-generated method stub
-		inputOrderBill();
+		//inputOrderBill();
 		billList.add(b);
 		
 	}
 	public static void deleteOrderBills(ArrayList<Bills> billList, Bills b) {
 		// TODO Auto-generated method stub
-		inputOrderBill();
+		//inputOrderBill();
 		billList.remove(b);
 		
 	}

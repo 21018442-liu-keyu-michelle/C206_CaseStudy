@@ -35,15 +35,19 @@ public class C206_CaseStudyTest {
 		// prepare test data
 		parent = new Parent(1234, 7890, "Jeanlim12", 91459270);
 		student = new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg");
-		order1 = new Order("Western food", "Apple and Juice", 4.50);
-		order2 = new Order("Asian food", "Grapes and Green Tea", 4.00);
-		order3 = new Order("Vegeterian food", "Orange and Soy Milk", 3.50);
-		bills1 = new Bills("Western food", "Apple and Juice", 3.50,(3.50*20));
-		bills2 = new Bills("Asian food", "Grapes and Green Tea", 3.00, (3*20));
-		bills3 = new Bills("Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20));
-		menu1 = new Menu("Chicken Chop", "Apple and Juice", 3.50);
-		menu2 = new Menu("Japanese Bento","Grapes and Green Tea", 3.00);
-		menu3 = new Menu("Vegan meat with vegetables","Orange and Soy Milk", 2.50);
+
+		//day1order
+		order1 = new Order("W101","Western food", "Apple and Juice", 4.50);
+		order2 = new Order("A101","Asian food", "Grapes and Green Tea", 4.00);
+		order3 = new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50);
+		//day1bill
+		bills1 = new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20));
+		bills2 = new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20));
+		bills3 = new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20));
+		//day1menu
+		menu1 = new Menu("W101","01-08-2022","Chicken Chop", "Apple and Juice", 3.50);
+		menu2 = new Menu("A101","01-08-2022","Japanese Bento", "Grapes and Green Tea", 3.00);
+		menu3 = new Menu("V101","01-08-2022","Vegan meat with vegetables", "Orange and Soy Milk", 2.50);
 	
 	}
 
