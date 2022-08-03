@@ -1,7 +1,7 @@
 
 import java.util.ArrayList;
 
-public class C206_CaseStudy{// student 1 - bala
+public class C206_CaseStudy{
 	
 	public static void main(String[] args) {
 		
@@ -13,16 +13,15 @@ public class C206_CaseStudy{// student 1 - bala
 		
 		parentList.add(new Parent(1234, 7890, "Jeanlim12", 91459270));
 		studentList.add(new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg"));
-
 		orderList.add(new Order("W101","Western food", "Apple and Juice", 4.50));
 		orderList.add(new Order("A101","Asian food", "Grapes and Green Tea", 4.00));
 		orderList.add(new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50));
 		billList.add(new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20)));
 		billList.add(new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20)));
 		billList.add(new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20)));
-		menuBank.add(new Menu("W101","01-08-2022","Chicken Chop", "Apple and Juice", 3.50));
-		menuBank.add(new Menu("A101","01-08-2022","Japanese Bento", "Grapes and Green Tea", 3.00));
-		menuBank.add(new Menu("V101","01-08-2022","Vegan meat with vegetables", "Orange and Soy Milk", 2.50));
+		menuBank.add(new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022"));
+		menuBank.add(new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022"));
+		menuBank.add(new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022"));
 		
 		int option = 0;
 
@@ -31,7 +30,8 @@ public class C206_CaseStudy{// student 1 - bala
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-				subMenuUserAccount();
+				retreiveAllLunchBoxOrder(orderList);
+				//subMenuUserAccount();
 
 			} else if (option == 2) {
 				subMenuBank();

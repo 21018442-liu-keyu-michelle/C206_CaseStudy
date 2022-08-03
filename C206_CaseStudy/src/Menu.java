@@ -1,53 +1,24 @@
 
-public class Menu{
-	private String foodName;
-	private double price;
-	private String drinkAndFruits;
-	private String id;
-	private String weeklyDate;
-	private String dailyDate;
+public class Menu extends Item{
 
-	public Menu(String id, String weeklyDate, String foodName, String drinkAndFruits, double price) {
-		this.id = id;
-		this.foodName = foodName;
-		this.price = price;
-		this.drinkAndFruits = drinkAndFruits;
+	private String menuID;
+	private String weeklyDate;
+	
+	public Menu(String itemID, String foodType, String foodName, String drinks, String fruits, double price, String menuID, String weeklyDate) {
+		super(itemID, foodType, foodName, drinks, fruits, price);
+		this.menuID = menuID;
 		this.weeklyDate = weeklyDate;
 	}
 
-	public String getId() {
-		return id;
+	public String getMenuID() {
+		return menuID;
 	}
 
 	public String getWeeklyDate() {
 		return weeklyDate;
 	}
-
-	public String getDailyDate() {
-		return dailyDate;
-	}
 	
-	public String getFoodName() {
-		return foodName;
-	}
-
-	public void setFoodName(String foodName) {
-		this.foodName = foodName;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public String getDrinkAndFruits() {
-		return drinkAndFruits;
-	}
-
-	public void setDrink(String drinkAndFruits) {
-		this.drinkAndFruits = drinkAndFruits;
-	}
+	
+	
+	
 }

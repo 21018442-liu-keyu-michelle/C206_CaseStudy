@@ -45,9 +45,11 @@ public class C206_CaseStudyTest {
 		bills2 = new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20));
 		bills3 = new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20));
 		//day1menu
-		menu1 = new Menu("W101","01-08-2022","Chicken Chop", "Apple and Juice", 3.50);
-		menu2 = new Menu("A101","01-08-2022","Japanese Bento", "Grapes and Green Tea", 3.00);
-		menu3 = new Menu("V101","01-08-2022","Vegan meat with vegetables", "Orange and Soy Milk", 2.50);
+		
+		//Menu(String itemID, String foodType, String foodName, String drinks, String fruits, double price, String menuID, String weeklyDate) 
+		menu1 = new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022");
+		menu2 = new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022");
+		menu3 = new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022");
 	
 	}
 
@@ -95,7 +97,7 @@ public class C206_CaseStudyTest {
 		
 	}
 	@Test
-	public void testRetrieveMenuBanksItems() {
+	public void testViewMenuBanksItems() {
 		assertNotNull("Test if there is valid Menu arraylist to add to", menuBank);
 		String allMenuItems= C206_CaseStudy.retrieveAllMenuItems(menuBank);
 		String testOutput = "";
@@ -105,9 +107,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addMenuItem(menuBank, menu3);
 		assertEquals("Test if that Camcorder arraylist size is 3?", 3, menuBank.size());
 		allMenuItems= C206_CaseStudy.retrieveAllMenuItems(menuBank);
-		testOutput = String.format("%-15s %-30s %-10f",);
-		testOutput += String.format("%-15s %-30s %-10f",);
-		testOutput += String.format("%-15s %-30s %-10f",);
+		testOutput = String.format("%-10s %-10s %-15s %-30s %-10f", "W101","01-08-2022","Chicken Chop", "Apple and Juice", 3.50);
+		testOutput += String.format("%-10s %-10s %-15s %-30s %-10f", "A101","01-08-2022","Japanese Bento", "Grapes and Green Tea", 3.00);
+		testOutput += String.format("%-10s %-10s %-15s %-30s %-10f","V101","01-08-2022","Vegan meat with vegetables", "Orange and Soy Milk", 2.50);
 		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
 		
 	}
