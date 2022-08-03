@@ -46,9 +46,9 @@ public class C206_CaseStudyTest {
 		order2 = new Order("A101","Asian food", "Grapes and Green Tea", 4.00);
 		order3 = new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50);
 		//day1bill
-		bills1 = new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20));
-		bills2 = new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20));
-		bills3 = new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20));
+		bills1 = new Bills("W101","Western food", "Apple and Juice", 4.50,(4.50*20));
+		bills2 = new Bills("A101","Asian food", "Grapes and Green Tea", 4.00, (4*20));
+		bills3 = new Bills("V101","Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20));
 		//day1item
 		item1 = new Item("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50);
 		item2 = new Item("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50);
@@ -166,9 +166,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addLunchBox(orderList, order3);
 		assertEquals("Test if that orderList arraylist size is 3?", 3, orderList.size());
 		allLunchBoxOrder= C206_CaseStudy.retreiveAllLunchBoxOrder(orderList);
-		testOutput = String.format("%-15s %-30s %-10f","Western food", "Apple and Juice", 4.50 );
-		testOutput += String.format("%-15s %-30s %-10f","Asian food", "Grapes and Green Tea", 4.00);
-		testOutput += String.format("%-15s %-30s %-10f","Vegeterian food", "Orange and Soy Milk", 3.50);
+		testOutput = String.format("%-15s %-30s %-15.2f ","Western food", "Apple and Juice", 4.50 );
+		testOutput += String.format("%-15s %-30s %-15.2f ","Asian food", "Grapes and Green Tea", 4.00);
+		testOutput += String.format("%-15s %-30s %-15.2f ","Vegeterian food", "Orange and Soy Milk", 3.50);
 		assertEquals("Check that viewAllLunchBoxOrder", testOutput, allLunchBoxOrder);
 		
 	}
@@ -208,12 +208,12 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that ViewOrderBills", testOutput, allOrderBill);
 		C206_CaseStudy.addOrderBill(billList, bills1);
 		C206_CaseStudy.addOrderBill(billList, bills2);
-		C206_CaseStudy.addOrderBill(billList, bills3);
+		C206_CaseStudy.addOrderBill(billList, bills3); 
 		assertEquals("Test if that billList arraylist size is 3?", 3, billList.size());
 		allOrderBill= C206_CaseStudy.retreiveAllOrderBills(billList);
-		testOutput = String.format("%-15s %-30s %-10f%-15f\n","Western food", "Apple and Juice", 4.50,(4.50*20));
-		testOutput += String.format("%-15s %-30s %-10f%-15f\n","Asian food", "Grapes and Green Tea", 4.00, (4.00*20));
-		testOutput += String.format("%-15s %-30s %-10f%-15f\n","Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20));
+		testOutput = String.format("%-15s %-30s %-15.2f %-15.2f\n","Western food", "Apple and Juice", 4.50,(4.50*20));
+		testOutput += String.format("%-15s %-30s %-15.2f %-15.2f\n","Asian food", "Grapes and Green Tea", 4.00, (4.00*20));
+		testOutput += String.format("%-15s %-30s %-15.2f %-15.2f\n","Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20));
 		assertEquals("Check that ViewAllOrderBills", testOutput, allOrderBill);
 		
 		
@@ -233,6 +233,24 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that billList arraylist size is 0?", 0, billList.size());
 		
 	}
+	public void testUpdateOrderBill() {
+		//boundary
+		assertNotNull("Check if there is valid billList arraylist to add to", billList);
+		C206_CaseStudy.addOrderBill(billList, bills1);
+
+		//error
+		boolean isUpdate = C206_CaseStudy.updateOrderBills(billList, "W101");
+		assertFalse("Check that price has changed", isUpdate);		
+		//normal
+		C206_CaseStudy.addOrderBill(billList, bills2);
+		bills2.setPrice(8.00);
+		isUpdate = C206_CaseStudy.updateOrderBills(billList, "A101");
+		assertTrue("Check that price has changed", isUpdate);
+		//error
+		isUpdate = C206_CaseStudy.updateOrderBills(billList, "V101");
+		assertFalse("Check that price has changed", isUpdate);
+	}
+	
 	
 	
 	@After

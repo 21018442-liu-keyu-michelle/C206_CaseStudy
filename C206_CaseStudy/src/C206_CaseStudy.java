@@ -30,8 +30,9 @@ public class C206_CaseStudy{
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-				retreiveAllLunchBoxOrder(orderList);
-				//subMenuUserAccount();
+				ViewAllOrderBills(billList);
+				//subMenuUserAccount();	
+				subMenuUserAccount();
 
 			} else if (option == 2) {
 				subMenuItem();
@@ -171,7 +172,7 @@ public class C206_CaseStudy{
 	public static void viewAllLunchBoxOrder(ArrayList<Order> orderList) {
 		
 		C206_CaseStudy.setHeader("LUNCHBOX ORDER LIST");
-		String output = String.format("%-10s %-30s %-10s\n", "MEAL SET", "DRINK FRUITS SET",
+		String output = String.format("%-15s %-30s %-15s\n", "MEAL SET", "DRINK FRUITS SET",
 				 "PRICE");
 		 output += retreiveAllLunchBoxOrder(orderList);
 		System.out.println(output);
@@ -194,6 +195,7 @@ public class C206_CaseStudy{
 		orderList.add(o);
 		
 	}
+	
 	public static void deleteLunchBoxOrder(ArrayList<Order> orderList, Order o) {
 		// TODO Auto-generated method stub
 		//inputLunchBoxOrder();
@@ -216,7 +218,7 @@ public class C206_CaseStudy{
 	public static void ViewAllOrderBills(ArrayList<Bills> billList) {
 		
 		C206_CaseStudy.setHeader("ORDER BILLS LIST");
-		String output = String.format("%-15s %-30s %-10s %-10s\n", "MEAL SET", "DRINK FRUITS SET",
+		String output = String.format("%-15s %-30s %-15s %-15s\n", "MEAL SET", "DRINK FRUITS SET",
 				 "PRICE", "TOTAL AMOUNT");
 		 output += retreiveAllOrderBills(billList);
 		System.out.println(output);
@@ -246,6 +248,23 @@ public class C206_CaseStudy{
 		billList.remove(b);
 		
 	}
+	public static boolean updateOrderBills(ArrayList<Bills> billList, String orderId) {
+		// TODO Auto-generated method stub
+		//inputOrderBill();
+		boolean isUpdate = false;
+
+		for (int i = 0; i < billList.size(); i++) {
+			if (orderId.equalsIgnoreCase(billList.get(i).orderID()) && billList.get(i).getPrice() != 8.00) {
+				billList.get(i).setPrice(8.00);
+				isUpdate = true;
+				
+			}
+		}
+		return isUpdate;
+		
+	}
+	
+
 
 }
 
