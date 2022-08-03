@@ -19,9 +19,9 @@ public class C206_CaseStudy{// student 1 - bala
 		billList.add(new Bills("Western food", "Apple and Juice", 4.50,(4.50*20)));
 		billList.add(new Bills("Asian food", "Grapes and Green Tea", 4.00, (4*20)));
 		billList.add(new Bills("Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20)));
-		menuBank.add(new Menu("Chicken Chop", 3.50));
-		menuBank.add(new Menu("Japanese Bento", 3.00));
-		menuBank.add(new Menu("Vegan meat with vegetables", 2.50));
+		menuBank.add(new Menu("Chicken Chop", "Apple and Juice", 3.50));
+		menuBank.add(new Menu("Japanese Bento","Grapes and Green Tea", 3.00));
+		menuBank.add(new Menu("Vegan meat with vegetables","Orange and Soy Milk", 2.50));
 		
 		int option = 0;
 
@@ -125,7 +125,36 @@ public class C206_CaseStudy{// student 1 - bala
 		System.out.println(header);
 		Helper.line(80, "-");
 	}
+	
+	//================================= MenuBank Method (Done by: Michelle) =================================
+	public static String retreiveAllMenuBankItems(ArrayList<Menu> menuBank) {
+		String output = "";
+		
+		for (Menu m : menuBank) {
+			output += m.toString();
+		}
+		
+		return output;
+	}
 
+	public static Menu inputMenuBank() {
+		String foodName = Helper.readString("Enter food name > ");
+		String drinkFruitsSet = Helper.readString("Enter drink & fruits set > ");
+		double price = Helper.readDouble("Enter meal price > ");
+		
+		Menu m = new Menu(foodName, drinkFruitsSet, price);
+		return m;
+		
+	}
+	
+	public static void addMenuItem(ArrayList<Menu> menuBank, Menu m) {
+		//inputMenuBank();
+		menuBank.add(m);
+		
+	}
+	
+	
+	
 	//================================= LunchBox Method (Done by: Fikri) =================================
 	public static String retreiveAllLunchBoxOrder(ArrayList<Order> orderList) {
 		// TODO Auto-generated method stub

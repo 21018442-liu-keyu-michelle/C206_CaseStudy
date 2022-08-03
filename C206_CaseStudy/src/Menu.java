@@ -4,12 +4,8 @@ public class Menu{
 	private double price;
 	private String drinkAndFruits;
 
-	public Menu(String foodName, double price) {
+	public Menu(String foodName, String drinkAndFruits, double price) {
 		this.foodName = foodName;
-		this.price = price;
-	}
-
-	public Menu(double price, String drinkAndFruits) {
 		this.price = price;
 		this.drinkAndFruits = drinkAndFruits;
 	}

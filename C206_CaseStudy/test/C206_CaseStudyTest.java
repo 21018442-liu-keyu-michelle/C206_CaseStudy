@@ -38,12 +38,12 @@ public class C206_CaseStudyTest {
 		order1 = new Order("Western food", "Apple and Juice", 4.50);
 		order2 = new Order("Asian food", "Grapes and Green Tea", 4.00);
 		order3 = new Order("Vegeterian food", "Orange and Soy Milk", 3.50);
-		bills1 = new Bills("Western food", "Apple and Juice", 4.50,(4.50*20));
-		bills2 = new Bills("Asian food", "Grapes and Green Tea", 4.00, (4*20));
-		bills3 = new Bills("Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20));
-		menu1 = new Menu("Chicken Chop", 3.50);
-		menu2 = new Menu("Japanese Bento", 3.00);
-		menu3 = new Menu("Vegan meat with vegetables", 2.50);
+		bills1 = new Bills("Western food", "Apple and Juice", 3.50,(3.50*20));
+		bills2 = new Bills("Asian food", "Grapes and Green Tea", 3.00, (3*20));
+		bills3 = new Bills("Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20));
+		menu1 = new Menu("Chicken Chop", "Apple and Juice", 3.50);
+		menu2 = new Menu("Japanese Bento","Grapes and Green Tea", 3.00);
+		menu3 = new Menu("Vegan meat with vegetables","Orange and Soy Milk", 2.50);
 	
 	}
 
@@ -87,7 +87,7 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addMenuItem(menuBank, menu2);
 		C206_CaseStudy.addMenuItem(menuBank, menu3);
 		assertEquals("Test that Menu arraylist size is 3?", 3, menuBank.size());
-		assertSame("Test that Menu is added same as 3rd item of the list?", menu1, menuBank.get(2));
+		assertSame("Test that Menu is added same as 3rd item of the list?", menu3, menuBank.get(2));
 		
 	}
 	@Test
