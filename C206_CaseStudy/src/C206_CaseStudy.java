@@ -11,18 +11,23 @@ public class C206_CaseStudy{
 		ArrayList<Bills> billList = new ArrayList<Bills>();
 		ArrayList<Menu> menuList = new ArrayList<Menu>();
 		ArrayList<Item> itemList = new ArrayList<Item>();
-		
+	
 		parentList.add(new Parent(1234, 7890, "Jeanlim12", 91459270));
 		studentList.add(new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg"));
+		
 		orderList.add(new Order("W101","Western food", "Apple and Juice", 4.50));
 		orderList.add(new Order("A101","Asian food", "Grapes and Green Tea", 4.00));
 		orderList.add(new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50));
+		
+		
 		billList.add(new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20)));
 		billList.add(new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20)));
 		billList.add(new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20)));
-		itemList.add(new Item("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50));
-		itemList.add(new Item("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50));
-		itemList.add(new Item("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00));
+		
+		itemList.add(new Item("127", "Western food", "Chicken Chop" , 4.50));
+		itemList.add(new Item("125", "Drink", "Apple Juice" , 1.50));
+		itemList.add(new Item("126", "Fruit", "Banana" , 1.00));
+		
 		menuList.add(new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022"));
 		menuList.add(new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022"));
 		menuList.add(new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022"));
@@ -135,13 +140,11 @@ public class C206_CaseStudy{
 
 	public static Item inputMenuItem() {
 		String itemID = Helper.readString("Enter item ID > ");
-		String foodType = Helper.readString("Enter food type > ");
+		String category = Helper.readString("Enter category > ");
 		String foodName = Helper.readString("Enter food name > ");
-		String drinks = Helper.readString("Enter drink > ");
-		String fruits = Helper.readString("Enter drink > ");
 		double price = Helper.readDouble("Enter meal price > ");
 		
-		Item i = new Item(itemID, foodType, foodName, drinks, fruits, price);
+		Item i = new Item(itemID, category, foodName, price);
 		return i;
 		
 	}
@@ -156,8 +159,51 @@ public class C206_CaseStudy{
 		itemList.remove(i);
 		
 	}
+	//================================= Menu Method (Done by: Jocelyn) =================================
+	public static Menu createMenu() {
+		String itemID = Helper.readString("Enter item ID > ");
+		String foodType = Helper.readString("Enter food type > ");
+		String foodName = Helper.readString("Enter food name > ");
+		String drinks = Helper.readString("Enter drinks > ");
+		String fruits = Helper.readString("Enter fruits > ");	
+		double price = Helper.readDouble("Enter price > ");
+		String menuID = Helper.readString("Enter menu ID > ");
+		String weeklyDate = Helper.readString("Enter weekly date > ");
+		
+		Menu menu = new Menu(itemID,  foodType,  foodName,  drinks,  fruits,
+				 price,  menuID, weeklyDate);
+		return menu;
+
+	}
+
+
+	public static String retrieveAllMenu(ArrayList<Menu> menuList) {
+		// TODO Auto-generated method stub
+		String output = "";
+
+		for (Menu i : menuList) {
+			output += i.toString();
+
+		}
+	return output;
+
+	}
+public static void ViewAllMenu(ArrayList<Menu> menuList) {
+		
+		C206_CaseStudy.setHeader("MENU LIST");
+		String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35.2f %-40s %-45s\n","ITEM ID","FOOD TYPE", "FOOD NAME", "DRINKS", "FRUITS",
+				"PRICE", "MENU ID","WEEKLY DATE");
+		 output += retrieveAllMenu(menuList);
+		System.out.println(output);
+	}
 	
-	
+
+	public static void deleteMenu(ArrayList<Menu> menuList, Menu menu) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < menuList.size(); i++) {
+			menuList.remove((i));
+		}
+	}
 	
 	//================================= LunchBox Method (Done by: Fikri) =================================
 	public static String retreiveAllLunchBoxOrder(ArrayList<Order> orderList) {
