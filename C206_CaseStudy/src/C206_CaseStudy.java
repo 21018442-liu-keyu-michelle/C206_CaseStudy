@@ -29,19 +29,19 @@ public class C206_CaseStudy{
 		itemList.add(new Item("126", "Fruit", "Banana" , 1.00));
 		
 		menuList.add(new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Watermelon Slice", "Apple Slice"));
+				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice","Pineapple Slice"));
 		menuList.add(new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
-				"Orange Juice", "Apple Juice", "Watermelon", "Honey Dew"));
+				"Orange Juice", "Apple Juice","Chocolate Milk", "Watermelon", "Honey Dew","Grapes"));
 		menuList.add(new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
-				"Blueberry Juice", "Coke", "Pear", "Papaya"));
+				"Blueberry Juice", "Coke","Pomegranate Juice", "Pear", "Papaya","Coconut"));
 		menuList.add(new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
-				"Sugar Cane Juice", "Mango", "Blueberry"));
+				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry","Peach Slice"));
 		menuList.add(new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Watermelon Slice", "Apple Slice"));
+				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice"));
 		menuList.add(new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
-				"7 Up", "Strawberries", "Avocado"));
-		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
-				"Blackberry", "Raspberry"));
+				"7 Up", "Ribena","Strawberries", "Avocado","Passion Fruit"));
+		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus","Milk Tea",
+				"Blackberry", "Raspberry","Grapefruit"));
 	}
 	{
 		int option = 0;
@@ -179,10 +179,12 @@ public class C206_CaseStudy{
 		String Veggie = Helper.readString("Enter vegetarian food > ");
 		String drink1 = Helper.readString("Enter drink 1 > ");
 		String drink2 = Helper.readString("Enter drink 2 > ");
+		String drink3 = Helper.readString("Enter drink 3 > ");
 		String fruit1 = Helper.readString("Enter fruit 1 > ");
 		String fruit2 = Helper.readString("Enter fruit 2 > ");
+		String fruit3 = Helper.readString("Enter fruit 3 > ");
 
-		Menu menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, fruit1, fruit2);
+		Menu menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, drink3, fruit1, fruit2,fruit3);
 		return menu;
 	}
 
@@ -201,7 +203,7 @@ public class C206_CaseStudy{
 public static void ViewAllMenu(ArrayList<Menu> menuList) {
 		
 	C206_CaseStudy.setHeader("MENU LIST");
-	String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","ID", "date", "Western", "Asian", "Veggie", "drink1", "drink2", "fruit1", "fruit2");
+	String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","ID", "date", "Western", "Asian", "Veggie", "drink1", "drink2","drink3", "fruit1", "fruit2","fruit3");
 	output += retrieveAllMenu(menuList);
 	System.out.println(output);
 }
