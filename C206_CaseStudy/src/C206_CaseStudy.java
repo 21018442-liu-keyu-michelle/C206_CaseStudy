@@ -74,6 +74,7 @@ public class C206_CaseStudy{// student 1 - bala
 		System.out.println(header);
 		Helper.line(80, "-");
 	}
+	
 
 	//================================= LunchBox Method (Done by: Fikri) =================================
 	public static String retreiveAllLunchBoxOrder(ArrayList<Order> orderList) {
@@ -163,6 +164,55 @@ public class C206_CaseStudy{// student 1 - bala
 		billList.remove(b);
 		
 	}
+	
+	// ========================= Account method (Done by Baala) ===============================================================
+	
+	public static void addParent(Parent parent, Object parent2) {
+		// TODO Auto-generated method stub
+		inputParents();
+		Object p;
+		ParentList.add(p);
+		C206_CaseStudy.setHeader("Parents LIST");
+		String output = String.format("%-15s %-30s %-10s %-10s\n", "Account number", "Password",
+				 "Username", "Contact Number");
+		 output += addParent(parent);
+		System.out.println(output);
+		return null;
+	}
+
+	
+	private static void inputParents() {
+		// TODO Auto-generated method stub
+		int accountNo = Helper.readInt("Enter account number > ");
+		String password = Helper.readString("Enter password > ");
+		String username = Helper.readString("Enter username > ");
+		int contactNo = Helper.readInt("Enter contact number > ");
+		
+		Parent p = new Parent(accountNo, password, username, contactNo);
+		
+	}
+	public static String retrieveAllParent(Parent parent) {
+		// TODO Auto-generated method stub
+		C206_CaseStudy.setHeader("Parents LIST");
+		String output = String.format("%-15s %-30s %-10s %-10s\n", "Account number", "Password",
+				 "Username", "Contact Number");
+		 output += retreiveAllParent(parent);
+		System.out.println(output);
+		return null;
+	}
+	public static void deleteParent(Student student, Object parent1) {
+		// TODO Auto-generated method stub
+		C206_CaseStudy.setHeader("Parents LIST");
+		String output = String.format("%-15s %-30s %-10s %-10s\n", "Account number", "Password",
+				 "Username", "Contact Number");
+		 output += deleteParent(parent);
+		System.out.println(output);
+		return null;
+		inputParents();
+		ParentList.remove(p);
+	}
+	
+		
 
 }
 

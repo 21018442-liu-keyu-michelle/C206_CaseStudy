@@ -51,31 +51,82 @@ public class C206_CaseStudyTest {
 	@Test
 	public void testAddParents() {
 		// Item list is not null, so that can add a new item - boundary
-	
+		assertNotNull("Test if there is an existing parents arrayList to add to", parentList);
+		C206_CaseStudy.addParent(parentList, parent1);
+		assertEquals("Test if that parentarraylist size is 1?", 1, parentList.size());
+		assertSame("Test that Parent is added same as 1st item of the list?", parent1, parentList.get(0));
+		C206_CaseStudy.addParent(parentList, parent2);
+		C206_CaseStudy.addParent(parentList, parent3);
+		assertEquals("Test that parent arraylist size is 3?", 3, parentList.size());
+		assertSame("Test that parent is added same as 3rd item of the list?", parent3, parentList.get(2));
+		
 	}
 	@Test
 	public void testAddStudent() {
-	
+		assertNotNull("Test if there is an existing student arrayList to add to", studentList);
+		C206_CaseStudy.addStudent(studentList, student1);
+		assertEquals("Test if that parentarraylist size is 1?", 1, studentList.size());
+		assertSame("Test that Student is added same as 1st item of the list?", student1, studentList.get(0));
+		C206_CaseStudy.addStudent(studentList, student2);
+		C206_CaseStudy.addStudent(studentList, student3);
+		assertEquals("Test that student arraylist size is 3?", 3, studentList.size());
+		assertSame("Test that student is added same as 3rd item of the list?", student3, studentList.get(2));
 	}
 	
 	@Test
 	public void testRetrieveAllParent() {
-		
+			assertNotNull("Test if there is valid parent arraylist to add to", parent);
+			String allMenuItems= C206_CaseStudy.retrieveAllParent(parent);
+			String testOutput = "";
+			assertEquals("Check that ViewAllParents", testOutput, allMenuItems);
+			C206_CaseStudy.addParent(parentList, parent1);
+			C206_CaseStudy.addParent(parentList, parent2);
+			C206_CaseStudy.addParent(parentList, parent3);
+			assertEquals("Test if that Camcorder arraylist size is 3?", 3, parentList.size());
+			allParent= C206_CaseStudy.retrieveAllParent(parentList);
+			testOutput = String.format(null, testOutput, null);
+			testOutput += String.format(null, testOutput, null);
+			testOutput += String.format(null, testOutput, null);
+			assertEquals("Check that ViewAllParents", testOutput, allParents);
+			
 	}
 	@Test
 	public void testRetrieveAllStudent() {
-		
+		assertNotNull("Test if there is valid parent arraylist to add to", studentList);
+		String allMenuItems= C206_CaseStudy.retrieveAllStudetnt(studentList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllStudents", testOutput, allMenuItems);
+		C206_CaseStudy.addStudent(studentList, student1);
+		C206_CaseStudy.addStudent(studentList, student2);
+		C206_CaseStudy.addStudent(studentList, student3);
+		assertEquals("Test if that Camcorder arraylist size is 3?", 3, studentList.size());
+		allStudent= C206_CaseStudy.retrieveAllStudent(studentList);
+		testOutput = String.format(null, testOutput, null);
+		testOutput += String.format(null, testOutput, null);
+		testOutput += String.format(null, testOutput, null);
+		assertEquals("Check that ViewAllStudents", testOutput, allStudents);
 	}
 
 	@Test
 	public void testDeleteParent() {
-		
+		assertNotNull("Test if there is an existing Parent arrayList to delete ", parentList);
+		C206_CaseStudy.deleteParent(parentList, parent1);
+		assertEquals("Test if that Parent arraylist size is 2?", 2, parentList.size());
+		C206_CaseStudy.deleteParent(parentList, parent2);
+		assertEquals("Test that parent arraylist size is 1?", 1, parentList.size());
+		C206_CaseStudy.deleteParent(parentList, parent3);
+		assertEquals("Test that parent arraylist size is 0?", 0, parentList.size());
 	}
 	
 	@Test
 	public void testDeleteStudent() {
-	
-		
+		assertNotNull("Test if there is an existing Parent arrayList to delete ", studentList);
+		C206_CaseStudy.deleteStudent(studentList, student1);
+		assertEquals("Test if that student arraylist size is 2?", 2, studentList.size());
+		C206_CaseStudy.deleteStudent(studentList, student2);
+		assertEquals("Test that student arraylist size is 1?", 1, studentList.size());
+		C206_CaseStudy.deleteStudent(studentList, student3);
+		assertEquals("Test that student arraylist size is 0?", 0, studentList.size());
 	}
 	
 	@Test
