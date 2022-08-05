@@ -4,7 +4,7 @@ public class Menu{
 	private String Date;
 	
 	public Menu(String ID, String date, String Western, String Asian, String Veggie,
-			String drink1, String drink2, String fruit1, String fruit2) {
+			String drink1, String drink2, String drink3, String fruit1, String fruit2, String fruit3) {
 	
 	}
 
