@@ -3,8 +3,9 @@ public class Bills extends Order{
 
 	private double totalAmount;
 
-	public Bills(String mealSet, String drinkFruitsSet, double price, double totalAmount) {
-		super(mealSet, drinkFruitsSet, price);
+
+	public Bills(String orderID, String mealSet, String drinkFruitsSet, double price, double totalAmount) {
+		super(orderID, mealSet, drinkFruitsSet, price);
 		this.totalAmount = totalAmount;
 	}
 

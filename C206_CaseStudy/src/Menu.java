@@ -1,41 +1,19 @@
-
 public class Menu{
-	private String foodName;
-	private double price;
-	private String drinkAndFruits;
 
-	public Menu(String foodName, double price) {
-		this.foodName = foodName;
-		this.price = price;
+	private String menuID;
+	private String Date;
+	
+	public Menu(String ID, String date, String Western, String Asian, String Veggie,
+			String drink1, String drink2, String drink3, String fruit1, String fruit2, String fruit3) {
+	
 	}
 
-	public Menu(double price, String drinkAndFruits) {
-		this.price = price;
-		this.drinkAndFruits = drinkAndFruits;
+	public String getMenuID() {
+		return menuID;
 	}
 
-
-	public String getFoodName() {
-		return foodName;
+	public String getDate() {
+		return Date;
 	}
-
-	public void setFoodName(String foodName) {
-		this.foodName = foodName;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public String getDrinkAndFruits() {
-		return drinkAndFruits;
-	}
-
-	public void setDrink(String drinkAndFruits) {
-		this.drinkAndFruits = drinkAndFruits;
-	}
+	
 }

@@ -3,12 +3,22 @@ public class Order {
 	private String mealSet;
 	private String drinkFruitsSet;
 	private double price;
+	private String orderID;
 	
-	public Order(String mealSet, String drinkFruitsSet, double price) {
+	public Order(String orderID, String mealSet, String drinkFruitsSet, double price) {
+		this.orderID = orderID;
 		this.mealSet = mealSet;
 		this.drinkFruitsSet = drinkFruitsSet;
 		this.price = price;
 	}
+	public String orderID() {
+		return orderID;
+	}
+
+	public void orderID(String orderID) {
+		this.orderID = orderID;
+	}
+	
 
 	public String getMealSet() {
 		return mealSet;
