@@ -18,6 +18,10 @@ public class C206_CaseStudyTest {
 	private Menu menu1;
 	private Menu menu2;
 	private Menu menu3;
+	private Menu menu4;
+	private Menu menu5;
+	private Menu menu6;
+	private Menu menu7;
 	private Item item1;
 	private Item item2;
 	private Item item3;
@@ -43,16 +47,16 @@ public class C206_CaseStudyTest {
 		order1 = new Order("W101","Western food", "Apple and Juice", 4.50);
 		order2 = new Order("A101","Asian food", "Grapes and Green Tea", 4.00);
 		order3 = new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50);
-<<<<<<< HEAD
+
 		//day1bill
 		bills1 = new Bills("W101","Western food", "Apple and Juice", 4.50,(4.50*20));
 		bills2 = new Bills("A101","Asian food", "Grapes and Green Tea", 4.00, (4*20));
 		bills3 = new Bills("V101","Vegeterian food", "Orange and Soy Milk", 3.50, (3.50*20));
 		//day1item
-		item1 = new Item("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50);
-		item2 = new Item("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50);
-		item3 = new Item("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00);
-=======
+//		item1 = new Item("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50);
+//		item2 = new Item("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50);
+//		item3 = new Item("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00);
+
 		
 		bills1 = new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20));
 		bills2 = new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20));
@@ -61,11 +65,25 @@ public class C206_CaseStudyTest {
 		item1 = new Item("127", "Western food", "Chicken Chop", 4.50);
 		item2 = new Item("125", "Drink", "Apple Juice" , 1.50);
 		item3 = new Item("126", "Fruit", "Banana" , 1.00);
->>>>>>> branch 'master' of https://github.com/21018442-liu-keyu-michelle/C206_CaseStudy.git
 		
 		//menu
 
 	}
+		// 1 week menu
+				public void DailyMenu(String ID, String date, String Western, String Asian, String Veggie,
+						String drink1, String drink2, String fruit1, String fruit2) {
+				menu1 = new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice");
+				menu2 = new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice","Orange Juice", "Apple Juice" ,"Watermelon","Honey Dew");
+				menu3 = new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice","Coke", "Pear", "Papaya");
+				menu4 = new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea","Sugar Cane Juice", "Mango", "Blueberry");
+				menu5 = new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice");
+				menu6 = new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite","7 Up", "Strawberries", "Avocado");
+				menu7 = new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid","100 Plus", "Blackberry", "Raspberry");
+			}
+
+		
+
+
 
 	@Test
 	public void testAddParents() {
@@ -150,32 +168,45 @@ public class C206_CaseStudyTest {
 		String AllMenu = C206_CaseStudy.retrieveAllMenu(menuList);
 		String testOutput = "";
 		assertEquals("Check that ViewMenu displays the correct menu", testOutput, AllMenu);
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35.2f %-40s %-45s\n", "127", "Western food",
-				"Chicken Chop", "Apple Juice", "Banana", 4.50, "W101", "01-08-2022");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35.2f %-40s %-45s\n", "128", "Asian food",
-				"Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35.2f %-40s %-45s\n", "129", "Vegeterian food",
-				"Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022");
-	
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n", "128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice","Orange Juice", "Apple Juice" ,"Watermelon","Honey Dew");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n", "129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice","Coke", "Pear", "Papaya");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n", "130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea","Sugar Cane Juice", "Mango", "Blueberry");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice" );
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite","7 Up", "Strawberries", "Avocado");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid","100 Plus", "Blackberry", "Raspberry");
+
 	}
+
 
 	@Test
 		public void testViewMenu() {
-			assertNotNull("Test if there is an existing Menu to view", menuList);
-			String allMenu = C206_CaseStudy.retrieveAllMenu(menuList);
-			String testOutput = "";
-			assertEquals("Check that ViewMenu retrieves the correct menu", testOutput, allMenu);
-			menuList.add(new Menu("127", "Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022"));
-			menuList.add(new Menu("128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022"));
-			menuList.add(new Menu("129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022"));
-			assertEquals("Test if that menuList arraylist size is 3?", 3, menuList.size());
-			testOutput = String.format("%-10s %-20s %-30s %-40s %-50s %-60.2f %-70s %-80s\n", "127","Western food", "Chicken Chop" , "Apple Juice", "Banana", 4.50, "W101", "01-08-2022");
-			testOutput += String.format("%-10s %-20s %-30s %-40s %-50s %-60.2f %-70s %-80s\n","128", "Asian food", "Japanese Bento", "Green Tea", "Grapes", 3.50, "A101", "01-08-2022");
-			testOutput += String.format("%-10s %-20s %-30s %-40s %-50s %-60.2f %-70s %-80s\n","129", "Vegeterian food", "Vegan meat with rice", "Soy Milk", "Orange", 3.00, "V101", "01-08-2022");
-
-		
+		assertNotNull("Test if there is an existing Menu to view", menuList);
+		String allMenu = C206_CaseStudy.retrieveAllMenu(menuList);
+		String testOutput = "";
+		assertEquals("Check that ViewMenu retrieves the correct menu", testOutput, allMenu);
+		menuList.add(new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice"));
+		menuList.add(new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice","Orange Juice", "Apple Juice" ,"Watermelon","Honey Dew"));
+		menuList.add(new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice","Coke", "Pear", "Papaya"));
+		menuList.add(new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea","Sugar Cane Juice", "Mango", "Blueberry"));
+		menuList.add(new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice"));
+		menuList.add(new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite","7 Up", "Strawberries", "Avocado"));
+		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid","100 Plus", "Blackberry", "Raspberry"));
+		assertEquals("Test if that menuList arraylist size is 7?", 7, menuList.size());
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n", "128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice","Orange Juice", "Apple Juice" ,"Watermelon","Honey Dew");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n", "129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice","Coke", "Pear", "Papaya");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n", "130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea","Sugar Cane Juice", "Mango", "Blueberry");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice" );
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite","7 Up", "Strawberries", "Avocado");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid","100 Plus", "Blackberry", "Raspberry");
 	
-		}
+
+	
+
+	}
+	
+	
 	@Test
 	public void testDeleteMenu() {
 		String allmenu = C206_CaseStudy.retrieveAllMenu(menuList);
