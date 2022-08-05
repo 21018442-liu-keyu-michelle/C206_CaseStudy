@@ -12,7 +12,7 @@ public class C206_CaseStudy{
 		ArrayList<Menu> menuList = new ArrayList<Menu>();
 		ArrayList<Item> itemList = new ArrayList<Item>();
 	
-		parentList.add(new Parent(1234, 7890, "Jeanlim12", 91459270));
+		parentList.add(new Parent(1234, "7890", "Jeanlim12", 91459270));
 		studentList.add(new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg"));
 		
 		orderList.add(new Order("W101","Western food", "Apple and Juice", 4.50));
@@ -27,6 +27,13 @@ public class C206_CaseStudy{
 		itemList.add(new Item("127", "Western food", "Chicken Chop" , 4.50));
 		itemList.add(new Item("125", "Drink", "Apple Juice" , 1.50));
 		itemList.add(new Item("126", "Fruit", "Banana" , 1.00));
+		
+		itemList.add(new Item("128", "Asian food", "Beef Don", 5.50));
+		itemList.add(new Item("129", "Drink", "Orange Juice", 1.50));
+		itemList.add(new Item ("130", "Fruit", "Grape", 2.00));
+		itemList.add(new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50));
+		itemList.add(new Item("132", "Drink", "Soy Milk", 1.00));
+		itemList.add(new Item("133", "Fruit", "Apple", 1.00));
 		
 		menuList.add(new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
 				"Orange Juice", "Watermelon Slice", "Apple Slice"));

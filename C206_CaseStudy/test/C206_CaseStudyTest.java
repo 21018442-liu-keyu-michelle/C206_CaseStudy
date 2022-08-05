@@ -25,6 +25,13 @@ public class C206_CaseStudyTest {
 	private Item item1;
 	private Item item2;
 	private Item item3;
+	private Item item4;
+	private Item item5;
+	private Item item6;
+	private Item item7;
+	private Item item8;
+	private Item item9;
+	
 
 	// private ArrayList<Account> accountList = new ArrayList<Account>();
 	private ArrayList<Parent> parentList = new ArrayList<Parent>();
@@ -41,7 +48,7 @@ public class C206_CaseStudyTest {
 	@Before
 	public void setUp() throws Exception {
 		// prepare test data
-		parent = new Parent(1234, 7890, "Jeanlim12", 91459270);
+		parent = new Parent(1234, "7890", "Jeanlim12", 91459270);
 		student = new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg");
 
 		order1 = new Order("W101","Western food", "Apple and Juice", 4.50);
@@ -55,19 +62,33 @@ public class C206_CaseStudyTest {
 		item1 = new Item("127", "Western food", "Chicken Chop", 4.50);
 		item2 = new Item("125", "Drink", "Apple Juice" , 1.50);
 		item3 = new Item("126", "Fruit", "Banana" , 1.00);
+		item4 = new Item("128", "Asian food", "Beef Don", 5.50);
+		item5 = new Item("129", "Drink", "Orange Juice", 1.50);
+		item6 = new Item ("130", "Fruit", "Grape", 2.00);
+		item7 = new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50);
+		item8 = new Item("132", "Drink", "Soy Milk", 1.00);
+		item9 = new Item("133", "Fruit", "Apple", 1.00);
+		
 	}
-		// 1 week menu
-				public void DailyMenu(String ID, String date, String Western, String Asian, String Veggie,
-						String drink1, String drink2, String fruit1, String fruit2) {
-				menu1 = new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice");
-				menu2 = new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice","Orange Juice", "Apple Juice" ,"Watermelon","Honey Dew");
-				menu3 = new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice","Coke", "Pear", "Papaya");
-				menu4 = new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea","Sugar Cane Juice", "Mango", "Blueberry");
-				menu5 = new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea","Orange Juice", "Watermelon Slice", "Apple Slice");
-				menu6 = new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite","7 Up", "Strawberries", "Avocado");
-				menu7 = new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid","100 Plus", "Blackberry", "Raspberry");
-			}
 
+	// 1 week menu
+	public void DailyMenu(String ID, String date, String Western, String Asian, String Veggie, String drink1,
+			String drink2, String fruit1, String fruit2) {
+		menu1 = new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
+				"Orange Juice", "Watermelon Slice", "Apple Slice");
+		menu2 = new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice", "Orange Juice",
+				"Apple Juice", "Watermelon", "Honey Dew");
+		menu3 = new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice",
+				"Coke", "Pear", "Papaya");
+		menu4 = new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
+				"Sugar Cane Juice", "Mango", "Blueberry");
+		menu5 = new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
+				"Orange Juice", "Watermelon Slice", "Apple Slice");
+		menu6 = new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite", "7 Up",
+				"Strawberries", "Avocado");
+		menu7 = new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
+				"Blackberry", "Raspberry");
+	}
 		
 
 
