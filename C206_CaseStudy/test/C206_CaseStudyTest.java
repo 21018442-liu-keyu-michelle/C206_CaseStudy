@@ -7,8 +7,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class C206_CaseStudyTest {
-	private Parent parent;
-	private Student student;
+	private Parent parent1;
+	private Parent parent2;
+	private Parent parent3;
+	private Student student1;
+	private Student student2;
+	private Student student3;
 	private Order order1;
 	private Order order2;
 	private Order order3;
@@ -33,8 +37,12 @@ public class C206_CaseStudyTest {
 	@Before
 	public void setUp() throws Exception {
 		// prepare test data
-		parent = new Parent(1234, 7890, "Jeanlim12", 91459270);
-		student = new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg");
+		parent1 = new Parent(1234, "7890", "Jeanlim12", 91459270);
+		parent2 = new Parent(1235, "qweasdzxc", "JonTay14", 99135697);
+		parent3 = new Parent(1236, "abcdefg", "VenessaOng69", 91524644);
+		student1 = new Student(3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
+		student2 = new Student(3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg");
+		student3 = new Student(3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg");
 		order1 = new Order("Western food", "Apple and Juice", 4.50);
 		order2 = new Order("Asian food", "Grapes and Green Tea", 4.00);
 		order3 = new Order("Vegeterian food", "Orange and Soy Milk", 3.50);
@@ -75,40 +83,45 @@ public class C206_CaseStudyTest {
 	
 	@Test
 	public void testRetrieveAllParent() {
-			assertNotNull("Test if there is valid parent arraylist to add to", parent);
-			String allMenuItems= C206_CaseStudy.retrieveAllParent(parent);
+			assertNotNull("Test if there is valid parent arraylist to add to", parentList);
+			String allParent= C206_CaseStudy.retrieveAllParent(parentList);
 			String testOutput = "";
-			assertEquals("Check that ViewAllParents", testOutput, allMenuItems);
+			assertEquals("Check that ViewAllParents", testOutput, allParent);
 			C206_CaseStudy.addParent(parentList, parent1);
 			C206_CaseStudy.addParent(parentList, parent2);
 			C206_CaseStudy.addParent(parentList, parent3);
 			assertEquals("Test if that Camcorder arraylist size is 3?", 3, parentList.size());
 			allParent= C206_CaseStudy.retrieveAllParent(parentList);
-			testOutput = String.format(null, testOutput, null);
-			testOutput += String.format(null, testOutput, null);
-			testOutput += String.format(null, testOutput, null);
-			assertEquals("Check that ViewAllParents", testOutput, allParents);
+			testOutput = String.format("%-15d %-30s %-10s %-10d", 1234, "7890", "Jeanlim12", 91459270);
+			testOutput += String.format("%-15d %-30s %-10s %-10d", 1235, "qweasdzxc", "JonTay14", 99135697);
+			testOutput += String.format("%-15d %-30s %-10s %-10d", 1236, "abcdefg", "VenessaOng69", 91524644);
+			assertEquals("Check that ViewAllParents", testOutput, allParent);
 			
 	}
 	@Test
 	public void testRetrieveAllStudent() {
-		assertNotNull("Test if there is valid parent arraylist to add to", studentList);
-		String allMenuItems= C206_CaseStudy.retrieveAllStudetnt(studentList);
+		assertNotNull("Test if there is valid student arraylist to add to", studentList);
+		String allStudent= C206_CaseStudy.retrieveAllstudent(studentList);
 		String testOutput = "";
-		assertEquals("Check that ViewAllStudents", testOutput, allMenuItems);
+		assertEquals("Check that ViewAllStudent", testOutput, allStudent);
 		C206_CaseStudy.addStudent(studentList, student1);
 		C206_CaseStudy.addStudent(studentList, student2);
 		C206_CaseStudy.addStudent(studentList, student3);
 		assertEquals("Test if that Camcorder arraylist size is 3?", 3, studentList.size());
-		allStudent= C206_CaseStudy.retrieveAllStudent(studentList);
-		testOutput = String.format(null, testOutput, null);
-		testOutput += String.format(null, testOutput, null);
-		testOutput += String.format(null, testOutput, null);
-		assertEquals("Check that ViewAllStudents", testOutput, allStudents);
+		allStudent= C206_CaseStudy.retrieveAllstudent(studentList);
+		testOutput = String.format("%-15d %-30s %-10s %-10s", 3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
+		testOutput += String.format("%-15d %-30s %-10s %-10s", 3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg");
+		testOutput += String.format("%-15d %-30s %-10s %-10s", 3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg");
+		assertEquals("Check that ViewAllStudents", testOutput, allStudent);
 	}
 
 	@Test
 	public void testDeleteParent() {
+
+		C206_CaseStudy.addParent(parentList, parent1);
+		C206_CaseStudy.addParent(parentList, parent2);
+		C206_CaseStudy.addParent(parentList, parent3);
+		
 		assertNotNull("Test if there is an existing Parent arrayList to delete ", parentList);
 		C206_CaseStudy.deleteParent(parentList, parent1);
 		assertEquals("Test if that Parent arraylist size is 2?", 2, parentList.size());
@@ -120,7 +133,12 @@ public class C206_CaseStudyTest {
 	
 	@Test
 	public void testDeleteStudent() {
-		assertNotNull("Test if there is an existing Parent arrayList to delete ", studentList);
+		
+		C206_CaseStudy.addStudent(studentList, student1);
+		C206_CaseStudy.addStudent(studentList, student2);
+		C206_CaseStudy.addStudent(studentList, student3);
+		
+		assertNotNull("Test if there is an existing Student arrayList to delete ", studentList);
 		C206_CaseStudy.deleteStudent(studentList, student1);
 		assertEquals("Test if that student arraylist size is 2?", 2, studentList.size());
 		C206_CaseStudy.deleteStudent(studentList, student2);

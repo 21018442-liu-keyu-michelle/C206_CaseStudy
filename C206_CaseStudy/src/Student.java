@@ -2,7 +2,8 @@
 public class Student extends Account {
 	private String schoolEmail;
 
-	public Student(int accountNo, int password, String username, String schoolEmail) {
+
+	public Student(int accountNo, String password, String username, String schoolEmail) {
 		super(accountNo, password, username);
 		this.schoolEmail = schoolEmail;
 	}
@@ -15,6 +16,11 @@ public class Student extends Account {
 		this.schoolEmail = schoolEmail;
 	}
 	
+	public String toString() {
+		String studentInfo = "";
+		studentInfo = String.format("%-15d %-30s %-10s %-10s", getAccountNo(), getPassword(), getUsername(), schoolEmail);
 	
+		return studentInfo;
+	}
 
 }

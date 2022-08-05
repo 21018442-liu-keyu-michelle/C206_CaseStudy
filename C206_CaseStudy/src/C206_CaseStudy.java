@@ -11,8 +11,10 @@ public class C206_CaseStudy{// student 1 - bala
 		ArrayList<Bills> billList = new ArrayList<Bills>();
 		ArrayList<Menu> menuBank = new ArrayList<Menu>();
 		
-		parentList.add(new Parent(1234, 7890, "Jeanlim12", 91459270));
+		parentList.add(new Parent(1234, "7890", "Jeanlim12", 91459270));
 		studentList.add(new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg"));
+		
+		
 		orderList.add(new Order("Western food", "Apple and Juice", 4.50));
 		orderList.add(new Order("Asian food", "Grapes and Green Tea", 4.00));
 		orderList.add(new Order("Vegeterian food", "Orange and Soy Milk", 3.50));
@@ -167,21 +169,14 @@ public class C206_CaseStudy{// student 1 - bala
 	
 	// ========================= Account method (Done by Baala) ===============================================================
 	
-	public static void addParent(Parent parent, Object parent2) {
+	public static void addParent(ArrayList<Parent> parentList, Parent p) {
 		// TODO Auto-generated method stub
-		inputParents();
-		Object p;
-		ParentList.add(p);
-		C206_CaseStudy.setHeader("Parents LIST");
-		String output = String.format("%-15s %-30s %-10s %-10s\n", "Account number", "Password",
-				 "Username", "Contact Number");
-		 output += addParent(parent);
-		System.out.println(output);
-		return null;
+		//inputParents();
+		parentList.add(p);
 	}
 
 	
-	private static void inputParents() {
+	private static Parent inputParents() {
 		// TODO Auto-generated method stub
 		int accountNo = Helper.readInt("Enter account number > ");
 		String password = Helper.readString("Enter password > ");
@@ -189,30 +184,55 @@ public class C206_CaseStudy{// student 1 - bala
 		int contactNo = Helper.readInt("Enter contact number > ");
 		
 		Parent p = new Parent(accountNo, password, username, contactNo);
+		return p;
 		
 	}
-	public static String retrieveAllParent(Parent parent) {
+	public static String retrieveAllParent(ArrayList<Parent> parentList) {
 		// TODO Auto-generated method stub
-		C206_CaseStudy.setHeader("Parents LIST");
-		String output = String.format("%-15s %-30s %-10s %-10s\n", "Account number", "Password",
-				 "Username", "Contact Number");
-		 output += retreiveAllParent(parent);
-		System.out.println(output);
-		return null;
+		String output = "";
+		 
+		for (Parent p : parentList) {
+			output += p.toString();
+		}
+		return output;
 	}
-	public static void deleteParent(Student student, Object parent1) {
+	public static void deleteParent(ArrayList<Parent> parentList, Parent p) {
 		// TODO Auto-generated method stub
-		C206_CaseStudy.setHeader("Parents LIST");
-		String output = String.format("%-15s %-30s %-10s %-10s\n", "Account number", "Password",
-				 "Username", "Contact Number");
-		 output += deleteParent(parent);
-		System.out.println(output);
-		return null;
-		inputParents();
-		ParentList.remove(p);
+		parentList.remove(p);
+	}
+// ======================================================================================================
+	public static void addStudent(ArrayList<Student> studentList, Student s) {
+		// TODO Auto-generated method stub
+		//inputParents();
+		studentList.add(s);
+	}
+
+	
+	private static Student inputStudents() {
+		// TODO Auto-generated method stub
+		int accountNo = Helper.readInt("Enter account number > ");
+		String password = Helper.readString("Enter password > ");
+		String username = Helper.readString("Enter username > ");
+		String schoolEmail = Helper.readString("Enter school Email > ");
+		
+		Student s = new Student(accountNo, password, username, schoolEmail);
+		return s;
+		
+	}
+	public static String retrieveAllstudent(ArrayList<Student> studentList) {
+		// TODO Auto-generated method stub
+		String output = "";
+		 
+		for (Student s : studentList) {
+			output += s.toString();
+		}
+		return output;
+	}
+	public static void deleteStudent(ArrayList<Student> studentList, Student s) {
+		// TODO Auto-generated method stub
+		studentList.remove(s);
 	}
 	
-		
 
 }
 
