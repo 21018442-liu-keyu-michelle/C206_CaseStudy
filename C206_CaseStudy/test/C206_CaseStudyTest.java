@@ -62,34 +62,34 @@ public class C206_CaseStudyTest {
 		orderList.add(new Order("A101", "Asian food", "Grapes and Green Tea", 4.00));
 		orderList.add(new Order("V101", "Vegeterian food", "Orange and Soy Milk", 3.50));
 
-		billList.add(new Bills("W101", "Western food", "Apple and Juice", 3.50, (3.50 * 20)));
-		billList.add(new Bills("A101", "Asian food", "Grapes and Green Tea", 3.00, (3 * 20)));
-		billList.add(new Bills("V101", "Vegeterian food", "Orange and Soy Milk", 2.50, (2.50 * 20)));
+		bills1 = new Bills("W101", "Western food", "Apple and Juice", 4.50, (4.50 * 20));
+		bills2 = new Bills("A101", "Asian food", "Grapes and Green Tea", 4.00, (4 * 20));
+		bills3 = new Bills("V101", "Vegeterian food", "Orange and Soy Milk", 3.50, (3.50 * 20));
 
-		itemList.add(new Item("127", "Western food", "Chicken Chop", 4.50));
-		itemList.add(new Item("125", "Drink", "Apple Juice", 1.50));
-		itemList.add(new Item("126", "Fruit", "Banana", 1.00));
-		itemList.add(new Item("128", "Asian food", "Beef Don", 5.50));
-		itemList.add(new Item("129", "Drink", "Orange Juice", 1.50));
-		itemList.add(new Item("130", "Fruit", "Grape", 2.00));
-		itemList.add(new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50));
-		itemList.add(new Item("132", "Drink", "Soy Milk", 1.00));
-		itemList.add(new Item("133", "Fruit", "Apple", 1.00));
+		item1 = new Item("127", "Western food", "Chicken Chop", 4.50);
+		item2 = new Item("125", "Drink", "Apple Juice", 1.50);
+		item3 = new Item("126", "Fruit", "Banana", 1.00);
+		item4 = new Item("128", "Asian food", "Beef Don", 5.50);
+		item5 = new Item("129", "Drink", "Orange Juice", 1.50);
+		item6 = new Item("130", "Fruit", "Grape", 2.00);
+		item7 = new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50);
+		item8 = new Item("132", "Drink", "Soy Milk", 1.00);
+		item9 = new Item("133", "Fruit", "Apple", 1.00);
 
-		menuList.add(new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice"));
-		menuList.add(new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
-				"Orange Juice", "Apple Juice", "Chocolate Milk", "Watermelon", "Honey Dew", "Grapes"));
-		menuList.add(new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
-				"Blueberry Juice", "Coke", "Pomegranate Juice", "Pear", "Papaya", "Coconut"));
-		menuList.add(new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
-				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry", "Peach Slice"));
-		menuList.add(new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice"));
-		menuList.add(new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
-				"7 Up", "Ribena", "Strawberries", "Avocado", "Passion Fruit"));
-		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
-				"Milk Tea", "Blackberry", "Raspberry", "Grapefruit"));
+		menu1 = new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
+				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice");
+		menu2 = new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
+				"Orange Juice", "Apple Juice", "Chocolate Milk", "Watermelon", "Honey Dew", "Grapes");
+		menu3 = new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
+				"Blueberry Juice", "Coke", "Pomegranate Juice", "Pear", "Papaya", "Coconut");
+		menu4 = new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
+				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry", "Peach Slice");
+		menu5 = new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
+				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice");
+		menu6 = new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
+				"7 Up", "Ribena", "Strawberries", "Avocado", "Passion Fruit");
+		menu7 = new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
+				"Milk Tea", "Blackberry", "Raspberry", "Grapefruit");
 	}
 
 	// 1 week menu
@@ -357,6 +357,7 @@ public class C206_CaseStudyTest {
 		testOutput += String.format("%-15s %-30s %-10f", "Asian food", "Grapes and Green Tea", 4.00);
 		testOutput += String.format("%-15s %-30s %-10f", "Vegeterian food", "Orange and Soy Milk", 3.50);
 		assertEquals("Check that viewAllLunchBoxOrder", testOutput, allLunchBoxOrder);
+
 
 	}
 
