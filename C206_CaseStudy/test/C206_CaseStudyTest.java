@@ -7,8 +7,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class C206_CaseStudyTest {
-	private Parent parent;
-	private Student student;
+	private Parent parent1;
+	private Parent parent2;
+	private Parent parent3;
+	private Student student1;
+	private Student student2;
+	private Student student3;
 	private Order order1;
 	private Order order2;
 	private Order order3;
@@ -31,7 +35,6 @@ public class C206_CaseStudyTest {
 	private Item item7;
 	private Item item8;
 	private Item item9;
-	
 
 	// private ArrayList<Account> accountList = new ArrayList<Account>();
 	private ArrayList<Parent> parentList = new ArrayList<Parent>();
@@ -47,28 +50,46 @@ public class C206_CaseStudyTest {
 
 	@Before
 	public void setUp() throws Exception {
+
 		// prepare test data
-		parent = new Parent(1234, "7890", "Jeanlim12", 91459270);
-		student = new Student(3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
+		parent1 = new Parent(1234, "7890", "Jeanlim12", 91459270);
+		parent2 = new Parent(1235, "qweasdzxc", "JonTay14", 99135697);
+		parent3 = new Parent(1236, "abcdefg", "VenessaOng69", 91524644);
+		student1 = new Student(3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
+		student2 = new Student(3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg");
+		student3 = new Student(3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg");
+		orderList.add(new Order("W101", "Western food", "Apple and Juice", 4.50));
+		orderList.add(new Order("A101", "Asian food", "Grapes and Green Tea", 4.00));
+		orderList.add(new Order("V101", "Vegeterian food", "Orange and Soy Milk", 3.50));
 
-		order1 = new Order("W101", "Western food", "Apple and Juice", 4.50);
-		order2 = new Order("A101", "Asian food", "Grapes and Green Tea", 4.00);
-		order3 = new Order("V101", "Vegeterian food", "Orange and Soy Milk", 3.50);
+		billList.add(new Bills("W101", "Western food", "Apple and Juice", 3.50, (3.50 * 20)));
+		billList.add(new Bills("A101", "Asian food", "Grapes and Green Tea", 3.00, (3 * 20)));
+		billList.add(new Bills("V101", "Vegeterian food", "Orange and Soy Milk", 2.50, (2.50 * 20)));
 
-		bills1 = new Bills("W101", "Western food", "Apple and Juice", 3.50, (3.50 * 20));
-		bills2 = new Bills("A101", "Asian food", "Grapes and Green Tea", 3.00, (3 * 20));
-		bills3 = new Bills("V101", "Vegeterian food", "Orange and Soy Milk", 2.50, (2.50 * 20));
+		itemList.add(new Item("127", "Western food", "Chicken Chop", 4.50));
+		itemList.add(new Item("125", "Drink", "Apple Juice", 1.50));
+		itemList.add(new Item("126", "Fruit", "Banana", 1.00));
+		itemList.add(new Item("128", "Asian food", "Beef Don", 5.50));
+		itemList.add(new Item("129", "Drink", "Orange Juice", 1.50));
+		itemList.add(new Item("130", "Fruit", "Grape", 2.00));
+		itemList.add(new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50));
+		itemList.add(new Item("132", "Drink", "Soy Milk", 1.00));
+		itemList.add(new Item("133", "Fruit", "Apple", 1.00));
 
-		item1 = new Item("127", "Western food", "Chicken Chop", 4.50);
-		item2 = new Item("125", "Drink", "Apple Juice" , 1.50);
-		item3 = new Item("126", "Fruit", "Banana" , 1.00);
-		item4 = new Item("128", "Asian food", "Beef Don", 5.50);
-		item5 = new Item("129", "Drink", "Orange Juice", 1.50);
-		item6 = new Item ("130", "Fruit", "Grape", 2.00);
-		item7 = new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50);
-		item8 = new Item("132", "Drink", "Soy Milk", 1.00);
-		item9 = new Item("133", "Fruit", "Apple", 1.00);
-		
+		menuList.add(new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
+				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice"));
+		menuList.add(new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
+				"Orange Juice", "Apple Juice", "Chocolate Milk", "Watermelon", "Honey Dew", "Grapes"));
+		menuList.add(new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
+				"Blueberry Juice", "Coke", "Pomegranate Juice", "Pear", "Papaya", "Coconut"));
+		menuList.add(new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
+				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry", "Peach Slice"));
+		menuList.add(new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
+				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice"));
+		menuList.add(new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
+				"7 Up", "Ribena", "Strawberries", "Avocado", "Passion Fruit"));
+		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
+				"Milk Tea", "Blackberry", "Raspberry", "Grapefruit"));
 	}
 
 	// 1 week menu
@@ -78,7 +99,7 @@ public class C206_CaseStudyTest {
 				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice");
 		menu2 = new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice", "Orange Juice",
 				"Apple Juice", "Chocolate Milk", "Watermelon", "Honey Dew", "Grapes");
-		menu3 = new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice",
+		menu3 = new Menu("129", "03- 08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice",
 				"Coke", "Pomegranate Juice", "Pear", "Papaya", "Coconut");
 		menu4 = new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
 				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry", "Peach Slice");
@@ -93,31 +114,104 @@ public class C206_CaseStudyTest {
 	@Test
 	public void testAddParents() {
 		// Item list is not null, so that can add a new item - boundary
-
+		assertNotNull("Test if there is an existing parents arrayList to add to", parentList);
+		C206_CaseStudy.addParent(parentList, parent1);
+		assertEquals("Test if that parentarraylist size is 1?", 1, parentList.size());
+		assertSame("Test that Parent is added same as 1st item of the list?", parent1, parentList.get(0));
+		C206_CaseStudy.addParent(parentList, parent2);
+		C206_CaseStudy.addParent(parentList, parent3);
+		assertEquals("Test that parent arraylist size is 3?", 3, parentList.size());
+		assertSame("Test that parent is added same as 3rd item of the list?", parent3, parentList.get(2));
+		
 	}
 
 	@Test
 	public void testAddStudent() {
+
+		assertNotNull("Test if there is an existing student arrayList to add to", studentList);
+		C206_CaseStudy.addStudent(studentList, student1);
+		assertEquals("Test if that parentarraylist size is 1?", 1, studentList.size());
+		assertSame("Test that Student is added same as 1st item of the list?", student1, studentList.get(0));
+		C206_CaseStudy.addStudent(studentList, student2);
+		C206_CaseStudy.addStudent(studentList, student3);
+		assertEquals("Test that student arraylist size is 3?", 3, studentList.size());
+		assertSame("Test that student is added same as 3rd item of the list?", student3, studentList.get(2));
+
+
 
 	}
 
 	@Test
 	public void testRetrieveAllParent() {
 
+			assertNotNull("Test if there is valid parent arraylist to add to", parentList);
+			String allParent= C206_CaseStudy.retrieveAllParent(parentList);
+			String testOutput = "";
+			assertEquals("Check that ViewAllParents", testOutput, allParent);
+			C206_CaseStudy.addParent(parentList, parent1);
+			C206_CaseStudy.addParent(parentList, parent2);
+			C206_CaseStudy.addParent(parentList, parent3);
+			assertEquals("Test if that Camcorder arraylist size is 3?", 3, parentList.size());
+			allParent= C206_CaseStudy.retrieveAllParent(parentList);
+			testOutput = String.format("%-15d %-30s %-10s %-10d", 1234, "7890", "Jeanlim12", 91459270);
+			testOutput += String.format("%-15d %-30s %-10s %-10d", 1235, "qweasdzxc", "JonTay14", 99135697);
+			testOutput += String.format("%-15d %-30s %-10s %-10d", 1236, "abcdefg", "VenessaOng69", 91524644);
+			assertEquals("Check that ViewAllParents", testOutput, allParent);
+			
+
+
+
 	}
 
 	@Test
 	public void testRetrieveAllStudent() {
 
+		assertNotNull("Test if there is valid student arraylist to add to", studentList);
+		String allStudent= C206_CaseStudy.retrieveAllstudent(studentList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllStudent", testOutput, allStudent);
+		C206_CaseStudy.addStudent(studentList, student1);
+		C206_CaseStudy.addStudent(studentList, student2);
+		C206_CaseStudy.addStudent(studentList, student3);
+		assertEquals("Test if that Camcorder arraylist size is 3?", 3, studentList.size());
+		allStudent= C206_CaseStudy.retrieveAllstudent(studentList);
+		testOutput = String.format("%-15d %-30s %-10s %-10s", 3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
+		testOutput += String.format("%-15d %-30s %-10s %-10s", 3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg");
+		testOutput += String.format("%-15d %-30s %-10s %-10s", 3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg");
+		assertEquals("Check that ViewAllStudents", testOutput, allStudent);
+
+
+
 	}
 
 	@Test
 	public void testDeleteParent() {
+		C206_CaseStudy.addParent(parentList, parent1);
+		C206_CaseStudy.addParent(parentList, parent2);
+		C206_CaseStudy.addParent(parentList, parent3);
+		
+		assertNotNull("Test if there is an existing Parent arrayList to delete ", parentList);
+		C206_CaseStudy.deleteParent(parentList, parent1);
+		assertEquals("Test if that Parent arraylist size is 2?", 2, parentList.size());
+		C206_CaseStudy.deleteParent(parentList, parent2);
+		assertEquals("Test that parent arraylist size is 1?", 1, parentList.size());
+		C206_CaseStudy.deleteParent(parentList, parent3);
+		assertEquals("Test that parent arraylist size is 0?", 0, parentList.size());
 
 	}
-
 	@Test
 	public void testDeleteStudent() {
+		C206_CaseStudy.addStudent(studentList, student1);
+		C206_CaseStudy.addStudent(studentList, student2);
+		C206_CaseStudy.addStudent(studentList, student3);
+		
+		assertNotNull("Test if there is an existing Student arrayList to delete ", studentList);
+		C206_CaseStudy.deleteStudent(studentList, student1);
+		assertEquals("Test if that student arraylist size is 2?", 2, studentList.size());
+		C206_CaseStudy.deleteStudent(studentList, student2);
+		assertEquals("Test that student arraylist size is 1?", 1, studentList.size());
+		C206_CaseStudy.deleteStudent(studentList, student3);
+		assertEquals("Test that student arraylist size is 0?", 0, studentList.size());
 
 	}
 

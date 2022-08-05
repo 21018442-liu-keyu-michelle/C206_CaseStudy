@@ -12,14 +12,15 @@ public class C206_CaseStudy{
 		ArrayList<Menu> menuList = new ArrayList<Menu>();
 		ArrayList<Item> itemList = new ArrayList<Item>();
 	
-		parentList.add(new Parent(1234, "7890", "Jeanlim12", 91459270));
+		parentList.add(new Parent(1235, "qweasdzxc", "JonTay14", 99135697));
+		parentList.add(new Parent(1236, "abcdefg", "VenessaOng69", 91524644));
 		studentList.add(new Student(3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg"));
-		
+		studentList.add(new Student(3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg"));
+		studentList.add(new Student(3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg"));
 		orderList.add(new Order("W101","Western food", "Apple and Juice", 4.50));
 		orderList.add(new Order("A101","Asian food", "Grapes and Green Tea", 4.00));
 		orderList.add(new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50));
-		
-		
+
 		billList.add(new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20)));
 		billList.add(new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20)));
 		billList.add(new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20)));
@@ -155,7 +156,6 @@ public class C206_CaseStudy{
 		
 		return output;
 	}
-
 	public static Item inputMenuItem() {
 		String itemID = Helper.readString("Enter item ID > ");
 		String category = Helper.readString("Enter category > ");
@@ -313,6 +313,73 @@ public static void ViewAllMenu(ArrayList<Menu> menuList) {
 		billList.remove(b);
 		
 	}
+	
+	// ========================= Account method (Done by Baala) ===============================================================
+	
+	public static void addParent(ArrayList<Parent> parentList, Parent p) {
+		// TODO Auto-generated method stub
+		//inputParents();
+		parentList.add(p);
+	}
+
+	
+	private static Parent inputParents() {
+		// TODO Auto-generated method stub
+		int accountNo = Helper.readInt("Enter account number > ");
+		String password = Helper.readString("Enter password > ");
+		String username = Helper.readString("Enter username > ");
+		int contactNo = Helper.readInt("Enter contact number > ");
+		
+		Parent p = new Parent(accountNo, password, username, contactNo);
+		return p;
+		
+	}
+	public static String retrieveAllParent(ArrayList<Parent> parentList) {
+		// TODO Auto-generated method stub
+		String output = "";
+		 
+		for (Parent p : parentList) {
+			output += p.toString();
+		}
+		return output;
+	}
+	public static void deleteParent(ArrayList<Parent> parentList, Parent p) {
+		// TODO Auto-generated method stub
+		parentList.remove(p);
+	}
+// ======================================================================================================
+	public static void addStudent(ArrayList<Student> studentList, Student s) {
+		// TODO Auto-generated method stub
+		//inputParents();
+		studentList.add(s);
+	}
+
+	
+	private static Student inputStudents() {
+		// TODO Auto-generated method stub
+		int accountNo = Helper.readInt("Enter account number > ");
+		String password = Helper.readString("Enter password > ");
+		String username = Helper.readString("Enter username > ");
+		String schoolEmail = Helper.readString("Enter school Email > ");
+		
+		Student s = new Student(accountNo, password, username, schoolEmail);
+		return s;
+		
+	}
+	public static String retrieveAllstudent(ArrayList<Student> studentList) {
+		// TODO Auto-generated method stub
+		String output = "";
+		 
+		for (Student s : studentList) {
+			output += s.toString();
+		}
+		return output;
+	}
+	public static void deleteStudent(ArrayList<Student> studentList, Student s) {
+		// TODO Auto-generated method stub
+		studentList.remove(s);
+	}
+	
 
 }
 
