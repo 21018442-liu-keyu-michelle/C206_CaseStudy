@@ -418,6 +418,7 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.deleteOrderBills(billList, bills3);
 		assertEquals("Test that billList arraylist size is 0?", 0, billList.size());
 
+		
 	}
 	public void testUpdateOrderBill() {
 		//boundary

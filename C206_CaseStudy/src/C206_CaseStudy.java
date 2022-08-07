@@ -50,30 +50,59 @@ public class C206_CaseStudy{
 				"7 Up", "Ribena","Strawberries", "Avocado","Passion Fruit"));
 		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus","Milk Tea",
 				"Blackberry", "Raspberry","Grapefruit"));
-	}
-	{
+	
 		int option = 0;
 
-		while (option != 6) {
+		while (option != 16) {
 			menu();
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-		
-				//subMenuUserAccount();
+				
 			} else if (option == 2) {
-				subMenuItem();
+				
 				
 			} else if (option == 3) {
-				subMenu();
+				
 				
 			} else if (option == 4) {
-				subMenuLunchBoxOrders();
+				
 				
 			} else if (option == 5) {
-				subMenuOrderBills();
 				
 			} else if (option == 6) {
+				
+				
+			} else if (option == 7) {
+				
+				
+			} else if (option == 8) {
+				
+				
+			} else if (option == 9) {
+				
+				
+			} else if (option == 10) {
+				Order i = inputLunchBoxOrder();
+				addLunchBox(orderList, i);
+				
+			} else if (option == 11) {
+				viewAllLunchBoxOrder(orderList);
+				
+				
+			} else if (option == 12) {
+				deleteOrderwithOrderId(orderList);
+				
+			} else if (option == 13) {
+				
+			
+			} else if (option == 14) {
+				
+				
+			} else if (option == 15) {
+				
+				
+			} else if (option == 16) {
 				System.out.println("Thank you for using this programme!!");
 					
 			} else {
@@ -88,53 +117,22 @@ public class C206_CaseStudy{
 	//================================= Menu Method (Done by: Fikri) =================================
 	public static void menu() {
 		C206_CaseStudy.setHeader("LUNCHBOXORDER APP");
-		System.out.println("1. Manage user account");
-		System.out.println("2. Manage MenuBank");
-		System.out.println("3. Manage monthly menu");
-		System.out.println("4. Manage LunchBox order");
-		System.out.println("5. Manage OrderBills");
-		System.out.println("6. Quit");
-		Helper.line(80, "-");
-		
-	}
-	//================================= Sub-Menu Method (Done by: Fikri) =================================
-	public static void subMenuUserAccount() {
-		C206_CaseStudy.setHeader("MANAGE USER ACCOUNT");
 		System.out.println("1. Add user account");
 		System.out.println("2. View user account");
 		System.out.println("3. Delete user account");
-		Helper.line(80, "-");
-		
-	}
-	public static void subMenuItem() {
-		C206_CaseStudy.setHeader("MANAGE MENUBANK");
-		System.out.println("1. Add menu item");
-		System.out.println("2. View menu items");
-		System.out.println("3. Loan item");
-		Helper.line(80, "-");
-		
-	}
-	public static void subMenu() {
-		C206_CaseStudy.setHeader("MANAGE MONTHLY MENU");
-		System.out.println("1. Display Inventory");
-		System.out.println("2. Add item");
-		System.out.println("3. Loan item");
-		Helper.line(80, "-");
-		
-	}
-	public static void subMenuLunchBoxOrders() {
-		C206_CaseStudy.setHeader("MANAGE LUNCHBOXORDER");
-		System.out.println("1. Display Inventory");
-		System.out.println("2. Add item");
-		System.out.println("3. Loan item");
-		Helper.line(80, "-");
-		
-	}
-	public static void subMenuOrderBills() {
-		C206_CaseStudy.setHeader("MANAGE ORDERBILLS");
-		System.out.println("1. Display Inventory");
-		System.out.println("2. Add item");
-		System.out.println("3. Loan item");
+		System.out.println("4. Add menu item");
+		System.out.println("5. View menu items");
+		System.out.println("6. Delete menu items");
+		System.out.println("7. Create monthly menu");
+		System.out.println("8. View monthly menu");
+		System.out.println("9. Delete montly menu");
+		System.out.println("10. Add lunch box order");
+		System.out.println("11. View lunch box order");
+		System.out.println("12. Delete lunch box order");
+		System.out.println("13. Add order bill");
+		System.out.println("14. View order bill");
+		System.out.println("15. Delete order bill");
+		System.out.println("16. Quit");
 		Helper.line(80, "-");
 		
 	}
@@ -177,7 +175,7 @@ public class C206_CaseStudy{
 		
 	}
 	//================================= Menu Method (Done by: Jocelyn) =================================
-	public static Menu createMenu() {
+	public static Menu createMenu(ArrayList<Menu> menuList, Menu menu) {
 		String ID = Helper.readString("Enter item ID > ");
 		String date = Helper.readString("Enter  date > ");
 		String Western = Helper.readString("Enter Western food > ");
@@ -190,8 +188,14 @@ public class C206_CaseStudy{
 		String fruit2 = Helper.readString("Enter fruit 2 > ");
 		String fruit3 = Helper.readString("Enter fruit 3 > ");
 
-		Menu menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, drink3, fruit1, fruit2,fruit3);
+		menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, drink3, fruit1, fruit2,fruit3);
+		menuList.add(menu);
 		return menu;
+	}
+	
+	public static void addMenu(ArrayList<Menu> menuList, Menu menu) {
+		menuList.add(menu);
+		
 	}
 
 
@@ -206,20 +210,18 @@ public class C206_CaseStudy{
 		return output;
 
 	}
-public static void ViewAllMenu(ArrayList<Menu> menuList) {
+	public static void ViewAllMenu(ArrayList<Menu> menuList) {
 		
-	C206_CaseStudy.setHeader("MENU LIST");
-	String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","ID", "date", "Western", "Asian", "Veggie", "drink1", "drink2","drink3", "fruit1", "fruit2","fruit3");
-	output += retrieveAllMenu(menuList);
-	System.out.println(output);
-}
+		C206_CaseStudy.setHeader("MENU LIST");
+		String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","ID", "date", "Western", "Asian", "Veggie", "drink1", "drink2","drink3", "fruit1", "fruit2","fruit3");
+		output += retrieveAllMenu(menuList);
+		System.out.println(output);
+	}
 
 
 	public static void deleteMenu(ArrayList<Menu> menuList, Menu menu) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < menuList.size(); i++) {
-			menuList.remove((i));
-		}
+		menuList.remove(menu);
 	}
 	
 	//================================= LunchBox Method (Done by: Fikri) =================================
@@ -234,10 +236,11 @@ public static void ViewAllMenu(ArrayList<Menu> menuList) {
 		return output;
 
 	}
+	
 	public static void viewAllLunchBoxOrder(ArrayList<Order> orderList) {
 		
 		C206_CaseStudy.setHeader("LUNCHBOX ORDER LIST");
-		String output = String.format("%-15s %-30s %-15s \n", "MEAL SET", "DRINK FRUITS SET",
+		String output = String.format("%-15s %-15s %-30s %-15s \n","ORDER ID", "MEAL SET", "DRINK FRUITS SET",
 				 "PRICE");
 		 output += retreiveAllLunchBoxOrder(orderList);
 		System.out.println(output);
@@ -253,6 +256,26 @@ public static void ViewAllMenu(ArrayList<Menu> menuList) {
 		return o;
 		
 	}
+	public static void deleteOrderwithOrderId(ArrayList<Order> orderList) {
+		String orderID = Helper.readString("Enter orderID > ");
+		boolean orderFound = false;
+		int indexid = 0;
+		for(int i = 0; i < orderList.size(); i++) {
+		       if (orderID.equals( orderList.get(i).orderID())) {
+		    	   orderFound = true;
+		    	    indexid = i;
+		       }
+		    
+		 }
+		 if (orderFound == false) {
+			 System.out.println("ID not found");
+	     
+		 } else {
+	    	 orderList.remove(indexid);
+	    	 System.out.println("LunchBox Order deleted");
+	     }
+		
+	}
 	
 	public static void addLunchBox(ArrayList<Order> orderList, Order o ) {
 		// TODO Auto-generated method stub
@@ -263,7 +286,6 @@ public static void ViewAllMenu(ArrayList<Menu> menuList) {
 	
 	public static void deleteLunchBoxOrder(ArrayList<Order> orderList, Order o) {
 		// TODO Auto-generated method stub
-		//inputLunchBoxOrder();
 		orderList.remove(o);
 		
 	}
