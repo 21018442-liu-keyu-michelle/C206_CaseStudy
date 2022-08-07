@@ -36,7 +36,6 @@ public class C206_CaseStudyTest {
 	private Item item8;
 	private Item item9;
 
-	
 	// private ArrayList<Account> accountList = new ArrayList<Account>();
 	private ArrayList<Parent> parentList = new ArrayList<Parent>();
 	private ArrayList<Student> studentList = new ArrayList<Student>();
@@ -55,11 +54,11 @@ public class C206_CaseStudyTest {
 		parent1 = new Parent(1234, "7890", "Jeanlim12", 91459270);
 		parent2 = new Parent(1235, "qweasdzxc", "JonTay14", 99135697);
 		parent3 = new Parent(1236, "abcdefg", "VenessaOng69", 91524644);
-		
+
 		student1 = new Student(3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
 		student2 = new Student(3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg");
 		student3 = new Student(3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg");
-		
+
 		order1 = new Order("W101", "Western food", "Apple and Juice", 4.50);
 		order2 = (new Order("A101", "Asian food", "Grapes and Green Tea", 4.00));
 		order3 = (new Order("V101", "Vegeterian food", "Orange and Soy Milk", 3.50));
@@ -77,22 +76,23 @@ public class C206_CaseStudyTest {
 		item7 = new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50);
 		item8 = new Item("132", "Drink", "Soy Milk", 1.00);
 		item9 = new Item("133", "Fruit", "Apple", 1.00);
-		
+
 		menu1 = new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
 				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice");
-		menu2 = new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
-				"Orange Juice", "Apple Juice", "Chocolate Milk", "Watermelon", "Honey Dew", "Grapes");
-		menu3 = new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
-				"Blueberry Juice", "Coke", "Pomegranate Juice", "Pear", "Papaya", "Coconut");
+		menu2 = new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice", "Orange Juice",
+				"Apple Juice", "Chocolate Milk", "Watermelon", "Honey Dew", "Grapes");
+		menu3 = new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice",
+				"Coke", "Pomegranate Juice", "Pear", "Papaya", "Coconut");
 		menu4 = new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
 				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry", "Peach Slice");
 		menu5 = new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
 				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice");
-		menu6 = new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
-				"7 Up", "Ribena", "Strawberries", "Avocado", "Passion Fruit");
+		menu6 = new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite", "7 Up",
+				"Ribena", "Strawberries", "Avocado", "Passion Fruit");
 		menu7 = new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
 				"Milk Tea", "Blackberry", "Raspberry", "Grapefruit");
 	}
+
 	@Test
 	public void testAddParents() {
 		// Item list is not null, so that can add a new item - boundary
@@ -104,7 +104,7 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addParent(parentList, parent3);
 		assertEquals("Test that parent arraylist size is 3?", 3, parentList.size());
 		assertSame("Test that parent is added same as 3rd item of the list?", parent3, parentList.get(2));
-		
+
 	}
 
 	@Test
@@ -119,29 +119,24 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that student arraylist size is 3?", 3, studentList.size());
 		assertSame("Test that student is added same as 3rd item of the list?", student3, studentList.get(2));
 
-
-
 	}
 
 	@Test
 	public void testRetrieveAllParent() {
 
-			assertNotNull("Test if there is valid parent arraylist to add to", parentList);
-			String allParent= C206_CaseStudy.retrieveAllParent(parentList);
-			String testOutput = "";
-			assertEquals("Check that ViewAllParents", testOutput, allParent);
-			C206_CaseStudy.addParent(parentList, parent1);
-			C206_CaseStudy.addParent(parentList, parent2);
-			C206_CaseStudy.addParent(parentList, parent3);
-			assertEquals("Test if that Camcorder arraylist size is 3?", 3, parentList.size());
-			allParent= C206_CaseStudy.retrieveAllParent(parentList);
-			testOutput = String.format("%-15d %-30s %-15s %-10d\n", 1234, "7890", "Jeanlim12", 91459270);
-			testOutput += String.format("%-15d %-30s %-15s %-10d\n", 1235, "qweasdzxc", "JonTay14", 99135697);
-			testOutput += String.format("%-15d %-30s %-15s %-10d\n", 1236, "abcdefg", "VenessaOng69", 91524644);
-			assertEquals("Check that ViewAllParents", testOutput, allParent);
-			
-
-
+		assertNotNull("Test if there is valid parent arraylist to add to", parentList);
+		String allParent = C206_CaseStudy.retrieveAllParent(parentList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllParents", testOutput, allParent);
+		C206_CaseStudy.addParent(parentList, parent1);
+		C206_CaseStudy.addParent(parentList, parent2);
+		C206_CaseStudy.addParent(parentList, parent3);
+		assertEquals("Test if that Camcorder arraylist size is 3?", 3, parentList.size());
+		allParent = C206_CaseStudy.retrieveAllParent(parentList);
+		testOutput = String.format("%-15d %-30s %-15s %-10d\n", 1234, "7890", "Jeanlim12", 91459270);
+		testOutput += String.format("%-15d %-30s %-15s %-10d\n", 1235, "qweasdzxc", "JonTay14", 99135697);
+		testOutput += String.format("%-15d %-30s %-15s %-10d\n", 1236, "abcdefg", "VenessaOng69", 91524644);
+		assertEquals("Check that ViewAllParents", testOutput, allParent);
 
 	}
 
@@ -149,20 +144,21 @@ public class C206_CaseStudyTest {
 	public void testRetrieveAllStudent() {
 
 		assertNotNull("Test if there is valid student arraylist to add to", studentList);
-		String allStudent= C206_CaseStudy.retrieveAllstudent(studentList);
+		String allStudent = C206_CaseStudy.retrieveAllstudent(studentList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllStudent", testOutput, allStudent);
 		C206_CaseStudy.addStudent(studentList, student1);
 		C206_CaseStudy.addStudent(studentList, student2);
 		C206_CaseStudy.addStudent(studentList, student3);
 		assertEquals("Test if that Camcorder arraylist size is 3?", 3, studentList.size());
-		allStudent= C206_CaseStudy.retrieveAllstudent(studentList);
-		testOutput = String.format("%-15d %-30s %-15s %-10s\n", 3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
-		testOutput += String.format("%-15d %-30s %-15s %-10s\n", 3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg");
-		testOutput += String.format("%-15d %-30s %-15s %-10s\n", 3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg");
+		allStudent = C206_CaseStudy.retrieveAllstudent(studentList);
+		testOutput = String.format("%-15d %-30s %-15s %-10s\n", 3680, "1359", "Matthewang90",
+				"matthewang90@bedok.edu.sg");
+		testOutput += String.format("%-15d %-30s %-15s %-10s\n", 3681, "iopjklnm", "Farah790",
+				"farahQuek49@bedok.edu.sg");
+		testOutput += String.format("%-15d %-30s %-15s %-10s\n", 3682, "jkfebvyg", "Sarah0823",
+				"sarahran295@bedok.edu.sg");
 		assertEquals("Check that ViewAllStudents", testOutput, allStudent);
-
-
 
 	}
 
@@ -171,7 +167,7 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addParent(parentList, parent1);
 		C206_CaseStudy.addParent(parentList, parent2);
 		C206_CaseStudy.addParent(parentList, parent3);
-		
+
 		assertNotNull("Test if there is an existing Parent arrayList to delete ", parentList);
 		C206_CaseStudy.deleteParent(parentList, parent1);
 		assertEquals("Test if that Parent arraylist size is 2?", 2, parentList.size());
@@ -181,12 +177,13 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that parent arraylist size is 0?", 0, parentList.size());
 
 	}
+
 	@Test
 	public void testDeleteStudent() {
 		C206_CaseStudy.addStudent(studentList, student1);
 		C206_CaseStudy.addStudent(studentList, student2);
 		C206_CaseStudy.addStudent(studentList, student3);
-		
+
 		assertNotNull("Test if there is an existing Student arrayList to delete ", studentList);
 		C206_CaseStudy.deleteStudent(studentList, student1);
 		assertEquals("Test if that student arraylist size is 2?", 2, studentList.size());
@@ -219,11 +216,23 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addMenuItem(itemList, item1);
 		C206_CaseStudy.addMenuItem(itemList, item2);
 		C206_CaseStudy.addMenuItem(itemList, item3);
-		assertEquals("Test if that Camcorder arraylist size is 3?", 3, itemList.size());
+		C206_CaseStudy.addMenuItem(itemList, item4);
+		C206_CaseStudy.addMenuItem(itemList, item5);
+		C206_CaseStudy.addMenuItem(itemList, item6);
+		C206_CaseStudy.addMenuItem(itemList, item7);
+		C206_CaseStudy.addMenuItem(itemList, item8);
+		C206_CaseStudy.addMenuItem(itemList, item9);
+		assertEquals("Test if that Camcorder arraylist size is 9?", 9, itemList.size());
 		allMenuItems = C206_CaseStudy.retrieveAllMenuItems(itemList);
-		testOutput += String.format("%-10s %-15s %-30s %-10f\n", "127", "Western food", "Chicken Chop", 4.50);
-		testOutput += String.format("%-10s %-15s %-30s %-10f\n", "125", "Drink", "Apple Juice", 1.50);
-		testOutput += String.format("%-10s %-15s %-30s %-10f\n", "126", "Fruit", "Banana", 1.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "127", "Western food", "Chicken Chop", 4.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "125", "Drink", "Apple Juice", 1.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "126", "Fruit", "Banana", 1.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "128", "Asian food", "Beef Don", 5.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","129", "Drink", "Orange Juice", 1.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","130", "Fruit", "Grape", 2.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","131", "Vegeterian food", "Rice with vegan meat", 3.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","132", "Drink", "Soy Milk", 1.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","133", "Fruit", "Apple", 1.00);
 		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
 
 	}
@@ -249,20 +258,27 @@ public class C206_CaseStudyTest {
 		String AllMenu = C206_CaseStudy.retrieveAllMenu(menuList);
 		String testOutput = "";
 		assertEquals("Check that ViewMenu displays the correct menu", testOutput, AllMenu);
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice","Pineapple Slice");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
-				"Orange Juice", "Apple Juice","Chocolate Milk", "Watermelon", "Honey Dew","Grapes");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
-				"Blueberry Juice", "Coke","Pomegranate Juice", "Pear", "Papaya","Coconut");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
-				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry","Peach Slice");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
-				"7 Up", "Ribena","Strawberries", "Avocado","Passion Fruit");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus","Milk Tea",
-				"Blackberry", "Raspberry","Grapefruit");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "127",
+				"01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea", "Orange Juice",
+				"Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "128",
+				"02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice", "Orange Juice", "Apple Juice",
+				"Chocolate Milk", "Watermelon", "Honey Dew", "Grapes");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "129",
+				"03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice", "Coke",
+				"Pomegranate Juice", "Pear", "Papaya", "Coconut");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "130",
+				"04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea", "Sugar Cane Juice",
+				"Cranberry Juice", "Mango", "Blueberry", "Peach Slice");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "131",
+				"05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea", "Orange Juice",
+				"Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "132",
+				"06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite", "7 Up", "Ribena",
+				"Strawberries", "Avocado", "Passion Fruit");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "133",
+				"07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus", "Milk Tea", "Blackberry",
+				"Raspberry", "Grapefruit");
 
 	}
 
@@ -273,34 +289,41 @@ public class C206_CaseStudyTest {
 		String testOutput = "";
 		assertEquals("Check that ViewMenu retrieves the correct menu", testOutput, allMenu);
 		menuList.add(new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice","Pineapple Slice"));
+				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice"));
 		menuList.add(new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
-				"Orange Juice", "Apple Juice","Chocolate Milk", "Watermelon", "Honey Dew","Grapes"));
+				"Orange Juice", "Apple Juice", "Chocolate Milk", "Watermelon", "Honey Dew", "Grapes"));
 		menuList.add(new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
-				"Blueberry Juice", "Coke","Pomegranate Juice", "Pear", "Papaya","Coconut"));
+				"Blueberry Juice", "Coke", "Pomegranate Juice", "Pear", "Papaya", "Coconut"));
 		menuList.add(new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
-				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry","Peach Slice"));
+				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry", "Peach Slice"));
 		menuList.add(new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
 				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice"));
 		menuList.add(new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
-				"7 Up", "Ribena","Strawberries", "Avocado","Passion Fruit"));
-		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus","Milk Tea",
-				"Blackberry", "Raspberry","Grapefruit"));
+				"7 Up", "Ribena", "Strawberries", "Avocado", "Passion Fruit"));
+		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
+				"Milk Tea", "Blackberry", "Raspberry", "Grapefruit"));
 		assertEquals("Test if that menuList arraylist size is 7?", 7, menuList.size());
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice","Pineapple Slice");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
-				"Orange Juice", "Apple Juice","Chocolate Milk", "Watermelon", "Honey Dew","Grapes");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
-				"Blueberry Juice", "Coke","Pomegranate Juice", "Pear", "Papaya","Coconut");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
-				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry","Peach Slice");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
-				"7 Up", "Ribena","Strawberries", "Avocado","Passion Fruit");
-		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus","Milk Tea",
-				"Blackberry", "Raspberry","Grapefruit");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "127",
+				"01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea", "Orange Juice",
+				"Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "128",
+				"02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice", "Orange Juice", "Apple Juice",
+				"Chocolate Milk", "Watermelon", "Honey Dew", "Grapes");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "129",
+				"03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice", "Coke",
+				"Pomegranate Juice", "Pear", "Papaya", "Coconut");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "130",
+				"04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea", "Sugar Cane Juice",
+				"Cranberry Juice", "Mango", "Blueberry", "Peach Slice");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "131",
+				"05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea", "Orange Juice",
+				"Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "132",
+				"06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite", "7 Up", "Ribena",
+				"Strawberries", "Avocado", "Passion Fruit");
+		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "133",
+				"07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus", "Milk Tea", "Blackberry",
+				"Raspberry", "Grapefruit");
 
 	}
 
@@ -331,7 +354,6 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that orderList arraylist size is 3?", 3, orderList.size());
 		assertSame("Test that orderList is added same as 3rd item of the list?", order3, orderList.get(2));
 
-		
 	}
 
 	@Test
@@ -345,13 +367,13 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addLunchBox(orderList, order3);
 		assertEquals("Test if that orderList arraylist size is 3?", 3, orderList.size());
 
-		allLunchBoxOrder= C206_CaseStudy.retreiveAllLunchBoxOrder(orderList);
-		testOutput = String.format("%-15s %-15s %-30s %-15.2f\n", "W101","Western food", "Apple and Juice", 4.50 );
-		testOutput += String.format("%-15s %-15s %-30s %-15.2f\n","A101","Asian food", "Grapes and Green Tea", 4.00);
-		testOutput += String.format("%-15s %-15s %-30s %-15.2f\n","V101","Vegeterian food", "Orange and Soy Milk", 3.50);
+		allLunchBoxOrder = C206_CaseStudy.retreiveAllLunchBoxOrder(orderList);
+		testOutput = String.format("%-15s %-15s %-30s %-15.2f\n", "W101", "Western food", "Apple and Juice", 4.50);
+		testOutput += String.format("%-15s %-15s %-30s %-15.2f\n", "A101", "Asian food", "Grapes and Green Tea", 4.00);
+		testOutput += String.format("%-15s %-15s %-30s %-15.2f\n", "V101", "Vegeterian food", "Orange and Soy Milk",
+				3.50);
 
 		assertEquals("Check that viewAllLunchBoxOrder", testOutput, allLunchBoxOrder);
-
 
 	}
 
@@ -392,13 +414,16 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that ViewOrderBills", testOutput, allOrderBill);
 		C206_CaseStudy.addOrderBill(billList, bills1);
 		C206_CaseStudy.addOrderBill(billList, bills2);
-		C206_CaseStudy.addOrderBill(billList, bills3); 
+		C206_CaseStudy.addOrderBill(billList, bills3);
 		assertEquals("Test if that billList arraylist size is 3?", 3, billList.size());
 
 		allOrderBill = C206_CaseStudy.retreiveAllOrderBills(billList);
-		testOutput = String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n", "W101","Western food", "Apple and Juice", 4.50,(4.50 * 20) );
-		testOutput += String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n","A101","Asian food", "Grapes and Green Tea", 4.00, (4.00 * 20));
-		testOutput += String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n","V101","Vegeterian food", "Orange and Soy Milk", 3.50, (3.50 * 20));
+		testOutput = String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n", "W101", "Western food", "Apple and Juice",
+				4.50, (4.50 * 20));
+		testOutput += String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n", "A101", "Asian food", "Grapes and Green Tea",
+				4.00, (4.00 * 20));
+		testOutput += String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n", "V101", "Vegeterian food",
+				"Orange and Soy Milk", 3.50, (3.50 * 20));
 
 		assertEquals("Check that ViewAllOrderBills", testOutput, allOrderBill);
 
@@ -418,8 +443,8 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.deleteOrderBills(billList, bills3);
 		assertEquals("Test that billList arraylist size is 0?", 0, billList.size());
 
-		
-	}	
+	}
+
 	@After
 	public void tearDown() throws Exception {
 

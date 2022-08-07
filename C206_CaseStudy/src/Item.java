@@ -32,7 +32,7 @@ public class Item {
 	public String toString() {
 		// Write your codes here
 		String itemInfo= "";
-		itemInfo = String.format("%-10s %-15s %-30s %-10f\n", itemID, category, foodName, price);
+		itemInfo = String.format("%-10s %-15s %-30s %-10.2f\n", itemID, category, foodName, price);
 		
 		return itemInfo;
 	}

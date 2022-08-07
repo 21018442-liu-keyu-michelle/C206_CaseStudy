@@ -3,7 +3,15 @@ import java.util.ArrayList;
 
 public class C206_CaseStudy{
 	
-	private static final int OPTION_QUIT = 16;
+	private static final int SUB_OPTION_3 = 3;
+	private static final int SUB_OPTION_2 = 2;
+	private static final int SUB_OPTION_1 = 1;
+	private static final int OPTION_5 = 5;
+	private static final int OPTION_4 = 4;
+	private static final int OPTION_3 = 3;
+	private static final int OPTION_2 = 2;
+	private static final int OPTION_1 = 1;
+	private static final int OPTION_QUIT = 6;
 
 	public static void main(String[] args) {
 		
@@ -30,10 +38,9 @@ public class C206_CaseStudy{
 		itemList.add(new Item("127", "Western food", "Chicken Chop" , 4.50));
 		itemList.add(new Item("125", "Drink", "Apple Juice" , 1.50));
 		itemList.add(new Item("126", "Fruit", "Banana" , 1.00));
-		
 		itemList.add(new Item("128", "Asian food", "Beef Don", 5.50));
 		itemList.add(new Item("129", "Drink", "Orange Juice", 1.50));
-		itemList.add(new Item ("130", "Fruit", "Grape", 2.00));
+		itemList.add(new Item("130", "Fruit", "Grape", 2.00));
 		itemList.add(new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50));
 		itemList.add(new Item("132", "Drink", "Soy Milk", 1.00));
 		itemList.add(new Item("133", "Fruit", "Apple", 1.00));
@@ -59,90 +66,95 @@ public class C206_CaseStudy{
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
 
-			if (option == 1) {
+			if (option == OPTION_1) {
 				C206_CaseStudy.subMenuAccount();
 				int subOption = Helper.readInt("Enter option 1 or 2 > ");
-				if (subOption == 1) {
-					Parent p = C206_CaseStudy.inputParents();
-					C206_CaseStudy.addParent(parentList, p);
+				if (subOption == SUB_OPTION_1) {
+					C206_CaseStudy.subMenuPnS();
+					int subOption2 = Helper.readInt("Enter option > ");
+					if (subOption2 == SUB_OPTION_1) {
+						Parent p = inputParents();
+						C206_CaseStudy.addParent(parentList, p);
+					}
+					else if (subOption2 == SUB_OPTION_2) {
+						C206_CaseStudy.viewParentList(parentList);
+					}
+					else if (subOption2 == SUB_OPTION_3) {
+						C206_CaseStudy.deleteParentsAccount(parentList);
+					}
 				}
-				else if (subOption==2) {
-					Student s = C206_CaseStudy.inputStudents();
-					C206_CaseStudy.addStudent(studentList, s);
-				}
-				else {
+				else if (subOption==SUB_OPTION_2) {
+					C206_CaseStudy.subMenuPnS();
+					int subOption2 = Helper.readInt("Enter option > ");
+					if (subOption2 == SUB_OPTION_1) {
+						Student s = C206_CaseStudy.inputStudents();
+						C206_CaseStudy.addStudent(studentList, s);
+					}
+					else if (subOption2 == SUB_OPTION_2) {
+						C206_CaseStudy.viewStudentList(studentList);
+					}
+					else if (subOption2 == SUB_OPTION_3) {
+						C206_CaseStudy.deleteStudentsAccount(studentList);
+					}
+				} else {
 					System.out.println("Invalid Option!!");
 				}
 				
-			} else if (option == 2) {
-				C206_CaseStudy.subMenuAccount();
-				int subOption = Helper.readInt("Enter option 1 or 2 > ");
-				if (subOption == 1) {
-					C206_CaseStudy.viewParentList(parentList);
+		
+			} else if (option == OPTION_2) {
+				C206_CaseStudy.subMenuItem();
+				int subOption = Helper.readInt("Enter option > ");
+				if (subOption == SUB_OPTION_1) {
+					Item m = C206_CaseStudy.inputMenuItem();
+					C206_CaseStudy.addMenuItem(itemList, m);
 				}
-				else if (subOption==2) {
-					C206_CaseStudy.viewStudentList(studentList);
+				else if (subOption ==SUB_OPTION_2) {
+					C206_CaseStudy.viewMenuItem(itemList);
 				}
-				else {
-					System.out.println("Invalid Option!!");
-				}
-				
-				
-			} else if (option == 3) {
-				C206_CaseStudy.subMenuAccount();
-				int subOption = Helper.readInt("Enter option 1 or 2 > ");
-				if (subOption == 1) {
-					C206_CaseStudy.deleteParentsAccount(parentList);
-				}
-				else if (subOption==2) {
-					C206_CaseStudy.deleteStudentsAccount(studentList);
-				}
-				else {
-					System.out.println("Invalid Option!!");
+				else if (subOption ==SUB_OPTION_3) {
+					C206_CaseStudy.deleteMenuItemByid(itemList);
 				}
 				
+			} else if (option == OPTION_3) {
+				C206_CaseStudy.subMonthlyMenu();
+				int subOption = Helper.readInt("Enter option > ");
+				if (subOption == SUB_OPTION_1) {
+					C206_CaseStudy.createMenu(menuList);
+				}
+				else if (subOption ==SUB_OPTION_2) {
+					C206_CaseStudy.ViewAllMenu(menuList);
+				}
+				else if (subOption ==SUB_OPTION_3) {
+					C206_CaseStudy.deleteMenuByid(menuList);
+				}
 				
-			} else if (option == 4) {
-				Item m = C206_CaseStudy.inputMenuItem();
-				C206_CaseStudy.addMenuItem(itemList, m);
+			} else if (option == OPTION_4) {
+				C206_CaseStudy.subOrder();
+				int subOption = Helper.readInt("Enter option > ");
+				if (subOption == SUB_OPTION_1) {
+					Order i = C206_CaseStudy.inputLunchBoxOrder();
+					C206_CaseStudy.addLunchBox(orderList, i);
+				}
+				else if (subOption ==SUB_OPTION_2) {
+					C206_CaseStudy.viewAllLunchBoxOrder(orderList);
+				}
+				else if (subOption ==SUB_OPTION_3) {
+					C206_CaseStudy.deleteOrderwithOrderId(orderList);
+				}
 				
-				
-			} else if (option == 5) {
-				C206_CaseStudy.viewMenuItem(itemList);
-				
-			} else if (option == 6) {
-				C206_CaseStudy.deleteMenuItemByid(itemList);
-				
-			} else if (option == 7) {
-				C206_CaseStudy.createMenu(menuList);
-				
-			} else if (option == 8) {
-				C206_CaseStudy.ViewAllMenu(menuList);
-				
-			} else if (option == 9) {
-				C206_CaseStudy.deleteMenuByid(menuList);
-				
-			} else if (option == 10) {
-				Order i = C206_CaseStudy.inputLunchBoxOrder();
-				C206_CaseStudy.addLunchBox(orderList, i);
-				
-			} else if (option == 11) {
-				C206_CaseStudy.viewAllLunchBoxOrder(orderList);
-				
-				
-			} else if (option == 12) {
-				C206_CaseStudy.deleteOrderwithOrderId(orderList);
-				
-			} else if (option == 13) {
-				Bills b = C206_CaseStudy.inputOrderBill();
-				C206_CaseStudy.addOrderBill(billList, b);
-			
-			} else if (option == 14) {
-				C206_CaseStudy.ViewAllOrderBills(billList);
-				
-			} else if (option == 15) {
-				C206_CaseStudy.deleteBillwithOrderId(billList);
-				
+			} else if (option == OPTION_5) {
+				C206_CaseStudy.subBill();
+				int subOption = Helper.readInt("Enter option > ");
+				if (subOption == SUB_OPTION_1) {
+					Bills b = C206_CaseStudy.inputOrderBill();
+					C206_CaseStudy.addOrderBill(billList, b);
+				}
+				else if (subOption ==SUB_OPTION_2) {
+					C206_CaseStudy.ViewAllOrderBills(billList);
+				}
+				else if (subOption == SUB_OPTION_3) {
+					C206_CaseStudy.deleteBillwithOrderId(billList);
+				}
 			} else if (option == OPTION_QUIT) {
 				System.out.println("Thank you for using this programme!!");
 					
@@ -158,29 +170,56 @@ public class C206_CaseStudy{
 	//================================= Menu Method (Done by: Fikri) =================================
 	public static void menu() {
 		C206_CaseStudy.setHeader("LUNCHBOXORDER APP");
-		System.out.println("1. Add user account");
-		System.out.println("2. View user account");
-		System.out.println("3. Delete user account");
-		System.out.println("4. Add menu item");
-		System.out.println("5. View menu items");
-		System.out.println("6. Delete menu items");
-		System.out.println("7. Create monthly menu");
-		System.out.println("8. View monthly menu");
-		System.out.println("9. Delete montly menu");
-		System.out.println("10. Add lunch box order");
-		System.out.println("11. View lunch box order");
-		System.out.println("12. Delete lunch box order");
-		System.out.println("13. Add order bill");
-		System.out.println("14. View order bill");
-		System.out.println("15. Delete order bill");
-		System.out.println("16. Quit");
+		System.out.println("1. Manage User Account");
+		System.out.println("2. Manage Menu Items");
+		System.out.println("3. Manage Monthly Menu");
+		System.out.println("4. Manage Lunch Box Order");
+		System.out.println("5. Manage Order Bill");
+		System.out.println("6. Quit");
 		Helper.line(80, "-");
 		
 	}
 	public static void subMenuAccount () {
 		System.out.println("1. Parent");
 		System.out.println("2. Student");
+		Helper.line(80, "-");
 	}
+	public static void subMenuPnS() {
+		Helper.line(80, "-");
+		System.out.println("1. Add user account");
+		System.out.println("2. View user account");
+		System.out.println("3. Delete user account");
+		Helper.line(80, "-");
+	}
+	public static void subMenuItem() {
+		Helper.line(80, "-");
+		System.out.println("1. Add menu item");
+		System.out.println("2. View menu items");
+		System.out.println("3. Delete menu items");
+		Helper.line(80, "-");
+	}
+	public static void subMonthlyMenu() {
+		Helper.line(80, "-");
+		System.out.println("1. Create monthly menu");
+		System.out.println("2. View monthly menu");
+		System.out.println("3. Delete montly menu");
+		Helper.line(80, "-");
+	}
+	public static void subOrder() {
+		Helper.line(80, "-");
+		System.out.println("1. Add lunch box order");
+		System.out.println("2. View lunch box order");
+		System.out.println("3. Delete lunch box order");
+		Helper.line(80, "-");
+	}
+	public static void subBill() {
+		Helper.line(80, "-");
+		System.out.println("1. Add order bill");
+		System.out.println("2. View order bill");
+		System.out.println("3. Delete order bill");
+		Helper.line(80, "-");
+	}
+	
 	//================================= SetHeader Method (Done by: Fikri) =================================
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
@@ -202,7 +241,7 @@ public class C206_CaseStudy{
 		
 		C206_CaseStudy.setHeader("MENU ITEM LIST");
 		String output = String.format("%-10s %-15s %-30s %-10s\n","ITEM ID", "CATEGORY", "FOOD NAME", "PRICE");
-		 output += retrieveAllMenuItems(itemList);
+		output += retrieveAllMenuItems(itemList);
 		System.out.println(output);
 	}
 	
@@ -227,7 +266,8 @@ public class C206_CaseStudy{
 		boolean itemFound = false;
 		int indexid = 0;
 		for(int i = 0; i < itemList.size(); i++) {
-		       if (itemID.equals( itemList.get(i).getItemID())) {
+		       String getItemID = itemList.get(i).getItemID();
+			if (itemID.equals(getItemID)) {
 		    	   itemFound = true;
 		    	   indexid = i;
 		       }
@@ -250,8 +290,8 @@ public class C206_CaseStudy{
 	}
 	//================================= Menu Method (Done by: Jocelyn) =================================
 	public static Menu createMenu(ArrayList<Menu> menuList) {
-		String ID = Helper.readString("Enter item ID > ");
-		String date = Helper.readString("Enter  date > ");
+		String ID = Helper.readString("Enter menu ID > ");
+		String date = Helper.readString("Enter date > ");
 		String Western = Helper.readString("Enter Western food > ");
 		String Asian = Helper.readString("Enter Asian food > ");
 		String Veggie = Helper.readString("Enter vegetarian food > ");
@@ -296,7 +336,8 @@ public class C206_CaseStudy{
 		boolean idFound = false;
 		int indexid = 0;
 		for(int i = 0; i < menuList.size(); i++) {
-		       if (menuID.equals( menuList.get(i).getMenuID())) {
+		       String getMenuID = menuList.get(i).getMenuID();
+			if (menuID.equals(getMenuID)) {
 		    	   idFound = true;
 		    	    indexid = i;
 		       }
@@ -355,7 +396,8 @@ public class C206_CaseStudy{
 		boolean orderFound = false;
 		int indexid = 0;
 		for(int i = 0; i < orderList.size(); i++) {
-		       if (orderID.equals( orderList.get(i).orderID())) {
+		       String getOrderID = orderList.get(i).orderID();
+			if (orderID.equals(getOrderID)) {
 		    	   orderFound = true;
 		    	    indexid = i;
 		       }
@@ -434,7 +476,8 @@ public class C206_CaseStudy{
 		boolean orderFound = false;
 		int indexid = 0;
 		for(int i = 0; i < billList.size(); i++) {
-		       if (orderID.equals( billList.get(i).orderID())) {
+		       String getOrderID = billList.get(i).orderID();
+			if (orderID.equals(getOrderID)) {
 		    	   orderFound = true;
 		    	    indexid = i;
 		       }
@@ -494,7 +537,9 @@ public class C206_CaseStudy{
 		boolean accountFound = false;
 		int indexid = 0;
 		for(int i = 0; i < parentList.size(); i++) {
-		       if (username.equals( parentList.get(i).getUsername())  && password.equals(parentList.get(i).getPassword())) {
+		       String getUsername = parentList.get(i).getUsername();
+		       String getPassword = parentList.get(i).getPassword();
+			if (username.equals(getUsername)  && password.equals(getPassword)) {
 		    	   accountFound = true;
 		    	   indexid = i;
 		       }
@@ -556,7 +601,9 @@ public class C206_CaseStudy{
 		boolean accountFound = false;
 		int indexid = 0;
 		for(int i = 0; i < studentList.size(); i++) {
-		       if (username.equals( studentList.get(i).getUsername())  && password.equals(studentList.get(i).getPassword())) {
+		       String getUsername = studentList.get(i).getUsername();
+			String getPassword = studentList.get(i).getPassword();
+			if (username.equals( getUsername)  && password.equals(getPassword)) {
 		    	   accountFound = true;
 		    	   indexid = i;
 		       }
