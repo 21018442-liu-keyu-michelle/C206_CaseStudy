@@ -16,7 +16,7 @@ public class Student extends Account {
 	
 	public String toString() {
 		String studentInfo = "";
-		studentInfo = String.format("%-15d %-30s %-10s %-10s", getAccountNo(), getPassword(), getUsername(), schoolEmail);
+		studentInfo = String.format("%-15d %-30s %-15s %-10s\n", getAccountNo(), getPassword(), getUsername(), schoolEmail);
 	
 		return studentInfo;
 	}

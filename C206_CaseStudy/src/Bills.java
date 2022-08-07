@@ -18,7 +18,7 @@ public class Bills extends Order{
 	}
 	public String toString() {
 		// Write your codes here
-		String billinfo = super.toString();
+		String billinfo = super.toString1();
 		
 		billinfo += String.format("%-15.2f\n", totalAmount);
 		

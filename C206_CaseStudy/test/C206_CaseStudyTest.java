@@ -135,9 +135,9 @@ public class C206_CaseStudyTest {
 			C206_CaseStudy.addParent(parentList, parent3);
 			assertEquals("Test if that Camcorder arraylist size is 3?", 3, parentList.size());
 			allParent= C206_CaseStudy.retrieveAllParent(parentList);
-			testOutput = String.format("%-15d %-30s %-10s %-10d", 1234, "7890", "Jeanlim12", 91459270);
-			testOutput += String.format("%-15d %-30s %-10s %-10d", 1235, "qweasdzxc", "JonTay14", 99135697);
-			testOutput += String.format("%-15d %-30s %-10s %-10d", 1236, "abcdefg", "VenessaOng69", 91524644);
+			testOutput = String.format("%-15d %-30s %-15s %-10d\n", 1234, "7890", "Jeanlim12", 91459270);
+			testOutput += String.format("%-15d %-30s %-15s %-10d\n", 1235, "qweasdzxc", "JonTay14", 99135697);
+			testOutput += String.format("%-15d %-30s %-15s %-10d\n", 1236, "abcdefg", "VenessaOng69", 91524644);
 			assertEquals("Check that ViewAllParents", testOutput, allParent);
 			
 
@@ -157,9 +157,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addStudent(studentList, student3);
 		assertEquals("Test if that Camcorder arraylist size is 3?", 3, studentList.size());
 		allStudent= C206_CaseStudy.retrieveAllstudent(studentList);
-		testOutput = String.format("%-15d %-30s %-10s %-10s", 3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
-		testOutput += String.format("%-15d %-30s %-10s %-10s", 3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg");
-		testOutput += String.format("%-15d %-30s %-10s %-10s", 3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg");
+		testOutput = String.format("%-15d %-30s %-15s %-10s\n", 3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg");
+		testOutput += String.format("%-15d %-30s %-15s %-10s\n", 3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg");
+		testOutput += String.format("%-15d %-30s %-15s %-10s\n", 3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg");
 		assertEquals("Check that ViewAllStudents", testOutput, allStudent);
 
 
@@ -221,9 +221,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addMenuItem(itemList, item3);
 		assertEquals("Test if that Camcorder arraylist size is 3?", 3, itemList.size());
 		allMenuItems = C206_CaseStudy.retrieveAllMenuItems(itemList);
-		testOutput += String.format("%-10s %-15s %-30s %-10f", "127", "Western food", "Chicken Chop", 4.50);
-		testOutput += String.format("%-10s %-15s %-30s %-10f", "125", "Drink", "Apple Juice", 1.50);
-		testOutput += String.format("%-10s %-15s %-30s %-10f", "126", "Fruit", "Banana", 1.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10f\n", "127", "Western food", "Chicken Chop", 4.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10f\n", "125", "Drink", "Apple Juice", 1.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10f\n", "126", "Fruit", "Banana", 1.00);
 		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
 
 	}
@@ -396,9 +396,9 @@ public class C206_CaseStudyTest {
 		assertEquals("Test if that billList arraylist size is 3?", 3, billList.size());
 
 		allOrderBill = C206_CaseStudy.retreiveAllOrderBills(billList);
-		testOutput = String.format("%-15s %-15s %-30s %-15.2f\n%-15.2f\n", "W101","Western food", "Apple and Juice", 4.50,(4.50 * 20) );
-		testOutput += String.format("%-15s %-15s %-30s %-15.2f\n%-15.2f\n","A101","Asian food", "Grapes and Green Tea", 4.00, (4.00 * 20));
-		testOutput += String.format("%-15s %-15s %-30s %-15.2f\n%-15.2f\n","V101","Vegeterian food", "Orange and Soy Milk", 3.50, (3.50 * 20));
+		testOutput = String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n", "W101","Western food", "Apple and Juice", 4.50,(4.50 * 20) );
+		testOutput += String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n","A101","Asian food", "Grapes and Green Tea", 4.00, (4.00 * 20));
+		testOutput += String.format("%-15s %-15s %-30s %-15.2f %-15.2f\n","V101","Vegeterian food", "Orange and Soy Milk", 3.50, (3.50 * 20));
 
 		assertEquals("Check that ViewAllOrderBills", testOutput, allOrderBill);
 
@@ -419,27 +419,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that billList arraylist size is 0?", 0, billList.size());
 
 		
-	}
-	public void testUpdateOrderBill() {
-		//boundary
-		assertNotNull("Check if there is valid billList arraylist to add to", billList);
-		C206_CaseStudy.addOrderBill(billList, bills1);
-
-		//error
-		boolean isUpdate = C206_CaseStudy.updateOrderBills(billList, "W101");
-		assertFalse("Check that price has changed", isUpdate);		
-		//normal
-		C206_CaseStudy.addOrderBill(billList, bills2);
-		bills2.setPrice(8.00);
-		isUpdate = C206_CaseStudy.updateOrderBills(billList, "A101");
-		assertTrue("Check that price has changed", isUpdate);
-		//error
-		isUpdate = C206_CaseStudy.updateOrderBills(billList, "V101");
-		assertFalse("Check that price has changed", isUpdate);
-	}
-	
-	
-	
+	}	
 	@After
 	public void tearDown() throws Exception {
 

@@ -53,6 +53,15 @@ public class Order {
 		
 		return orderInfo;
 	}
+	public String toString1() {
+		// Write your codes here
+		String orderInfo= "";
+
+		orderInfo += String.format("%-15s %-15s %-30s %-15.2f ", orderID,mealSet, drinkFruitsSet,price);
+		//orderInfo += String.format("%-15s %-30s %-10f", mealSet, drinkFruitsSet,price);
+		
+		return orderInfo;
+	}
 	
 
 	

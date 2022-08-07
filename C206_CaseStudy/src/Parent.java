@@ -16,7 +16,7 @@ public class Parent extends Account {
 	
 	public String toString() {
 		String parentInfo = "";
-		parentInfo = String.format("%-15d %-30s %-10s %-10d", getAccountNo(), getPassword(), getUsername(), contactNo);
+		parentInfo = String.format("%-15d %-30s %-15s %-10d\n", getAccountNo(), getPassword(), getUsername(), contactNo);
 	
 		return parentInfo;
 	}

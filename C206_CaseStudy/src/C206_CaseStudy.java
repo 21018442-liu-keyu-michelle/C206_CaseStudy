@@ -58,29 +58,67 @@ public class C206_CaseStudy{
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
+				subMenuAccount();
+				int subOption = Helper.readInt("Enter option 1 or 2 > ");
+				if (subOption == 1) {
+					Parent p = inputParents();
+					addParent(parentList, p);
+				}
+				else if (subOption==2) {
+					Student s = inputStudents();
+					addStudent(studentList, s);
+				}
+				else {
+					System.out.println("Invalid Option!!");
+				}
 				
 			} else if (option == 2) {
+				subMenuAccount();
+				int subOption = Helper.readInt("Enter option 1 or 2 > ");
+				if (subOption == 1) {
+					viewParentList(parentList);
+				}
+				else if (subOption==2) {
+					viewStudentList(studentList);
+				}
+				else {
+					System.out.println("Invalid Option!!");
+				}
 				
 				
 			} else if (option == 3) {
+				subMenuAccount();
+				int subOption = Helper.readInt("Enter option 1 or 2 > ");
+				if (subOption == 1) {
+					deleteParentsAccount(parentList);
+				}
+				else if (subOption==2) {
+					deleteStudentsAccount(studentList);
+				}
+				else {
+					System.out.println("Invalid Option!!");
+				}
 				
 				
 			} else if (option == 4) {
+				Item m = inputMenuItem();
+				addMenuItem(itemList, m);
 				
 				
 			} else if (option == 5) {
+				viewMenuItem(itemList);
 				
 			} else if (option == 6) {
-				
+				deleteMenuItemByid(itemList);
 				
 			} else if (option == 7) {
-				
+				createMenu(menuList);
 				
 			} else if (option == 8) {
-				
+				ViewAllMenu(menuList);
 				
 			} else if (option == 9) {
-				
+				deleteMenuByid(menuList);
 				
 			} else if (option == 10) {
 				Order i = inputLunchBoxOrder();
@@ -94,13 +132,14 @@ public class C206_CaseStudy{
 				deleteOrderwithOrderId(orderList);
 				
 			} else if (option == 13) {
-				
+				Bills b = inputOrderBill();
+				addOrderBill(billList, b);
 			
 			} else if (option == 14) {
-				
+				ViewAllOrderBills(billList);
 				
 			} else if (option == 15) {
-				
+				deleteBillwithOrderId(billList);
 				
 			} else if (option == 16) {
 				System.out.println("Thank you for using this programme!!");
@@ -136,6 +175,10 @@ public class C206_CaseStudy{
 		Helper.line(80, "-");
 		
 	}
+	public static void subMenuAccount () {
+		System.out.println("1. Parent");
+		System.out.println("2. Student");
+	}
 	//================================= SetHeader Method (Done by: Fikri) =================================
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
@@ -153,6 +196,14 @@ public class C206_CaseStudy{
 		
 		return output;
 	}
+	public static void viewMenuItem(ArrayList<Item> itemList) {
+		
+		C206_CaseStudy.setHeader("MENU ITEM LIST");
+		String output = String.format("%-10s %-15s %-30s %-10s\n","ITEM ID", "CATEGORY", "FOOD NAME", "PRICE");
+		 output += retrieveAllMenuItems(itemList);
+		System.out.println(output);
+	}
+	
 	public static Item inputMenuItem() {
 		String itemID = Helper.readString("Enter item ID > ");
 		String category = Helper.readString("Enter category > ");
@@ -169,13 +220,34 @@ public class C206_CaseStudy{
 		
 	}
 	
+	public static void deleteMenuItemByid(ArrayList<Item> itemList) {
+		String itemID = Helper.readString("Enter itemID > ");
+		boolean itemFound = false;
+		int indexid = 0;
+		for(int i = 0; i < itemList.size(); i++) {
+		       if (itemID.equals( itemList.get(i).getItemID())) {
+		    	   itemFound = true;
+		    	   indexid = i;
+		       }
+		    
+		 }
+		 if (itemFound == false) {
+			 System.out.println("ID not found");
+	     
+		 } else {
+			 itemList.remove(indexid);
+	    	 System.out.println("Menu Item deleted");
+	     }
+		
+	}
+	
 	public static void deleteMenuItem(ArrayList<Item> itemList, Item i) {
 		// TODO Auto-generated method stub
 		itemList.remove(i);
 		
 	}
 	//================================= Menu Method (Done by: Jocelyn) =================================
-	public static Menu createMenu(ArrayList<Menu> menuList, Menu menu) {
+	public static Menu createMenu(ArrayList<Menu> menuList) {
 		String ID = Helper.readString("Enter item ID > ");
 		String date = Helper.readString("Enter  date > ");
 		String Western = Helper.readString("Enter Western food > ");
@@ -188,7 +260,7 @@ public class C206_CaseStudy{
 		String fruit2 = Helper.readString("Enter fruit 2 > ");
 		String fruit3 = Helper.readString("Enter fruit 3 > ");
 
-		menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, drink3, fruit1, fruit2,fruit3);
+		Menu menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, drink3, fruit1, fruit2,fruit3);
 		menuList.add(menu);
 		return menu;
 	}
@@ -203,9 +275,8 @@ public class C206_CaseStudy{
 		// TODO Auto-generated method stub
 		String output = "";
 
-		for (Menu i : menuList) {
-			output += i.toString();
-
+		for (Menu m: menuList) {
+			output += m.toString1();
 		}
 		return output;
 
@@ -216,6 +287,27 @@ public class C206_CaseStudy{
 		String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","ID", "date", "Western", "Asian", "Veggie", "drink1", "drink2","drink3", "fruit1", "fruit2","fruit3");
 		output += retrieveAllMenu(menuList);
 		System.out.println(output);
+	}
+	
+	public static void deleteMenuByid(ArrayList<Menu> menuList) {
+		String menuID = Helper.readString("Enter menuID > ");
+		boolean idFound = false;
+		int indexid = 0;
+		for(int i = 0; i < menuList.size(); i++) {
+		       if (menuID.equals( menuList.get(i).getMenuID())) {
+		    	   idFound = true;
+		    	    indexid = i;
+		       }
+		    
+		 }
+		 if (idFound == false) {
+			 System.out.println("ID not found");
+	     
+		 } else {
+			 menuList.remove(indexid);
+	    	 System.out.println("LunchBox Order deleted");
+	     }
+		
 	}
 
 
@@ -305,13 +397,13 @@ public class C206_CaseStudy{
 	public static void ViewAllOrderBills(ArrayList<Bills> billList) {
 		
 		C206_CaseStudy.setHeader("ORDER BILLS LIST");
-		String output = String.format("%-15s %-30s %-15s %-15s\n", "MEAL SET", "DRINK FRUITS SET",
+		String output = String.format("%-15s %-15s %-30s %-15s %-15s\n","ORDER ID" ,"MEAL SET", "DRINK FRUITS SET",
 				 "PRICE", "TOTAL AMOUNT");
 		 output += retreiveAllOrderBills(billList);
 		System.out.println(output);
 	}
 	
-	public static Order inputOrderBill() {
+	public static Bills inputOrderBill() {
 		String orderID = Helper.readString("Enter order ID > ");
 		String mealSet = Helper.readString("Enter meal set > ");
 		String drinkFruitsSet = Helper.readString("Enter drink & fruits set > ");
@@ -335,21 +427,27 @@ public class C206_CaseStudy{
 		billList.remove(b);
 		
 	}
-	public static boolean updateOrderBills(ArrayList<Bills> billList, String orderId) {
-		// TODO Auto-generated method stub
-		//inputOrderBill();
-		boolean isUpdate = false;
-
-		for (int i = 0; i < billList.size(); i++) {
-			if (orderId.equalsIgnoreCase(billList.get(i).orderID()) && billList.get(i).getPrice() != 8.00) {
-				billList.get(i).setPrice(8.00);
-				isUpdate = true;
-				
-			}
-		}
-		return isUpdate;
+	public static void deleteBillwithOrderId(ArrayList<Bills> billList) {
+		String orderID = Helper.readString("Enter orderID > ");
+		boolean orderFound = false;
+		int indexid = 0;
+		for(int i = 0; i < billList.size(); i++) {
+		       if (orderID.equals( billList.get(i).orderID())) {
+		    	   orderFound = true;
+		    	    indexid = i;
+		       }
+		    
+		 }
+		 if (orderFound == false) {
+			 System.out.println("ID not found");
+	     
+		 } else {
+			 billList.remove(indexid);
+	    	 System.out.println("Order Bills deleted");
+	     }
 		
 	}
+
 	
 	// ========================= Account method (Done by Baala) ===============================================================
 	
@@ -380,6 +478,36 @@ public class C206_CaseStudy{
 		}
 		return output;
 	}
+	
+	public static void viewParentList(ArrayList<Parent> parentList) {
+		
+		C206_CaseStudy.setHeader("PARENT LIST");
+		String output = String.format("%-15s %-30s %-15s %-10s\n","ACCOUNT NO", "PASSWORD", "USERNAME", "CONTACT");
+		 output += retrieveAllParent(parentList);
+		System.out.println(output);
+	}
+	public static void deleteParentsAccount(ArrayList<Parent> parentList) {
+		String username = Helper.readString("Enter username > ");
+		String password = Helper.readString("Enter password > ");
+		boolean accountFound = false;
+		int indexid = 0;
+		for(int i = 0; i < parentList.size(); i++) {
+		       if (username.equals( parentList.get(i).getUsername())  && password.equals(parentList.get(i).getPassword())) {
+		    	   accountFound = true;
+		    	   indexid = i;
+		       }
+		    
+		 }
+		 if (accountFound == false) {
+			 System.out.println("Account not found, check password and username entered");
+	     
+		 } else {
+			 parentList.remove(indexid);
+	    	 System.out.println("Account deleted");
+	     }
+		
+	}
+	
 	public static void deleteParent(ArrayList<Parent> parentList, Parent p) {
 		// TODO Auto-generated method stub
 		parentList.remove(p);
@@ -412,6 +540,36 @@ public class C206_CaseStudy{
 		}
 		return output;
 	}
+	
+	public static void viewStudentList(ArrayList<Student> studentList) {
+		
+		C206_CaseStudy.setHeader("STUDENT LIST");
+		String output = String.format("%-15s %-30s %-15s %-10s\n","ACCOUNT NO", "PASSWORD", "USERNAME", "CONTACT");
+		output += retrieveAllstudent(studentList);
+		System.out.println(output);
+	}
+	public static void deleteStudentsAccount(ArrayList<Student> studentList) {
+		String username = Helper.readString("Enter username > ");
+		String password = Helper.readString("Enter password > ");
+		boolean accountFound = false;
+		int indexid = 0;
+		for(int i = 0; i < studentList.size(); i++) {
+		       if (username.equals( studentList.get(i).getUsername())  && password.equals(studentList.get(i).getPassword())) {
+		    	   accountFound = true;
+		    	   indexid = i;
+		       }
+		    
+		 }
+		 if (accountFound == false) {
+			 System.out.println("Account not found, check password and username entered");
+	     
+		 } else {
+			 studentList.remove(indexid);
+	    	 System.out.println("Account deleted");
+	     }
+		
+	}
+	
 	public static void deleteStudent(ArrayList<Student> studentList, Student s) {
 		// TODO Auto-generated method stub
 		studentList.remove(s);

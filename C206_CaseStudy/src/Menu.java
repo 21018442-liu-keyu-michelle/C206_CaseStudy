@@ -1,10 +1,10 @@
 public class Menu{
 
 	private String menuID;
-	private String Date;
-	private String Western;
-	private String Asian;
-	private String Veggie;
+	private String date;
+	private String western;
+	private String asian;
+	private String veggie;
 	private String drink1;
 	private String drink2;
 	private String drink3;
@@ -15,12 +15,11 @@ public class Menu{
 
 	public Menu(String menuID, String date, String western, String asian, String veggie, String drink1, String drink2,
 			String drink3, String fruit1, String fruit2, String fruit3) {
-		super();
 		this.menuID = menuID;
-		this.Date = date;
-		this.Western = western;
-		this.Asian = asian;
-		this.Veggie = veggie;
+		this.date = date;
+		this.western = western;
+		this.asian = asian;
+		this.veggie = veggie;
 		this.drink1 = drink1;
 		this.drink2 = drink2;
 		this.drink3 = drink3;
@@ -34,31 +33,31 @@ public class Menu{
 	}
 
 	public String getDate() {
-		return Date;
+		return date;
 	}
 
 	public String getWestern() {
-		return Western;
+		return western;
 	}
 
 	public void setWestern(String western) {
-		Western = western;
+		this.western = western;
 	}
 
 	public String getAsian() {
-		return Asian;
+		return asian;
 	}
 
 	public void setAsian(String asian) {
-		Asian = asian;
+		this.asian = asian;
 	}
 
 	public String getVeggie() {
-		return Veggie;
+		return veggie;
 	}
 
 	public void setVeggie(String veggie) {
-		Veggie = veggie;
+		this.veggie = veggie;
 	}
 
 	public String getDrink1() {
@@ -114,7 +113,17 @@ public class Menu{
 	}
 
 	public void setDate(String date) {
-		Date = date;
+		this.date = date;
+	}
+	public String toString1() {
+		// Write your codes here
+		String menuInfo= "";
+
+		menuInfo += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", menuID,date, western, asian, veggie, drink1, drink2,
+				drink3,fruit1,fruit2,fruit3);
+		//orderInfo += String.format("%-15s %-30s %-10f", mealSet, drinkFruitsSet,price);
+		
+		return menuInfo;
 	}
 	
 	
