@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class C206_CaseStudy{
 	
+	private static final int OPTION_QUIT = 16;
+
 	public static void main(String[] args) {
 		
 		ArrayList<Parent> parentList = new ArrayList<Parent>();
@@ -53,7 +55,7 @@ public class C206_CaseStudy{
 	
 		int option = 0;
 
-		while (option != 16) {
+		while (option != OPTION_QUIT) {
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
 
@@ -141,7 +143,7 @@ public class C206_CaseStudy{
 			} else if (option == 15) {
 				C206_CaseStudy.deleteBillwithOrderId(billList);
 				
-			} else if (option == 16) {
+			} else if (option == OPTION_QUIT) {
 				System.out.println("Thank you for using this programme!!");
 					
 			} else {
