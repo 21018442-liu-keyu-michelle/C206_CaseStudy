@@ -54,32 +54,32 @@ public class C206_CaseStudy{
 		int option = 0;
 
 		while (option != 16) {
-			menu();
+			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-				subMenuAccount();
+				C206_CaseStudy.subMenuAccount();
 				int subOption = Helper.readInt("Enter option 1 or 2 > ");
 				if (subOption == 1) {
-					Parent p = inputParents();
-					addParent(parentList, p);
+					Parent p = C206_CaseStudy.inputParents();
+					C206_CaseStudy.addParent(parentList, p);
 				}
 				else if (subOption==2) {
-					Student s = inputStudents();
-					addStudent(studentList, s);
+					Student s = C206_CaseStudy.inputStudents();
+					C206_CaseStudy.addStudent(studentList, s);
 				}
 				else {
 					System.out.println("Invalid Option!!");
 				}
 				
 			} else if (option == 2) {
-				subMenuAccount();
+				C206_CaseStudy.subMenuAccount();
 				int subOption = Helper.readInt("Enter option 1 or 2 > ");
 				if (subOption == 1) {
-					viewParentList(parentList);
+					C206_CaseStudy.viewParentList(parentList);
 				}
 				else if (subOption==2) {
-					viewStudentList(studentList);
+					C206_CaseStudy.viewStudentList(studentList);
 				}
 				else {
 					System.out.println("Invalid Option!!");
@@ -87,13 +87,13 @@ public class C206_CaseStudy{
 				
 				
 			} else if (option == 3) {
-				subMenuAccount();
+				C206_CaseStudy.subMenuAccount();
 				int subOption = Helper.readInt("Enter option 1 or 2 > ");
 				if (subOption == 1) {
-					deleteParentsAccount(parentList);
+					C206_CaseStudy.deleteParentsAccount(parentList);
 				}
 				else if (subOption==2) {
-					deleteStudentsAccount(studentList);
+					C206_CaseStudy.deleteStudentsAccount(studentList);
 				}
 				else {
 					System.out.println("Invalid Option!!");
@@ -101,45 +101,45 @@ public class C206_CaseStudy{
 				
 				
 			} else if (option == 4) {
-				Item m = inputMenuItem();
-				addMenuItem(itemList, m);
+				Item m = C206_CaseStudy.inputMenuItem();
+				C206_CaseStudy.addMenuItem(itemList, m);
 				
 				
 			} else if (option == 5) {
-				viewMenuItem(itemList);
+				C206_CaseStudy.viewMenuItem(itemList);
 				
 			} else if (option == 6) {
-				deleteMenuItemByid(itemList);
+				C206_CaseStudy.deleteMenuItemByid(itemList);
 				
 			} else if (option == 7) {
-				createMenu(menuList);
+				C206_CaseStudy.createMenu(menuList);
 				
 			} else if (option == 8) {
-				ViewAllMenu(menuList);
+				C206_CaseStudy.ViewAllMenu(menuList);
 				
 			} else if (option == 9) {
-				deleteMenuByid(menuList);
+				C206_CaseStudy.deleteMenuByid(menuList);
 				
 			} else if (option == 10) {
-				Order i = inputLunchBoxOrder();
-				addLunchBox(orderList, i);
+				Order i = C206_CaseStudy.inputLunchBoxOrder();
+				C206_CaseStudy.addLunchBox(orderList, i);
 				
 			} else if (option == 11) {
-				viewAllLunchBoxOrder(orderList);
+				C206_CaseStudy.viewAllLunchBoxOrder(orderList);
 				
 				
 			} else if (option == 12) {
-				deleteOrderwithOrderId(orderList);
+				C206_CaseStudy.deleteOrderwithOrderId(orderList);
 				
 			} else if (option == 13) {
-				Bills b = inputOrderBill();
-				addOrderBill(billList, b);
+				Bills b = C206_CaseStudy.inputOrderBill();
+				C206_CaseStudy.addOrderBill(billList, b);
 			
 			} else if (option == 14) {
-				ViewAllOrderBills(billList);
+				C206_CaseStudy.ViewAllOrderBills(billList);
 				
 			} else if (option == 15) {
-				deleteBillwithOrderId(billList);
+				C206_CaseStudy.deleteBillwithOrderId(billList);
 				
 			} else if (option == 16) {
 				System.out.println("Thank you for using this programme!!");
