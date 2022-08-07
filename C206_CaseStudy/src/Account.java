@@ -1,10 +1,10 @@
 
 public class Account {
 	private int accountNo;
-	private int password;
+	private String password;
 	private String username;
 	
-	public Account(int accountNo, int password, String username) {
+	public Account(int accountNo, String password, String username) {
 		this.accountNo = accountNo;
 		this.password = password;
 		this.username = username;
@@ -18,11 +18,11 @@ public class Account {
 		this.accountNo = accountNo;
 	}
 
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 

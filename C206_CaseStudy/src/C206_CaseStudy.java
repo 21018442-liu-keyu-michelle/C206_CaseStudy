@@ -12,14 +12,15 @@ public class C206_CaseStudy{
 		ArrayList<Menu> menuList = new ArrayList<Menu>();
 		ArrayList<Item> itemList = new ArrayList<Item>();
 	
-		parentList.add(new Parent(1234, 7890, "Jeanlim12", 91459270));
-		studentList.add(new Student(3680, 1359, "Matthewang90", "matthewang90@bedok.edu.sg"));
-		
+		parentList.add(new Parent(1235, "qweasdzxc", "JonTay14", 99135697));
+		parentList.add(new Parent(1236, "abcdefg", "VenessaOng69", 91524644));
+		studentList.add(new Student(3680, "1359", "Matthewang90", "matthewang90@bedok.edu.sg"));
+		studentList.add(new Student(3681, "iopjklnm", "Farah790", "farahQuek49@bedok.edu.sg"));
+		studentList.add(new Student(3682, "jkfebvyg", "Sarah0823", "sarahran295@bedok.edu.sg"));
 		orderList.add(new Order("W101","Western food", "Apple and Juice", 4.50));
 		orderList.add(new Order("A101","Asian food", "Grapes and Green Tea", 4.00));
 		orderList.add(new Order("V101","Vegeterian food", "Orange and Soy Milk", 3.50));
-		
-		
+
 		billList.add(new Bills("W101","Western food", "Apple and Juice", 3.50,(3.50*20)));
 		billList.add(new Bills("A101","Asian food", "Grapes and Green Tea", 3.00, (3*20)));
 		billList.add(new Bills("V101","Vegeterian food", "Orange and Soy Milk", 2.50, (2.50*20)));
@@ -28,20 +29,27 @@ public class C206_CaseStudy{
 		itemList.add(new Item("125", "Drink", "Apple Juice" , 1.50));
 		itemList.add(new Item("126", "Fruit", "Banana" , 1.00));
 		
+		itemList.add(new Item("128", "Asian food", "Beef Don", 5.50));
+		itemList.add(new Item("129", "Drink", "Orange Juice", 1.50));
+		itemList.add(new Item ("130", "Fruit", "Grape", 2.00));
+		itemList.add(new Item("131", "Vegeterian food", "Rice with vegan meat", 3.50));
+		itemList.add(new Item("132", "Drink", "Soy Milk", 1.00));
+		itemList.add(new Item("133", "Fruit", "Apple", 1.00));
+		
 		menuList.add(new Menu("127", "01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Watermelon Slice", "Apple Slice"));
+				"Orange Juice", "Honeydew Juice", "Watermelon Slice", "Apple Slice","Pineapple Slice"));
 		menuList.add(new Menu("128", "02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice",
-				"Orange Juice", "Apple Juice", "Watermelon", "Honey Dew"));
+				"Orange Juice", "Apple Juice","Chocolate Milk", "Watermelon", "Honey Dew","Grapes"));
 		menuList.add(new Menu("129", "03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant",
-				"Blueberry Juice", "Coke", "Pear", "Papaya"));
+				"Blueberry Juice", "Coke","Pomegranate Juice", "Pear", "Papaya","Coconut"));
 		menuList.add(new Menu("130", "04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea",
-				"Sugar Cane Juice", "Mango", "Blueberry"));
+				"Sugar Cane Juice", "Cranberry Juice", "Mango", "Blueberry","Peach Slice"));
 		menuList.add(new Menu("131", "05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea",
-				"Orange Juice", "Watermelon Slice", "Apple Slice"));
+				"Orange Juice", "Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice"));
 		menuList.add(new Menu("132", "06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite",
-				"7 Up", "Strawberries", "Avocado"));
-		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus",
-				"Blackberry", "Raspberry"));
+				"7 Up", "Ribena","Strawberries", "Avocado","Passion Fruit"));
+		menuList.add(new Menu("133", "07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus","Milk Tea",
+				"Blackberry", "Raspberry","Grapefruit"));
 	}
 	{
 		int option = 0;
@@ -50,17 +58,9 @@ public class C206_CaseStudy{
 			menu();
 			option = Helper.readInt("Enter an option > ");
 
-<<<<<<< HEAD
 			if (option == 1) {
-				ViewAllOrderBills(billList);
-				//subMenuUserAccount();	
-				subMenuUserAccount();
-=======
-			if (option == 1) {
-				retreiveAllLunchBoxOrder(null);
+		
 				//subMenuUserAccount();
->>>>>>> branch 'master' of https://github.com/21018442-liu-keyu-michelle/C206_CaseStudy.git
-
 			} else if (option == 2) {
 				subMenuItem();
 				
@@ -155,7 +155,6 @@ public class C206_CaseStudy{
 		
 		return output;
 	}
-
 	public static Item inputMenuItem() {
 		String itemID = Helper.readString("Enter item ID > ");
 		String category = Helper.readString("Enter category > ");
@@ -186,10 +185,12 @@ public class C206_CaseStudy{
 		String Veggie = Helper.readString("Enter vegetarian food > ");
 		String drink1 = Helper.readString("Enter drink 1 > ");
 		String drink2 = Helper.readString("Enter drink 2 > ");
+		String drink3 = Helper.readString("Enter drink 3 > ");
 		String fruit1 = Helper.readString("Enter fruit 1 > ");
 		String fruit2 = Helper.readString("Enter fruit 2 > ");
+		String fruit3 = Helper.readString("Enter fruit 3 > ");
 
-		Menu menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, fruit1, fruit2);
+		Menu menu = new Menu(ID, date, Western, Asian, Veggie, drink1, drink2, drink3, fruit1, fruit2,fruit3);
 		return menu;
 	}
 
@@ -208,7 +209,7 @@ public class C206_CaseStudy{
 public static void ViewAllMenu(ArrayList<Menu> menuList) {
 		
 	C206_CaseStudy.setHeader("MENU LIST");
-	String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s\n","ID", "date", "Western", "Asian", "Veggie", "drink1", "drink2", "fruit1", "fruit2");
+	String output = String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n","ID", "date", "Western", "Asian", "Veggie", "drink1", "drink2","drink3", "fruit1", "fruit2","fruit3");
 	output += retrieveAllMenu(menuList);
 	System.out.println(output);
 }
@@ -328,6 +329,71 @@ public static void ViewAllMenu(ArrayList<Menu> menuList) {
 		
 	}
 	
+	// ========================= Account method (Done by Baala) ===============================================================
+	
+	public static void addParent(ArrayList<Parent> parentList, Parent p) {
+		// TODO Auto-generated method stub
+		//inputParents();
+		parentList.add(p);
+	}
+
+	
+	private static Parent inputParents() {
+		// TODO Auto-generated method stub
+		int accountNo = Helper.readInt("Enter account number > ");
+		String password = Helper.readString("Enter password > ");
+		String username = Helper.readString("Enter username > ");
+		int contactNo = Helper.readInt("Enter contact number > ");
+		
+		Parent p = new Parent(accountNo, password, username, contactNo);
+		return p;
+		
+	}
+	public static String retrieveAllParent(ArrayList<Parent> parentList) {
+		// TODO Auto-generated method stub
+		String output = "";
+		 
+		for (Parent p : parentList) {
+			output += p.toString();
+		}
+		return output;
+	}
+	public static void deleteParent(ArrayList<Parent> parentList, Parent p) {
+		// TODO Auto-generated method stub
+		parentList.remove(p);
+	}
+// ======================================================================================================
+	public static void addStudent(ArrayList<Student> studentList, Student s) {
+		// TODO Auto-generated method stub
+		//inputParents();
+		studentList.add(s);
+	}
+
+	
+	private static Student inputStudents() {
+		// TODO Auto-generated method stub
+		int accountNo = Helper.readInt("Enter account number > ");
+		String password = Helper.readString("Enter password > ");
+		String username = Helper.readString("Enter username > ");
+		String schoolEmail = Helper.readString("Enter school Email > ");
+		
+		Student s = new Student(accountNo, password, username, schoolEmail);
+		return s;
+		
+	}
+	public static String retrieveAllstudent(ArrayList<Student> studentList) {
+		// TODO Auto-generated method stub
+		String output = "";
+		 
+		for (Student s : studentList) {
+			output += s.toString();
+		}
+		return output;
+	}
+	public static void deleteStudent(ArrayList<Student> studentList, Student s) {
+		// TODO Auto-generated method stub
+		studentList.remove(s);
+	}
 
 
 }
