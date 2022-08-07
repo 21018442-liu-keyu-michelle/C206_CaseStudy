@@ -47,7 +47,9 @@ public class Order {
 	public String toString() {
 		// Write your codes here
 		String orderInfo= "";
-		orderInfo = String.format("%-15s %-30s %-15.2f ", mealSet, drinkFruitsSet,price);
+
+		orderInfo += String.format("%-15s %-15s %-30s %-15.2f\n", orderID,mealSet, drinkFruitsSet,price);
+		//orderInfo += String.format("%-15s %-30s %-10f", mealSet, drinkFruitsSet,price);
 		
 		return orderInfo;
 	}
