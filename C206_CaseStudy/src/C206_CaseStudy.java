@@ -268,7 +268,7 @@ public class C206_CaseStudy{
 		int indexid = 0;
 		for(int i = 0; i < itemList.size(); i++) {
 		       String getItemID = itemList.get(i).getItemID();
-			if (itemID.equals(getItemID)) {
+			if (itemID.equals( getItemID)) {
 		    	   itemFound = true;
 		    	   indexid = i;
 		       }
