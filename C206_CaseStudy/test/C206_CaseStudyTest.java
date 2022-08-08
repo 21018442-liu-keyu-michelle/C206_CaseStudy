@@ -228,11 +228,12 @@ public class C206_CaseStudyTest {
 		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "125", "Drink", "Apple Juice", 1.50);
 		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "126", "Fruit", "Banana", 1.00);
 		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "128", "Asian food", "Beef Don", 5.50);
-		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","129", "Drink", "Orange Juice", 1.50);
-		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","130", "Fruit", "Grape", 2.00);
-		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","131", "Vegeterian food", "Rice with vegan meat", 3.50);
-		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","132", "Drink", "Soy Milk", 1.00);
-		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n","133", "Fruit", "Apple", 1.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "129", "Drink", "Orange Juice", 1.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "130", "Fruit", "Grape", 2.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "131", "Vegeterian food", "Rice with vegan meat",
+				3.50);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "132", "Drink", "Soy Milk", 1.00);
+		testOutput += String.format("%-10s %-15s %-30s %-10.2f\n", "133", "Fruit", "Apple", 1.00);
 		assertEquals("Check that ViewAllMenuBank", testOutput, allMenuItems);
 
 	}
@@ -254,31 +255,52 @@ public class C206_CaseStudyTest {
 
 	@Test
 	public void testCreateMenu() {
-		assertNotNull("Test if menu has been created", menuList);
+		assertNotNull("Test if there is an existing menu created", menuList);
 		String AllMenu = C206_CaseStudy.retrieveAllMenu(menuList);
 		String testOutput = "";
 		assertEquals("Check that ViewMenu displays the correct menu", testOutput, AllMenu);
+		assertEquals("Test if that menuList arraylist size is 0?", 0, menuList.size());
+		C206_CaseStudy.addMenu(menuList, menu1);
+		assertEquals("Test if that menuList arraylist size is 1?", 1, menuList.size());
+		C206_CaseStudy.addMenu(menuList, menu2);
+		assertEquals("Test if that menuList arraylist size is 2?", 2, menuList.size());
+		C206_CaseStudy.addMenu(menuList, menu3);
+		assertEquals("Test if that menuList arraylist size is 3?", 3, menuList.size());
+		C206_CaseStudy.addMenu(menuList, menu4);
+		assertEquals("Test if that menuList arraylist size is 4?", 4, menuList.size());
+		C206_CaseStudy.addMenu(menuList, menu5);
+		assertEquals("Test if that menuList arraylist size is 5?", 5, menuList.size());
+		C206_CaseStudy.addMenu(menuList, menu6);
+		assertEquals("Test if that menuList arraylist size is 6?", 6, menuList.size());
+		C206_CaseStudy.addMenu(menuList, menu7);
+		assertEquals("Test if that menuList arraylist size is 7?", 7, menuList.size());
 		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "127",
 				"01-08-2022", "Spaghetti", "Wanton Mee", "Vegetarian Bee Hoon", "Green tea", "Orange Juice",
 				"Honeydew Juice", "Watermelon Slice", "Apple Slice", "Pineapple Slice");
 		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "128",
 				"02-08-2022", "Fish And Chips", "Dumpling Soup", "Veggie Fried Rice", "Orange Juice", "Apple Juice",
 				"Chocolate Milk", "Watermelon", "Honey Dew", "Grapes");
+
 		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "129",
 				"03-08-2022", "Chicken Cutlet", "Ramen", "Stuffed Baby Eggplant", "Blueberry Juice", "Coke",
 				"Pomegranate Juice", "Pear", "Papaya", "Coconut");
+
 		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "130",
 				"04-08-2022", "Chicken Chop", "Sushi", "Vegetable Soup", "Ice Lemon Tea", "Sugar Cane Juice",
 				"Cranberry Juice", "Mango", "Blueberry", "Peach Slice");
+
 		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "131",
 				"05-08-2022", "Steak", "Chicken Rice", "Vegetarian Bee Hoon", "Green tea", "Orange Juice",
 				"Strawberry Milk", "Watermelon Slice", "Apple Slice", "Pear Slice");
+
 		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "132",
 				"06-08-2022", "Barbecue Ribs", "Satay", "Vegetarian Curry Noddle", "Sprite", "7 Up", "Ribena",
 				"Strawberries", "Avocado", "Passion Fruit");
+
 		testOutput += String.format("%-10s %-15s %-20s %-25s %-30s %-35s %-40s %-45s %-50s %-55s %-60s\n", "133",
 				"07-08-2022", "Pork Loin", "Laksa", "Economy Rice", "Minute Maid", "100 Plus", "Milk Tea", "Blackberry",
 				"Raspberry", "Grapefruit");
+		
 
 	}
 
